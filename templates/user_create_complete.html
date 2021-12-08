@@ -1,0 +1,29 @@
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  <title> アカウント登録完了 | Mi-Board</title>
+  <link rel='stylesheet' type='text/css' href="{% static 'css/user_create_complete.css' %}" />
+  <link rel="icon" type="image/png" href="{% static 'image/mi-board-logo.png' %}">
+</head>
+
+
+<body>
+
+  <div id='content'>
+    <div id='mi-board-main'>
+      <img src="{% static 'image/mi-board-logo.png' %}" id='logo_mi-board'><h1>Mi-Board</h1>
+    </div>
+
+    <h3>ありがとうございます<br>ユーザ登録が完了しました</h3>
+
+    <p>
+        お手数ですが以下のボタンをクリックして登録したメールアドレスとパスワードでログインしてください<br>
+    </p>
+    <a id="btn-login" href="{% url 'accounts:login' %}">ログイン</a>
+  </div>
+
+
+</body>
+</html>

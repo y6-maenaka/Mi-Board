@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>Board | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/top-page_board.css' %}" />
+  <script type="text/javascript" src="{% static 'js/top-page_board.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <form id='search_box_container' method='post' action='{% url "board:top_page_board" %}'>
+    {% csrf_token %}
+    <h1>質問や記事をお探しですか？</h1>
+    <div class='narrowed_down_menu'>
+      <input type='search' name='search_word' placeholder="検索ワード" id='search_box_board' class='search_item' maxlength="3">
+
+        <select form='search_box_container' class='narrowed_down_item search_item' name='filtering_department'>
+          <option>全て</option>
+          <option>工学部</option>
+          <option>農学部</option>
+          <option>教育学部</option>
+          <option>地域資源創生学部</option>
+          <option>医学部</option>
+        </select>
+
+        <!-- <select form='search_box_container' class='narrowed_down_item search_item' name='filtering_order'>
+          <option value='likes'>人気順</option>
+          <option value='created_at'>投稿順</option>
+        </select> -->
+
+        <select form='search_box_container' class='narrowed_down_item search_item' name='selection_style_board'>
+          <option value='全て'>全て</option>
+          <option value='質問'>質問</option>
+          <option value='記事'>記事</option>
+        </select>
+
+
+
+      <input type='submit' value='検索' class='narrowed_down_item search_item search_submit_btn'>
+
+    </div>
+  </form>
+
+
+
+  <div class='post_board_container'>
+    <div class='select_post_user'>
+      <input type='radio' name='select_post_user' id='input_anonymous' value='anonymous' class='select_post_user' form='post_board_input_form'>
+      <label for='input_anonymous' class='input_post_user_label'><img class='post_user_icon' src='/static/image/user.svg'>匿名</label>
+      <hr id='select_post_user_hr'>
+      <input type='radio' name='select_post_user' id='input_real_name' value='real_name' class='select_post_user' form='post_board_input_form' checked>
+      <label for='input_real_name' class='input_post_user_label'>
+        {% if user.user_icon_image %}
+        <img class='post_user_icon' src='/media/{{ user.user_icon_image }}'>
+        {% else %}
+        <img class='post_user_icon' src='/static/image/user.svg'>
+        {% endif %}
+        {{ user.last_name }}{{ user.first_name }}
+      </label>
+    </div>
+
+    <div class='post_board_input_container'>
+      <a href='#' class='post_board'>　|投稿する</a>
+    </div>
+  </div>
+
+  <hr class='main_hr'>
+
+<div id='board_area'>
+
+  {% if latest_search_word%}
+  <ul id='latest_word_box'>
+    <p class='anotation_box'>人気な検索ワード</p>
+    {% for search_word in latest_search_word %}
+    <a href='#' class='search_word'>{{search_word}}</a>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+
+  <ul class='board_box'>
+  {% for recommend_board in recommend_board_list %}
+  {% if recommend_board.category == '記事' %}
+  <li class='board_item board_article'>
+    <a href='/board/confirm_view_board/{{recommend_board.board_id}}?bet_points={{recommend_board.bet_points}}' class='board_item_container_link article_link'>
+      <div class='board_item_content_container'>
+
+        <h2 class='article_title'>{{recommend_board.title}}</h2>
+        <p class='board_content blur'>
+          このコンテンツは指定のポイントで記事を取得した後に閲覧が可能です。
+          記事をクリックして記事取得をしてください。
+        </p>
+      </div>
+
+      {% if recommend_board.attached_image%}
+      <p class='guide_box'>-この記事には添付ファイルがあります-</p>
+      <div class='board_item_image_container blur'>
+        <img src="{% static 'image/board.svg' %}">
+      </div>
+      {% else %}
+      {% endif %}
+
+      <p class='board_detail guide_box'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント</p>
+    </a>
+    <input type='hidden' value={{recomment_baord.bet_points}} id='board_bet_points'>
+  </li>
+
+  {% else %}
+    <li class='board_item board_question_and_answer'>
+      <a href='{% url "board:board" recommend_board.board_id %}' class='board_item_container_link'>
+        <div class='board_item_content_container'>
+          <h2 class='question_title'>{{recommend_board.title}}</h2>
+          <p class='board_content'>{{recommend_board.content}}</p>
+        </div>
+
+        {% if recommend_board.attached_image %}
+        <div class='board_item_image_container'>
+          <img src='/media/{{recommend_board.attached_image}}'>
+        </div>
+        {% else %}
+        {% endif %}
+
+        <p class='board_detail guide_box'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント</p>
+      </a>
+    </li>
+ {% endif %}
+  {% endfor %}
+  </ul>
+
+{% if latest_board_list %}
+  <ul id='latest_board_box'>
+    <p class='anotation_box'>最新の記事</p>
+    {% for latest_board in latest_board_list %}
+    <li class='latest_baord_item'>
+      {% if latest_board.category == '記事'%}
+      <a href='/board/confirm_view_board/{{latest_board.board_id}}?bet_points={{latest_board.bet_points}}' class='latest_board_item_link article_link'>
+      {% else %}
+      <a href='{% url "board:board" latest_board.board_id %}' class='latest_board_item_link'>
+        {% endif %}
+        <h2>{{latest_board.title}}</h2>
+        {% if latest_board.category == '記事' %}
+        <p class='blur'>この記事の内容はポイントで記事を取得した後に閲覧可能になります</p>
+        {% else %}
+        <p>{{latest_board.content}}</p>
+        {% endif %}
+      </a>
+      <p style='font-size: 0.35vw;opacity:0.7; font-weight:bold; text-align:center;'>{{latest_board.category}}|{{latest_board.bet_points}}ポイント</p>
+    </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+</div>
+
+
+<div id='post_board_page_bg'>
+  <div id='post_new_board_data'>
+    <ul class='post_board_form'>
+      <li class='slide_item'>
+        <h1>投稿内容</h1>
+        <form method='post' action='{% url "board:post_board" %}' enctype="multipart/form-data" id='post_board_input_form' name='post_board_input_form'>
+          {% csrf_token %}
+          <p class='guide_message'>1-質問・記事のタイトルを入力してください(*)</p>
+          <input type='text' name='title' placeholder='タイトル(120字以内)' id='input_title'>
+          <p class='guide_message'>2-質問・記事の本文を入力してください(*)</p>
+          <textarea name='content' placeholder='内容(800字以内)' id='input_content' row='5'></textarea>
+          <p class='guide_message'>3-質問・記事のタグを入力してください(ヒットされやすくなります)(*)</p>
+          <input type='text' name='tags' placeholder='例)課題　例)過去問' id='input_tags'>
+          <p class='guide_message'>4-質問・記事に設定するポイントを入力してください(*)</p>
+          <input type='number' name='bet_points' placeholder='例) 20' id='input_bet_points'>
+          <p class='guide_message'>5-質問・記事に添付する画像ファイルを選択してください(jpeg,png)</p>
+          <input type="file" name="attached_image" id='input_attached_image'>
+          <p class='guide_message'>6-質問・記事に添付するファイルを選択してください(pdf,word,excel)</p>
+          <input type="file" name="attached_file" id='input_attached_file'>
+
+          <p class='guide_message'>7-投稿の種類を設定してください</p>
+          <select name='category' form='post_board_input_form' id='input_category'>
+            <option value='質問'>質問</option>
+            <option value='記事'>記事</option>
+          </select>
+
+          <p class='guide_message'>8-投稿内容に関係のある学部などを選択してください</p>
+          <select name='related_department' form='post_board_input_form' id='input_related_department'>
+            <option value='全て'>全て</option>
+            <option value='工学部'>工学部</option>
+            <option value='農学部'>農学部</option>
+            <option value='教育学部'>教育学部</option>
+            <option value='地域資源創生学部'>地域資源創生学部</option>
+            <option value='医学部'>医学部</option>
+            <option value='その他'>その他</option>
+          </select>
+
+
+
+          <p class='guide_message'>9-投稿内容に関係あるルームを選択してください(※設定すると回答されやすくなります)</p>
+          <select name='related_room' form='post_board_input_form' id='input_related_room'>
+            <option value=''>設定しない</option>
+            {% for related_room in related_room_list %}
+            <option value='{{related_room.room.room_id}}'>{{related_room.room.room_name}}</option>
+            {% endfor %}
+          </select>
+
+          </form>
+
+
+          <a href='#' class='btn_go_next_page'>確認画面へ</a>
+          <a id='cancel_btn' href='#'>＜</a>
+      </li>
+
+      <li class='slide_item' id='confirm_page'>
+        <h2>投稿タイトル</h2><p id='confirm_title' class='confirm_item'></p>
+        <h2>投稿内容</h2><p id='confirm_content' class='confirm_item'></p>
+        <h2>タグ</h2><p id='confirm_tags' class='confirm_item'></p>
+        <h2>投稿カテゴリー</h2><p id='confirm_category' class='confirm_item'></p>
+        <h2>ポイント</h2><p id='confirm_bet_points' class='confirm_item'></p>
+        <h2>投稿者ネーム</h2><p id='confirm_display_name' class='confirm_item'></p>
+        <h2>関連学部</h2><p id='confirm_related_department' class='confirm_item'></p>
+        <h2>関連ルーム</h2><p id='confirm_related_room' class='confirm_item'></p>
+        <a href='#' class='back_to_post_form_input'>入力画面に戻る</a>
+        <button type='submit' form='post_board_input_form' class='btn_submit_board_data'>投稿</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  {% endblock %}
+</body>
+</html>

@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> Board | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/board.css' %}" />
+  <script type="text/javascript" src="{% static 'js/board.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+
+{% if board_content.category == '記事' and not purchase_data %}
+<p>正式に購入してください</p>
+
+{% else %}
+<div class='board_main_container'>
+  <div id='board_container'>
+      <div class='board_detail_container'>
+        {% if board_content.display_name == 'real_name' %}
+        <a href='#' class='post_board_user_link'>
+
+        {% if board_post_user_data.user_icon_image %}
+        <img class='post_board_user_image' src='/media/{{board_post_user_data.user_icon_image}}'>
+        {% else %}
+        <img class='post_board_user_image' src='/static/image/user.svg'>
+        {% endif %}
+
+        <p class='post_board_user_name'>{{ board_post_user_data.last_name }} {{ board_post_user_data.first_name }}</p>
+        </a>
+
+        {% if board_content.best_board == False %}
+        {% if board_content.posted_by_id == user.user_id %}
+        <a href='#' id='evaluation_btn'>ベストコメントを選ぶ</a>
+        {% endif %}
+        {% endif %}
+
+        <p class='board_detail guide_box'>{{board_content.created_at}}投稿 | {{board_content.bet_points}}コイン | {{board_views}}回閲覧</p>
+        {% else %}
+
+        <a class='post_board_user_link'>
+        <img class='post_board_user_image' src="{% static 'image/user.svg' %}">
+        <p class='post_board_user_name'>匿名さん</p>
+        </a>
+        <p class='board_detail guide_box'>{{board_content.created_at}}投稿 | {{board_content.bet_points}}コイン | {{board_views}}回閲覧</p>
+        {% endif %}
+      </div>
+
+      {% if board_content.category == '記事'%}
+      <h1 class='board_title article_title'>
+        {{ board_content.title }}
+      </h1>
+      {% else %}
+      <h1 class='board_title'>
+        {{ board_content.title }}
+      </h1>
+      {% endif %}
+
+      <p class='board_content'>{{ board_content.content }}</p>
+
+      {% if board_content.attached_image %}
+      <hr>
+      <p class='image_file_guide'>-添付写真-</p>
+      <img src='/media/{{board_content.attached_image}}' class='board_image_file'>
+      <a href='/media/{{board_content.attached_image}}' download='/media/{{board_content.attached_image}}' class='download_link'>画像ダウンロード</a>
+      {% endif %}
+
+      {% if board_content.attached_file%}
+      <hr>
+      <p class='image_file_guide'>-添付ファイル-</p>
+      <iframe src="media/{{board_content.attached_file}}"></iframe>
+      <a href='/media/{{board_content.attached_file}}' download="/media/{{board_content.attached_file}}" class='download_link'>ファイルダウンロード</a>
+      <p style='text-align:center;'>タグ:{{board_content.tags}}</p>
+      {% endif %}
+
+
+      <div class='action_container'>
+        {% if board_content.board_id in good_board_id_list %}
+        <a href='#' id='like_btn' class='executed'>いいね</a>
+        {% else %}
+        <a href='#' id='like_btn' class='non_executed'>いいね</a>
+        {% endif %}
+
+        {% if board_content.board_id in store_board_id_list %}
+        <a href='#' id='store_btn' class='executed'>保存</a>
+        {% else %}
+        <a href='#' id='store_btn' class='non_executed'>保存</a>
+        {% endif %}
+        <a href='#' class='copy_link_btn non_executed'>リンクコピー</a>
+      </div>
+
+      </div>
+
+
+    <hr>
+
+    <div class='reply_comment'>
+      <form class='reply_comment' action="{% url 'board:reply_comment' %}" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class='comment_username_container'>
+          <div class='radio_container'>
+            <input type='radio' name='select_comment_user' id='input_anonymous' value='anonymous'>
+            <label for='input_anonymous'>匿名</label>
+          </div>
+          <div class='radio_container'>
+            <input type='radio' name='select_comment_user' id='input_real_name' value='real_name' checked>
+            <label for='input_real_name'>実名</label>
+          </div>
+        </div>
+
+        <textarea placeholder="回答を5文字以上520字以内で入力して下さい" name='comment' class='comment_input' minlength="5"></textarea>
+
+          <div class='comment_file_container'>
+          <label class='image_file_input_label'>
+            <img src='{% static "image/guide_photo.png" %}'>
+          <input type='file' name='comment_image'>
+          </label>
+          <label class='image_file_input_label'>
+            <img src='{% static "image/guide_file.png" %}'>
+          <input type='file' name='comment_file'>
+          </label>
+          </div>
+
+          <button type='submit' id='comment_post_btn'>投稿</button>
+        <input type='hidden' name='board_id' value={{board_content.board_id}}>
+        <input type='hidden' name='board_category' value={{board_content.category}}>
+      </form>
+    </div>
+
+    <hr>
+
+
+    <ul id='comment_box'>
+    {% for comment in board_comment_list %}
+    {% if comment.best_board == True %}
+    <li class='comment_item best_board'>
+    {% else %}
+    <li class='comment_item'>
+    {% endif %}
+    {% if comment.best_board == True %}
+    <p class='anotation_box best_board_box'>-BestReply-</p>
+    {% else %}
+      <p class='anotation_box'>-Reply-</p>
+    {% endif %}
+      <p class='comment_content'>{{comment.comment}}</p>
+      {% if comment.comment_image %}
+      <img src='/media/{{comment.comment_image}}' class='comment_image_display'>
+      <a href='/media/{{comment.comment_image}}' download='/media/{{comment.comment_image}}'>画像ダウンロード</a>
+      {% endif %}
+      {% if comment.comment_file %}
+      <a href='/media/{{comment.comment_file}}' download='/media/{{comment.comment_file}}'>ファイルダウンロード</a>
+      {% endif %}
+
+      {% if comment.display_name == 'real_name' %}
+      <a href='{% url "friend:friend_profile" comment.comment_user_id %}' class='comment_user_name'>{{comment.comment_nickname}}さん</a>
+
+      {% else %}
+      <p class='comment_user_name'>匿名さん</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+    </ul>
+
+
+</div>
+
+
+
+  <ul id='recommend_right_container'>
+
+    <p class='anotation_box'>おススメの記事</p>
+    {% for recommend_board in recommend_board_list %}
+    <li class='recommend_baord_item'>
+      {% if recommend_board.category == '記事' %}
+      <a href='/board/confirm_view_board/{{recommend_board.board_id}}?bet_points={{recommend_board.bet_points}}' class='recommend_board_item_link article_link'>
+      {% else %}
+      <a href='{% url "board:board" recommend_board.board_id %}' class='recommend_board_item_link'>
+      {% endif %}
+        <h2 class='recommend_board_title'>{{recommend_board.title}}</h2>
+        {% if recommend_board.category == '記事' %}
+        <p class='recommend_board_content blur'>この記事はポイントで取得した後閲覧可能になります</p>
+        {% else %}
+        <p class='recommend_board_content'>{{recommend_board.content}}</p>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+{% if board_content.best_board == False %}
+<div class='evaluation_bg'>
+  <ul class='evaluation_page'>
+    <p class='anotation_box'>最良なコメントを選んでください</p>
+    {% for evaluation_comment in board_comment_list %}
+    {% if not user.user_id == evaluation_comment.comment_user_id %}
+      <li class='evaluation_comment_card'>
+        {% if evaluation_comment.display_name == 'real_name' %}
+        <a href="javascript:void(0)" class='commented_user_item' name={{evaluation_comment.comment_user_id}}><p style='font-size: 0.7vw;font-weight:bold;'>{{evaluation_comment.comment_nickname}}さん</p><p>{{evaluation_comment.comment}}</p></a>
+        {% else %}
+        <a href="javascript:void(0)" class='commented_user_item' name={{evaluation_comment.comment_user_id}}><p style='font-size: 0.7vw;font-weight:bold;'>匿名さん</p><p>{{evaluation_comment.comment}}</p></a>
+        {% endif %}
+        <input type='hidden' value='{{evaluation_comment.comment_id}}' class='comment_id'>
+        </li>
+      {% else %}
+      {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endif %}
+
+<input type='hidden' value='{{board_content.board_id}}' class='board_id'>
+<input type='hidden' value='{{board_content.bet_points}}' class='bet_points'>
+  {% endblock %}
+</body>
+</html>

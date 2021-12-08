@@ -1,0 +1,75 @@
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  <link rel="icon" type="image/png" href="{% static 'image/mi-board-logo.png' %}">
+  <link rel='stylesheet' type='text/css' href="{% static 'css/register.css' %}" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/register.js' %}"></script>
+  <title>Mi-Board</title>
+</head>
+
+<body>
+  <div id='mi_board_main'><img src="{% static 'image/mi-board-logo.png' %}"><h1>Mi-Board</h1></div>
+  <p class='guide_message'>【注意】仮メール送信ページに遷移しない場合は、必須入力項目の不備がないかもう一度確認してください。<br>
+    学生用メールアドレスを設定していない場合もこのエラーに該当します。</p>
+  <form action="{% url 'accounts:register' %}" method="POST" id='register_form'>
+    {% csrf_token %}
+      <h2>1: ログインID</h2>
+      {{form.username|add_class:'input_username'}}
+      <p>6～20文字でログイン用IDを入力してください。<span style='color: red; font-weight:bold;'>このIDはログインの際に毎回必要になります。</span><br>メモなどして忘れないようにしてください。</p>
+      <h2>2: メールアドレス</h2>
+      {{form.email|add_class:'input_username'}}
+      <p>ログイン用のメールアドレスを入力してください。宮崎大学の学生であることを判断するために宮崎大学学生用メールアドレスを使用します。<span style='color: red; font-weight:bold;'>一般的なメールアドレスは使用できません。</span><br>宮崎大学学生用メールアドレス (例【 ○○○○○@student.miyazaki-u.ac.jp 】</p>
+      <h2>3: パスワード</h2>
+      {{form.password|add_class:'input_username'}}
+      <p>パスワードを入力してください。このパスワードはログインの際に毎回必要になります。<br>また、数字、記号を含めた強固なパスワードを作成してください。</p>
+      <h2>4: 確認用パスワード</h2>
+      {{form.password2|add_class:'input_username'}}
+      <p>確認用パスワードを入力してください。</p>
+      <h2>5: 名前(姓)</h2>
+      {{form.last_name|add_class:'input_username'}}
+      <p>苗字を入力してください。<span style='color: red; font-weight:bold;'>この項目は簡単に変更できません。</span>誤字などが内容慎重に入力してください。</p>
+      <h2>6: 名前(名)</h2>
+      {{form.first_name|add_class:'input_username'}}
+      <p>名前を入力してください。<span style='color: red; font-weight:bold;'>この項目は簡単に変更できません。</span>誤字などがないよう慎重に入力してください。</p>
+      <h2>7: 大学</h2>
+      {{form.university|add_class:'input_username'}}
+      <p>所属大学を選択してください。<span style='color: red; font-weight:bold;'>この項目は簡単に変更できません。</span>慎重に設定してください。</p>
+      <h2>8: 学部</h2>
+      {{form.department|add_class:'input_username'}}
+      <p>所属学部を選択してください。<span style='color: red; font-weight:bold;'>この項目は簡単に変更できません。</span>慎重に設定してください。</p>
+      <h2>9: 学科</h2>
+      {{form.division|add_class:'input_username'}}
+      <p>所属学科を選択してください。<span style='color: red; font-weight:bold;'>この項目は簡単に変更できません。</span>慎重に設定してください。</p>
+      <h2>10: 研究室・ゼミ</h2>
+      {{form.laboratory|add_class:'input_username'}}
+      <p>所属している研究室・ゼミを入力してください。<span style='color: red; font-weight:bold;'>所属してない場合は空欄状態で登録してください。</span></p>
+      <h3>この先の項目はオプションです</h3>
+      <h2>11: サークル</h2>
+      {{form.circle|add_class:'input_username'}}
+      <p>所属しているサークルを入力してください。</p>
+      <h2>12: バイト</h2>
+      {{form.part_time_job|add_class:'input_username'}}
+      <p>勤務しているバイト先を入力してください。</p>
+      <h2>13: 出身地</h2>
+      {{form.hometown|add_class:'input_username'}}
+      <p>出身地を入力してください。個人が特定されないような設定を推奨しています。</p>
+      <h2>14: 出身高校</h2>
+      {{form.high_school|add_class:'input_username'}}
+      <p>出身高校を入力してください。個人が特定されないような設定を推奨しています。</p>
+      <h2>15: ステータスメッセージ</h2>
+      {{form.detail|add_class:'input_username'}}
+      <p>ステータスメッセージを入力してください。</p>
+      <h2>16: アイコン</h2>
+      <img src='{% static "image/user.svg" %}' id='user_icon_image'>
+      {{form.user_icon_image|add_class:'input_username'}}
+      <h2>17: 背景画像</h2>
+      <img src='{% static "image/background-white.png" %}' id='user_background_image'>
+      {{form.user_background_image|add_class:'input_username'}}
+      <button type="submit" id='register_btn'>登録</button>
+  </form>
+</body>
+</html>

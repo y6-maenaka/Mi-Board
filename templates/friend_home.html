@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>FriendList | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/friend_home.css' %}" />
+  <script type="text/javascript" src="{% static 'js/friend_home.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <a class='discover_friend_btn' href='{% url "discover:discover_friend" %}'>友達を検索する</a>
+
+  <div id='my_frined_box'>
+    <ul class='follows_box'>
+      <p class='guide_box'>フォロー中</p>
+      {% for followee in followee_list %}
+      <li class='friend_card'>
+        <a href='{% url "friend:friend_profile" followee.follower.user_id %}' class='friend_card_link'>
+          <div class='friend_image_affiliation_card'>
+            {% if followee.follower.user_icon_image %}
+            <img class='friend_card_image' src='/media/{{followee.follower.user_icon_image}}'>
+            {% else %}
+            <img class='friend_card_image' src='/static/image/user.svg'>
+            {% endif %}
+          <p>{{followee.follower.university}}<br>{{followee.follower.department}}{{followee.follower.division}}</p>
+          </div>
+          <p style='font-size:0.75vw; margin-left:0.5vw; font-weight: bold;'>{{followee.follower.last_name}}{{followee.follower.first_name}}</p>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <ul class='follows_box'>
+      <p class='guide_box'>フォロワー</p>
+      {% for follower in follower_list %}
+      <li class='friend_card'>
+        <a href='{% url "friend:friend_profile" follower.followee.user_id %}' class='friend_card_link'>
+          <div class='friend_image_affiliation_card'>
+            {% if follower.followee.user_icon_image %}
+            <img class='friend_card_image' src='/media/{{follower.followee.user_icon_image}}'>
+            {% else %}
+            <img class='friend_card_image' src='/static/image/user.svg'>
+            {% endif %}
+          <p>{{follower.followee.university}}<br>{{follower.followee.department}}{{followee.follower.division}}</p>
+          </div>
+          <p style='font-size:0.75vw; margin-left:0.5vw; font-weight: bold;'>{{follower.followee.last_name}}{{follower.followee.first_name}}</p>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% endblock %}
+</body>
+
+
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #e6e6e6;
+      }
+
+      .cls-2, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #c1c1c1;
+      }
+    </style>
+  </defs>
+  <image id="背景" width="1000" height="1000" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAA8UlEQVR4nO3RQQHAQAwEobT+Pe/Z4DFY4Nu2C+OvwlIIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphDJ3T0IYATEmP4svAAAAABJRU5ErkJggg=="/>
+  <circle id="楕円形_3" data-name="楕円形 3" class="cls-1" cx="672" cy="282" r="148"/>
+  <path id="楕円形_4" data-name="楕円形 4" class="cls-2" d="M669,463c122.055,0,221,40.294,221,90S791.055,697,669,697,448,602.706,448,553,546.945,463,669,463Z"/>
+  <circle id="楕円形_1" data-name="楕円形 1" class="cls-3" cx="413" cy="399" r="181"/>
+  <path id="楕円形_2" data-name="楕円形 2" class="cls-4" d="M413,620c153.535,0,278,40.742,278,91S566.535,884,413,884,135,761.258,135,711,259.465,620,413,620Z"/>
+</svg>

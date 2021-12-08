@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> DiscoverFriend | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/discover_friend.css' %}" />
+  <script type="text/javascript" src="{% static 'js/discover_friend.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <form id='search_friend_form' method="" action="" onsubmit="return false">
+      <a href='{% url "discover:discover_room" %}' class='change_search_option_link'><img src="{% static 'image/room.svg' %}" class='change_search_option'></a>
+      <input type='search' name='search' placeholder="友達を探す" id='search_friend_input'>
+      <p style='font-size:0.6vw; font-weight:bold; margin:0 0.4vw; opacity:0.8;'>条件</p>
+      <select form='search_friend_form' class='narrowed_down_menu'>
+        <option value='user_name'>名前</option>
+        <option value='university'>大学</option>
+        <option value='department'>学部</option>
+        <option value='circle'>サークル</option>
+        <option value='part_time_job'>バイト先</option>
+        <option value='hometown'>出身</option>
+        <option value='high_school'>出身高校</option>
+      </select>
+  </form>
+
+  <p style='margin: 1vh 0 1vh 0; opacity: 0.7; font-weight: bold;'>おすすめの友達</p>
+
+  <ul class='friend_card_container'>
+  {% for account in accounts_list %}
+  <li class='friend_card' role='article'>
+    <div class='friend_img_detail'>
+    <a href='{% url "friend:friend_profile" account.user_id %}' style='display:flex; align-items:center;'>
+      {% if account.user_icon_image %}
+      <img src='/media/{{ account.user_icon_image }}' class='friend_icon'>
+      {% else %}
+      <img src='/static/image/user.svg' class='friend_icon'>
+      {% endif %}
+    </a>
+
+    <div class='friend_detail'>
+      <p class='user_attribution'>{{ account.university }}|{{ account.department }}</p>
+      <a href='{% url "friend:friend_profile" account.user_id %}' id='friend_name'>{{ account.last_name }}{{ account.first_name }}</a>
+    </div>
+  </div>
+
+    {% if account.user_id in follows %}
+    <button class='btn-change-relation {{account.user_id}}' value='{{ account.user_id }}' id='unfollow' name='unfollow'>フォロー解除</button>
+    {% else %}
+    <button class='btn-change-relation {{account.user_id}}' value='{{ account.user_id }}' id='follow' name='follow'>フォロー</button>
+    {% endif %}
+
+  </li>
+  {% endfor %}
+  </ul>
+
+
+  {% endblock %}
+</body>
+</html>

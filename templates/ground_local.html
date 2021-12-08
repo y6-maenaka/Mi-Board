@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>GroundLocal | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/ground_local.css' %}" />
+  <script type="text/javascript" src="{% static 'js/ground_local.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  {% if not ground_list %}
+  <p>投稿されたコンテンツがありません</p>
+  {% else %}
+  <ul class='ground_box'>
+    {% for ground in ground_list %}
+    <li class='ground_item'>
+      <div class='post_detail'>
+      {% if ground.post_room_id %}
+      <a href='{% url "room:room" ground.post_room.room_id %}' class='post_detail_link' style='margin-right: 1vw;'>
+        {% if ground.post_room.room_image %}
+        <img src='/media/{{ground.post_room.room_image}}/' class='ground_post_user_icon'>
+        {% else %}
+        <img src='/static/image/room.svg' class='ground_post_user_icon'>
+        {% endif %}
+        <p style='font-weight:bold; font-size:0.85vw;'>{{ground.post_room.room_name}}</p>
+      </a>
+      {% endif %}
+      <a href='{% url "friend:friend_profile" ground.post_user.user_id %}' class='post_detail_link'>
+        {% if ground.post_user.user_icon_image %}
+        <img src='/media/{{ground.post_user.user_icon_image}}' class='ground_post_user_icon'>
+        {% else %}
+        <img src='/static/image/user.svg' class='ground_post_user_icon'>
+        {% endif %}
+        <div class='ground_post_user_detail'>
+          <p class='ground_post_user_affiliation'>{{ground.post_user.university}}{{ground.post_user.department}}</p>
+          <p class='ground_post_username'>{{ground.post_user.first_name}} {{ground.post_user.last_name}}</p>
+        </div>
+        </a>
+        <p style='flex:1; text-align:end; font-size:0.4vw; opacity: 0.7;'>{{ground.created_at}}</p>
+      </div>
+      <p class='ground_content'>{{ ground.ground_content }}</p>
+      {% if ground.ground_image %}
+      <img src='/media/{{ground.ground_image}}' class='ground_item_image'>
+      {% endif %}
+      <!-- <div id='ground_action_btn'>
+        <a href='#' class='ground_good_btn'>いいね</a>
+      </div> -->
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+
+  <div class='change_ground_container'>
+    <a style="border-right: 2px solid #D1D1D1; width:25%; font-size:0.8vw;" href='{% url "ground:ground_global" %}'>グローバル</a>
+    <a style="flex:1;" href='#' id='post_ground_btn'>投稿</a>
+    <a style="border-left: 2px solid #D1D1D1; width:25%; font-size:0.8vw;" href='{% url "ground:ground_local" %}'>ローカル</a>
+  </div>
+
+
+  <div id='post_ground_modal_bg'>
+    <form id='post_ground_modal' action='{% url "ground:post_ground" %}' method='post' enctype="multipart/form-data">
+      {% csrf_token %}
+      <textarea placeholder="投稿内容(400文字以内)" name='ground_content' id='ground_content_input'></textarea>
+      <img id='preview_post_image'>
+      <label class='ground_image_input_label'>
+          <p>+</p>
+        <input type='file' name='ground_image' id='ground_image_input'>
+      </label>
+      <button type='submit' id='post_ground'>投稿</button>
+      <input type='hidden' value='ローカル' name='ground_address'>
+      <input type='hidden' value='' name='post_room_id'>
+    </form>
+  </div>
+  {% endblock %}
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #c8c8c8;
+      }
+    </style>
+  </defs>
+  <image id="レイヤー_1" data-name="レイヤー 1" x="3" width="26" height="32" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAgCAYAAAAMq2gFAAACMElEQVRIibWWv4vUQBTHv282noWd2Hl/gXJwxUImyRbiX6CFWPsfWFxn4V4vaGcj/gOC+A8IHuwk8zpBtBQbKzlB0MK7NSNvTZZsnMlms3tfmN3kzcv3M29+wBDWqCiKKRE9XpfXEgOYAXiptf4kXZ2ggZAVOeeOkySZBkFtiNZ6bfW1rLU3AEwB3JNQWZb73o99lWwC8vg8U30gQ1WW5Zvq01sro7TWPgTw1OfbrijP8wNfXpqmH1qeTv6jRuBBCOKTUuoRgPutrlMA17z58sPMd2Urdvh+6TuA4MCMMbedc6+7kpxzL7YFRaPR6G0H4BsRvQJgtgbVD0O27yDQpnLOnQA4uXBQkiTPN8n/78BelIIVFUVBWuvFYbPWrqyfxOtYK+dKkiQ/fX5BEBFdZebvcRy72qwNa78z86+QXxA0n8/nAPaMMeey9lmWLY2NMSsV1n0yqI1Bk8nkR6hPwB19Xu1sMzjXzQ6C5MN2kwWX5nvGvw2xF/Jbe46YWQZzqWqSP6piUsKcmc8AnDNzCWAfwOdBIK21GPyuWlBSGRF5IZ0gIlrOu2/+pb9WM68Z7wWy1ipmdi6wynWYmanPLuzadZe7zkWtPjmdoCiKzvoY9FVw6sbj8Z9dglR1fa0vfTtVw3NxHmbVy3TXoIbnjCrqR1T3ZLn0ZVn2fht3Y8yhUupO4yJ6c7Hpd3k7bYuIpnEcHy9PV57n15VSR3J9BXC4pb/MyLuyLJ+kafoVAP4CrqkJ7vzV/LcAAAAASUVORK5CYII="/>
+  <rect id="長方形_3" data-name="長方形 3" class="cls-1" x="9" y="19" width="15" height="3"/>
+  <rect id="長方形_2" data-name="長方形 2" class="cls-1" x="15" y="14" width="3" height="13"/>
+</svg>

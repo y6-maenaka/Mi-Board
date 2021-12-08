@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  <title> アカウント仮登録 | Mi-Board</title>
+  <link rel='stylesheet' type='text/css' href="{% static 'css/user_create_done.css' %}" />
+  <link rel="icon" type="image/png" href="{% static 'image/mi-board-logo.png' %}">
+</head>
+
+<body>
+
+  <div id='content'>
+    <div id='mi-board-main'>
+      <img src="{% static 'image/mi-board-logo.png' %}" id='logo_mi-board'><h1>Mi-Board</h1>
+    </div>
+    <p>
+        仮登録が完了しました<br>
+        アカウント登録ありがとうございます。現時点ではまだ登録は完了していません<br>
+        認証用URLを記載したメールを送信しましたので、確認用メールに記載されているリンクから本登録を行ってください<br>
+        メールが届いていない場合は、迷惑メールリストを確認してください。
+    </p>
+    <h3>○登録完了まで残り１STEPです</h3>
+  </div>
+</body>
+</html>

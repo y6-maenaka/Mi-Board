@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> Board | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/board_search_result.css' %}" />
+  <script type="text/javascript" src="{% static 'js/board_search_result.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <div id='board_area'>
+  <ul id='board_search_result_box'>
+    <p class='anotation_box' style='width:97%;'>検索結果</p>
+    {% if search_result_board_list %}
+    {% for board in search_result_board_list %}
+    <li class='board_item'>
+      {% if board.category == '記事'%}
+      <a href='/board/confirm_view_board/{{board.board_id}}?bet_points={{board.bet_points}}' class='board_item_link article_link'>
+      {% else %}
+      <a href='{% url "board:board" board.board_id %}' class='board_item_link'>
+      {% endif %}
+        <div class='board_item_content_container'>
+          <h1>{{board.title}}</h1>
+          {% if board.category == '記事' %}
+          <p class='blur'>この内容はポイントで記事を取得した後に閲覧可能になります</p>
+          {% else %}
+          <p>{{board.content}}</p>
+          {% endif %}
+        </div>
+
+        <div class='board_item_image_container'>
+          {% if board.attached_image %}
+          {% if board.category == '記事' %}
+          <img src="{% static 'image/board.svg' %}" class='blur'>
+          <p style='font-size:0.35vw;opacity:0.7;font-weight:bold;'>{{board.category}}|{{board.bet_points}}ポイント</p>
+          {% else %}
+          <img src='/media/{{board.attached_image}}' class='board_item_image'>
+          <p style='font-size:0.35vw;opacity:0.7;font-weight:bold;'>{{board.category}}|{{board.bet_points}}ポイント</p>
+          {% endif %}
+          {% else %}
+          {% endif %}
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+    {% else %}
+    <p id='no_board_message'>ヒットする投稿がありません。<br>キーワードを変えて再度検索してください<br>１キーワードで検索するとヒット率が上がります　例）過去問</p>
+    {% endif %}
+    </ul>
+
+    {% if recommend_board_list %}
+  <ul id='recommend_board_box'>
+    <p class='anotation_box'>おススメの記事</p>
+    {% for recommend_board in recommend_board_list %}
+    <li class='recommend_baord_item'>
+      {% if recommend_board.category == '記事' %}
+        <a href='/board/confirm_view_board/{{recommend_board.board_id}}?bet_points={{recommend_board.bet_points}}' class='recommend_board_item_link article_link'>
+      {% else %}
+        <a href='{% url "board:board" recommend_board.board_id %}' class='recommend_board_item_link'>
+      {% endif %}
+        <h2>{{recommend_board.title}}</h2>
+        {% if recommend_board.category == '記事' %}
+        <p class='blur'>このコンテンツはポイントで取得後に閲覧可能になります。</p>
+        {% else %}
+        <p>{{recommend_board.content}}</p>
+        {% endif %}
+      </a>
+      <p style='font-size: 0.35vw;opacity:0.7; font-weight:bold; text-align:center;'>{{recommend_board.category}}|{{recommend_board.bet_points}}ポイント</p>
+    </li>
+    {% endfor %}
+  </ul>
+    {% endif %}
+
+
+  </div>
+
+  {% endblock %}
+</body>
+</html>

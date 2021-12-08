@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #fff;
+        stroke: #c1c1c1;
+      }
+
+      .cls-1 {
+        stroke-width: 30px;
+      }
+
+      .cls-2 {
+        font-size: 200px;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #c1c1c1;
+        font-family: "Cooper Black";
+      }
+
+      .cls-3 {
+        stroke-width: 35px;
+      }
+
+      .cls-4 {
+        font-size: 333.333px;
+      }
+    </style>
+  </defs>
+  <image id="背景" width="1000" height="1000" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAA8UlEQVR4nO3RQQHAQAwEobT+Pe/Z4DFY4Nu2C+OvwlIIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphDJ3T0IYATEmP4svAAAAABJRU5ErkJggg=="/>
+  <ellipse id="楕円形_1" data-name="楕円形 1" class="cls-1" cx="355" cy="381.5" rx="225" ry="177.5"/>
+  <text id="Q" class="cls-2" x="273.816" y="431.604">Q</text>
+  <ellipse id="楕円形_2" data-name="楕円形 2" class="cls-3" cx="604" cy="647.5" rx="294" ry="222.5"/>
+  <text id="A" class="cls-4" x="466.937" y="751.649">A</text>
+</svg>

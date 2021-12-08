@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>Stoppo | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/stoppo.css' %}" />
+  <script type="text/javascript" src="{% static 'js/stoppo.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div id='welcome_message'>
+  <a href='{% url "stoppo:stoppo" user.user_id %}'>STOPPO</a>
+  <p style='font-size:0.4vw; opacity:0.8; color:gray; font-weight:bold;'>※操作後に反応がない場合は画面をリロードしてください</p>
+  <p style='font-size:0.4vw; opacity:0.8; color:gray; font-weight:bold;'>※操作を戻す場合は画面内の戻るボタンを使ってください</p>
+  </div>
+
+  <ul id='directory_box'>
+    {% for directory in directory_list %}
+    {% if directory.data_type == 'directory' %}
+    <li class='stoppo_item'>
+      <a href='javascript:void(0);' name='{{directory.directory}}' class='change_directory'>
+        <img src="{% static 'image/guide_folder.png' %}" style='margin-right: 0.5vw;' class='file_image'><p class='file_name'>{{directory.directory_name}}</p>
+      </a>
+
+      <div class='action_btn_container'>
+        <a href='javascript:void(0);' name='{{directory.directory}}' class='setting_file_btn'>
+          <img src="{% static 'image/guide_detail.png'%}" class='guide_image file_image'>
+        </a>
+      </div>
+      </li>
+    {% endif %}
+    {% endfor %}
+    {% for upload_file in upload_file_list %}
+    <li class="stoppo_item">
+      <a href="javascript:void(0);" name={{upload_file.file_name}} class="show_detail">
+        <img src="/static/image/guide_image.png" style="margin-right:0.5vw;" class='file_image'><p class='file_name'>{{upload_file.file_name}}</p></a>
+        <div class="action_btn_container">
+          <a name="{{upload_file.upload_file_id}}" href="javascript:void(0);" class="file_share_btn">
+            <img src="/static/image/guide_share.png" class="guide_image file_image"></a>
+            <a href="javascript:void(0);" name="{{upload_file.upload_file_id}}" class="setting_file_btn">
+              <img src="/static/image/guide_detail.png" class="guide_image file_image"></a>
+            </div>
+          </li>
+    {% endfor %}
+    <input type='hidden' id='upward_directory_id' value="{{user.user_id}}">
+  </ul>
+
+  <a href='javascript:void(0);' id='back_btn'>戻る</a>
+
+  <div id='stoppo_action_container'>
+    <a href='{% url "stoppo:share_box" user.user_id %}' id='go_share_item_page_btn'><img src='{% static "image/guide_share_item.png" %}' class='action_guide_image'>シェアファイル確認</a>
+    <form method="post" id='store_file_form' enctype="multipart/form-data">
+      {% csrf_token %}
+      <label id='upload_file_label' style="cursor:pointer">
+        <img src='{% static "image/guide_add_file.png"%}' class='action_guide_image'>
+        ファイルアップロード
+        <input type='file' id='upload_file' name='upload_file'>
+      </label>
+    </form>
+    <a href='javascript:void(0);' id='create_directory_btn'><img src="{% static 'image/guide_add_folder.png' %}" class='action_guide_image'>フォルダー作成</a>
+  </div>
+
+  <div id='create_directory_bg'>
+    <form id='create_directory_form' method="" action="" onsubmit="return false">
+      <p id='new_directory_name_guide'>フォルダー作成</p>
+      <input type='text' id='new_directory_name' placeholder="作成するファイル名(40文字以内)">
+      <button type='submit' id='submit_create_directory_btn'>作成</button>
+    </form>
+  </div>
+
+  <div id='select_address_bg'>
+    <ul id='select_address'>
+      <h2>シェア相手選択</h2>
+      {% for address in address_list %}
+      <li class='address_card'>
+        <a href='javascript:void(0);' class='address_card_link' name='{{address.follower.user_id}}'>
+          {% if address.follower.user_icon_image %}
+          <img src="/media/{{address.follower.user_icon_image}}">
+          {% else %}
+          <img src='/static/image/user.svg'>
+          {% endif %}
+          <p class='address_card_username'>{{address.follower.last_name}}{{address.follower.first_name}}</p> | <p class='address_card_department'>{{address.follower.department}}</p>
+        </a>
+      </li>
+      {% endfor %}
+      <input type='hidden' value='' id='share_file_id'>
+    </ul>
+  </div>
+
+<div id='setting_file_bg'>
+  <div id='setting_file'>
+    <p id='guide_file_name'>ファイル名変更</p>
+    <input id='change_file_name'>
+    <div id='setting_action_container'>
+      <input type='submit' value='変更' id='change_file_name_btn'>
+      <a href='javascript:void(0);' id='detaile_link'>削除</a>
+    </div>
+    <input type='hidden' value='' id='selecting_file_id'>
+  </div>
+</div>
+
+  <script>
+
+      function set_directory_data(response){
+        for(var key in response.directory_data){
+          var directory_data = '<li class="stoppo_item"><a href="javascript:void(0);" name="'+response.directory_data[key].directory+'" class="change_directory"><img src="/static/image/guide_folder.png" style="margin-right:0.5vw;">'+response.directory_data[key].directory_name+'</a><div class="action_btn_container"><a href="javascript:void(0)" name="'+response.directory_data[key].directory+'" class="setting_file_btn"><img src="/static/image/guide_detail.png" class="guide_image"></a></div></li>'
+          $('#directory_box').append(directory_data).trigger('create')
+        }
+        $('#upward_directory_id').val(upward_directory_id)
+
+        for(var key in response.current_directory_file){
+          switch(response.current_directory_file[key].extension){
+            case '.pdf':
+              var directory_file = '<li class="stoppo_item"><a href="/stoppo/file_view/'+response.current_directory_file[key].upload_file_id+'" target="_blank" name="'+response.current_directory_file[key].upload_file_id+'" class="show_detail"><img src="/static/image/guide_pdf.png" style="margin-right:0.5vw;">'+response.current_directory_file[key].file_name+'</a><div class="action_btn_container"><a name="'+response.current_directory_file[key].upload_file_id+'" href="javascript:void(0);" class="file_share_btn"><img src="/static/image/guide_share.png" class="guide_image"></a><a href="javascript:void(0);" name="'+response.current_directory_file[key].upload_file_id+'" class="setting_file_btn"><img src="/static/image/guide_detail.png" class="guide_image"></a></div></li>'
+              break;
+
+            case '.jpg':
+              var directory_file = '<li class="stoppo_item"><a href="/stoppo/file_view/'+response.current_directory_file[key].upload_file_id+'" target="_blank" name="'+response.current_directory_file[key].upload_file_id+'" class="show_detail"><img src="/static/image/guide_image.png" style="margin-right:0.5vw;">'+response.current_directory_file[key].file_name+'</a><div class="action_btn_container"><a name="'+response.current_directory_file[key].upload_file_id+'" href="javascript:void(0);" class="file_share_btn"><img src="/static/image/guide_share.png" class="guide_image"></a><a href="javascript:void(0);" name="'+response.current_directory_file[key].upload_file_id+'" class="setting_file_btn"><img src="/static/image/guide_detail.png" class="guide_image"></a></div></li>'
+              break;
+
+            case '.pptx':
+              var directory_file = '<li class="stoppo_item"><a href="/stoppo/file_view/'+response.current_directory_file[key].upload_file_id+'" target="_blank" name="'+response.current_directory_file[key].upload_file_id+'" class="show_detail"><img src="/static/image/guide_pptx.png" style="margin-right:0.5vw;">'+response.current_directory_file[key].file_name+'</a><div class="action_btn_container"><a name="'+response.current_directory_file[key].upload_file_id+'" href="javascript:void(0);" class="file_share_btn"><img src="/static/image/guide_share.png" class="guide_image"></a><a href="javascript:void(0);" name="'+response.current_directory_file[key].upload_file_id+'" class="setting_file_btn"><img src="/static/image/guide_detail.png" class="guide_image"></a></div></li>'
+              break;
+
+            case '.xlsx':
+              var directory_file = '<li class="stoppo_item"><a href="/stoppo/file_view/'+response.current_directory_file[key].upload_file_id+'" target="_blank" name="'+response.current_directory_file[key].upload_file_id+'" class="show_detail"><img src="/static/image/guide_xlsx.png" style="margin-right:0.5vw;">'+response.current_directory_file[key].file_name+'</a><div class="action_btn_container"><a name="'+response.current_directory_file[key].upload_file_id+'" href="javascript:void(0);" class="file_share_btn"><img src="/static/image/guide_share.png" class="guide_image"></a><a href="javascript:void(0);" name="'+response.current_directory_file[key].upload_file_id+'" class="setting_file_btn"><img src="/static/image/guide_detail.png" class="guide_image"></a></div></li>'
+              break;
+
+
+            default:
+              var directory_file = '<li class="stoppo_item"><a href="/stoppo/file_view/'+response.current_directory_file[key].upload_file_id+'" target="_blank" name="'+response.current_directory_file[key].upload_file_id+'" class="show_detail"><img src="/static/image/guide_file.png" style="margin-right:0.5vw;">'+response.current_directory_file[key].file_name+'</a><div class="action_btn_container"><a name="'+response.current_directory_file[key].upload_file_id+'" href="javascript:void(0);" class="file_share_btn"><img src="/static/image/guide_share.png" class="guide_image"></a><a href="javascript:void(0);" name="'+response.current_directory_file[key].upload_file_id+'" class="setting_file_btn"><img src="/static/image/guide_detail.png" class="guide_image"></a></div></li>'
+              break;
+          }
+          $('#directory_box').append(directory_file).trigger('create')
+        }
+      }
+
+      function reload(){
+        $.ajax({
+          type:'GET',
+          url:'/stoppo/get_directory_data/',
+          data:{
+            "upward_directory_id":$('#upward_directory_id').val(),
+          },
+          success:function(response){
+            $('.stoppo_item').remove()
+            set_directory_data(response)
+          },
+          error:function(response){
+            console.log('error')
+          }
+        })
+      }
+
+    $('#upload_file').change(function(e){
+      e.preventDefault();
+      var url = new URL(window.location.href);
+      var params = url.pathname.split('/');
+      var upward_directory_id = params.slice(-2)[0]
+      var upload_file = new FormData($('#store_file_form').get(0));
+      upload_file.append("csrfmiddlewaretoken", "{{ csrf_token }}");
+      upload_file.append('upward_directory_id',upward_directory_id)
+      $.ajax({
+        method:'POST',
+        url:'/stoppo/store_file/',
+        processData:false,
+        contentType:false,
+        mimeType:'multipart/form-data',
+        data:upload_file,
+        success:function(response){
+          console.log('success')
+          $('.stoppo_item').remove()
+          reload()
+        },
+        error:function(response){
+          console.log('error')
+        }
+      })
+    })
+  </script>
+
+  {% endblock %}
+
+
+</body>
+</html>

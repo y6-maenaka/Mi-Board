@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>{{ user.last_name }}{{ user.first_name }} | Mi-Board | Profile</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/mypage.css' %}" />
+  <script type="text/javascript" src="{% static 'js/mypage.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+{% if recommend_board_list %}
+
+<div id='go_stoppo_container'>
+  <div id='go_stoppo'>
+    <a href='{% url "stoppo:stoppo" user.user_id %}' id='go_stoppo_link'>
+      <p>オンラインファイル管理サービス</p>
+      <h1>STOPPO</h1>
+    </a>
+  </div>
+
+  <div id='report_container'>
+    <a href='#'>バグ報告</a>
+    <a href='#'>リクエスト</a>
+  </div>
+</div>
+
+<div>
+  <p class='anotation_recommend_board'>おすすめの記事</p>
+<ul id='recommend_board_main_container'>
+  {% for recommend_board in recommend_board_list %}
+  {% if recommend_board.category == '質問'%}
+  <li class='recommend_board_item'>
+    <a class='recommend_baord_item_link' href='{% url "board:board" recommend_board.board_id %}'>
+    <h1>{{recommend_board.title}}</h1>
+    <div class='recommend_board_content_image_container'>
+      {% if recommend_board.category == '記事' %}
+      <p class='recommend_board_content blur'>この内容はポイントで取得した後に閲覧可能になります</p>
+      {% else %}
+      <p class='recommend_board_content'>{{recommend_board.content}}</p>
+      {% endif %}
+      {% if recommend_board.attached_image %}
+      <img class='recommend_board_image' src='/media/{{ recommend_board.attached_image }}'>
+      {% else %}
+      {% endif %}
+    </div>
+  </a>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+</div>
+{% endif %}
+
+<div class='timetable_friend_room'>
+  <table class='timetable'>
+    <tr>
+      <th id='timetable_time'></th>
+      <th class='timetable_month'>月</th>
+      <th class='timetable_month'>火</th>
+      <th class='timetable_month'>水</th>
+      <th class='timetable_month'>木</th>
+      <th class='timetable_month'>金</th>
+    </tr>
+
+    <tr>
+      <td id='timetable_time'>1</td>
+      <td id='月曜日-1' class='spot'></td>
+      <td id='火曜日-1' class='spot'></td>
+      <td id='水曜日-1' class='spot'></td>
+      <td id='木曜日-1' class='spot'></td>
+      <td id='金曜日-1' class='spot'></td>
+    </tr>
+
+    <tr>
+      <td id='timetable_time'>2</td>
+      <td id='月曜日-2' class='spot'></td>
+      <td id='火曜日-2' class='spot'></td>
+      <td id='水曜日-2' class='spot'></td>
+      <td id='木曜日-2' class='spot'></td>
+      <td id='金曜日-2' class='spot'></td>
+    </tr>
+
+    <tr>
+      <td id='timetable_time'>3</td>
+      <td id='月曜日-3' class='spot'></td>
+      <td id='火曜日-3' class='spot'></td>
+      <td id='水曜日-3' class='spot'></td>
+      <td id='木曜日-3' class='spot'></td>
+      <td id='金曜日-3' class='spot'></td>
+    </tr>
+
+    <tr>
+      <td id='timetable_time'>4</td>
+      <td id='月曜日-4' class='spot'></td>
+      <td id='火曜日-4' class='spot'></td>
+      <td id='水曜日-4' class='spot'></td>
+      <td id='木曜日-4' class='spot'></td>
+      <td id='金曜日-4' class='spot'></td>
+    </tr>
+
+    <tr>
+      <td id='timetable_time'>5</td>
+      <td id='月曜日-5' class='spot'></td>
+      <td id='火曜日-5' class='spot'></td>
+      <td id='水曜日-5' class='spot'></td>
+      <td id='木曜日-5' class='spot'></td>
+      <td id='金曜日-5' class='spot'></td>
+    </tr>
+
+
+
+  </table>
+
+
+
+  <div class='friend_room_container'>
+
+      <ul class='friend_room_list_container'>
+        <p style='margin-top:0.5vh; margin-bottom:0.8vh; opacity:0.5; font-weight: bold; font-size: 0.3vw;'>フォロワーリスト</p>
+      {% for friend in friend_list %}
+      <li class='friend_card'>
+        <a href='{% url "friend:friend_profile" friend.user_id%}'>
+          {% if friend.user_icon_image %}
+          <img src='/media/{{ friend.user_icon_image }}' class='friend_room_icon'>
+          {% else %}
+          <img src='/static/image/user.svg' class='friend_room_icon'>
+          {% endif %}
+        </a>
+        <div class='friend_info'>
+          <p>{{ friend.university }}|{{ friend.department }}</p>
+          <a href='{% url "friend:friend_profile" friend.user_id%}' class='friend_name_link'><h1>{{ friend.last_name}}{{ friend.first_name }}</h1></a>
+        </div>
+      </li>
+      {% endfor %}
+      </ul>
+
+      <ul class='friend_room_list_container'>
+        <p style='margin-top:0.5vh; margin-bottom:0.8vh; opacity:0.5; font-weight: bold; font-size: 0.3vw;'>登録ルームリスト</p>
+      {% for room in room_list %}
+      <li class='room_card'>
+        <a href='{% url "room:room" room.room_id %}'>
+          {% if room.room_image %}
+          <img src='/media/{{ room.room_image }}' class=friend_room_icon>
+          {% else %}
+          <img src='/static/image/room.svg' class=friend_room_icon>
+          {% endif %}
+        </a>
+        <a href='{% url "room:room" room.room_id %}' class='room_name_link'><h1>{{ room.room_name }}</h1></a>
+      </li>
+      {% endfor %}
+      </ul>
+
+  </div>
+</div>
+
+
+<div class='register_room_modal_bg'>
+  <ul class='register_room_modal'>
+    <li class='search_room_input'>
+      <form method='get'>
+        <input type='text' placeholder="追加するルームを探す" id='search_room_input'>
+      </form>
+    </li>
+    <p style='font-size: 0.5vw;'>おすすめのルーム<br>登録したルームに参加していない場合は自動的に参加します</p>
+  </ul>
+</div>
+
+
+<script>
+
+  var timetable = {{timetable|safe}}
+
+  for(var key in timetable){
+    if(timetable[key].room_image){
+        var timetable_room_card = '<div class="spot_container"><a href="/room/'+timetable[key].room_id+'/" class="link_container_room_image"><img src="/media/'+timetable[key].room_image+'" class="timetable_room_icon"></a><a class="link_container_room_name" href="/room/'+timetable[key].room_id+'/">'+timetable[key].room_name+'</a></div>'
+    }else{
+        var timetable_room_card = '<div class="spot_container"><a href="/room/'+timetable[key].room_id+'/" class="link_container_room_image"><img src="{% static "image/room.svg" %}" class="timetable_room_icon"></a><a class="link_container_room_name" href="/room/'+timetable[key].room_id+'/">'+timetable[key].room_name+'</a></div>'
+    }
+    $('#'+timetable[key].spot).append(timetable_room_card)
+  }
+
+</script>
+
+  {% endblock %}
+</body>
+
+
+</html>

@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> Profile | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/profile.css' %}" />
+  <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <div class='user-profile_background' style="background-image: url('{{ user_profile_data.user_background_image }}');">
+      <div class='user-profile'>
+
+        <div class='user-profile-parts-left_container'>
+          {% if user_profile_data.user_icon_image %}
+          <img src="/media/{{ user_profile_data.user_icon_image }}" class='user_icon'>
+          {% else %}
+          <img src="/static/image/user.svg" class='user_icon'>
+          {% endif %}
+          <div class='user_main_detail_container'>
+            <p class='user_university'>{{ user_profile_data.university }}</p>
+            <p class='user_name'>{{ user_profile_data.last_name }}&nbsp;{{ user_profile_data.first_name }}</p>
+          </div>
+        </div>
+
+        <ul class='user-profile-parts-right_container'>
+          {% for key,value in user_profile_data.items %}
+          {% if  key != 'user_icon_image' and key != 'user_background_image' and key != 'university' and key != 'first_name' and key != 'last_name' %}
+          <li class='user_profile_item'>
+            {{ value }}
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+
+      </div>
+  </div>
+
+<div class='board_content_setting_container'>
+  <div class='board_content_container'>
+  <ul id='menu_my_board_list'>
+    <li class='selection_li'><a href='#tab1' class='current'>自分の投稿</a></li>
+    <li class='selection_li'><a href='#tab2'>いいねした投稿</a></li>
+    <li class='selection_li'><a href='#tab3'>保存した投稿</a></li>
+  </ul>
+
+  <ul id='my_board_contents'>
+    <ul id='tab1'>
+      {% if not post_board_list %}
+      <p>投稿された質問・記事がありません</p>
+      {% endif %}
+
+      {% for post_board in post_board_list %}
+      {% if post_board.category == '記事' %}
+      <li class='board_item'>
+        <a href='{% url "board:confirm_view_board" post_board.board_id %}'>
+          <p class='my_board_title' style='background-color:#A9D0F5;'>{{ post_board.title }}</p>
+          {% if post_board.attached_image %}
+          <div class='my_board_image_container'>
+          <img src='/media/{{post_board.attached_image}}/' class='my_board_image'>
+          </div>
+          {% endif %}
+        </a>
+      </li>
+      {% else %}
+      <li class='board_item'>
+        <a href='{% url "board:board" post_board.board_id %}'>
+          <p class='my_board_title'>{{ post_board.title }}</p>
+          {% if post_board.attached_image %}
+          <div class='my_board_image_container'>
+          <img src='/media/{{post_board.attached_image}}/' class='my_board_image'>
+          </div>
+          {% endif %}
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+
+    <ul id='tab2'>
+      {% if not good_board_list %}
+      <p>いいねした質問・記事がありません</p>
+      {% endif %}
+
+      {% for good_board in good_board_list %}
+
+      {% if good_board.category == '記事' %}
+      <li class='board_item'>
+        <a href='{% url "board:confirm_view_board" good_board.board_id %}'>
+          <p class='my_board_title' style='background-color:#A9D0F5;'>{{ good_board.title }}</p>
+          {% if good_board.attached_image %}
+          <div class='my_board_image_container'>
+          <img src='/media/{{good_board.attached_image}}/' class='my_board_image'>
+          </div>
+          {% endif %}
+        </a>
+      </li>
+      {% else %}
+      <li class='board_item'>
+        <a href='{% url "board:board" good_board.board_id %}'>
+          <p class='my_board_title'>{{ good_board.title }}</p>
+          {% if good_board.attached_image %}
+          <div class='my_board_image_container'>
+          <img src='/media/{{good_board.attached_image}}/' class='my_board_image'>
+          </div>
+          {% endif %}
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+
+    <ul id='tab3'>
+      {% if not store_board_list %}
+      <p>保存した質問・記事がありません</p>
+      {% endif %}
+
+      {% for store_board in store_board_list %}
+      {% if store_board.category == '記事' %}
+      <li class='board_item'>
+        <a href='{% url "board:confirm_view_board" store_board.board_id %}'>
+          <p class='my_board_title' style='background-color:#A9D0F5;'>{{ store_board.title }}</p>
+          {% if store_board.attached_image %}
+          <div class='my_board_image_container'>
+          <img src='/media/{{store_board.attached_image}}/' class='my_board_image'>
+          </div>
+          {% endif %}
+        </a>
+      </li>
+      {% else %}
+      <li class='board_item'>
+        <a href='{% url "board:board" store_board.board_id %}'>
+          <p class='my_board_title'>{{ store_board.title }}</p>
+          {% if store_board.attached_image %}
+          <div class='my_board_image_container'>
+          <img src='/media/{{store_board.attached_image}}/' class='my_board_image'>
+          </div>
+          {% endif %}
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </ul>
+  </div>
+
+
+  <ul id='setting'>
+    <p class='owned_coins'>保有コイン:<span>{{user.points}}</span>ポイント</p>
+    <li class='setting_item'><a href='{% url "stoppo:share_box" user.user_id %}'>シェアファイル</a></li>
+    <li class='setting_item'><a href='{% url "accounts:profile_edit" user.user_id %}'>プロフィール編集</a></li>
+    <li class='setting_item'><a href='{% url "accounts:logout" %}'>ログアウト</a></li>
+  </ul>
+  </div>
+
+<!-- <ul id='ground_list'>
+  <p style='width:60%; text-align:center; font-weight:bold; background-color:#D1D1D1;'>これまでの投稿</p>
+  {% for ground in ground_list %}
+  <li class='ground_item'>
+    <p style='font-size: 0.75vw; padding:0 0.4vw;'>{{ground.ground_content}}</p>
+    {% if ground.ground_image %}
+    <img src='/media/{{ground.ground_image}}/' class='ground_image'>
+    {% endif %}
+    <p class='ground_created_at'>{{ground.created_at}}</p>
+  </li>
+  {% endfor %}
+</ul> -->
+
+  {% endblock %}
+</body>
+</html>

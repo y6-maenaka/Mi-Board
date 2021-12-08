@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>EditProfile | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/profile_edit.css' %}" />
+  <script type="text/javascript" src="{% static 'js/profile_edit.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+    <form action="{% url 'accounts:profile_edit' user.user_id %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div id='change_user_icon_image_container'>
+        {% if user.user_icon_image %}
+        <img src='/media/{{user.user_icon_image}}/' id='before_user_icon_image'>
+        {% else %}
+        <img src='/static/image/user.svg' id='before_user_icon_image'>
+        {% endif %}
+        <p class='guide_message_change'>プロフィール写真</p>
+        {{ form.user_icon_image|add_class:"change_user_icon_image change_item" }}
+      </div>
+
+      <div id='change_user_background_image_container'>
+        <img src='/media/{{user.user_background_image}}/' id='before_user_background_image'>
+        <p class='guide_message_change'>バックグラウンド写真</p>
+        {{ form.user_background_image|add_class:"change_user_background_image change_item" }}
+      </div>
+        <p class='guide_message_change'>名前(姓)</p>
+        {{ form.last_name|add_class:"change_last_name change_item" }}
+        <p class='guide_message_change'>名前(名)</p>
+        {{ form.first_name|add_class:"change_first_name change_item" }}
+        <p class='guide_message_change'>バイト先</p>
+        {{ form.part_time_job|add_class:"change_part_time_job change_item" }}
+        <p class='guide_message_change'>サークル</p>
+        {{ form.circle|add_class:"change_circle change_item" }}
+        <p class='guide_message_change'>出身地</p>
+        {{ form.hometown|add_class:"change_hometown change_item" }}
+        <p class='guide_message_change'>出身高校</p>
+        {{ form.high_school|add_class:"change_higth_school change_item" }}
+        <p class='guide_message_change'>ステータスメッセージ</p>
+        {{ form.detail|add_class:"change_detail change_item" }}
+        <p class='guide_message_change'>TwitterID</p>
+        {{ form.sns_link_twitter|add_class:"change_sns_link_twitter change_item" }}
+        <p class='guide_message_change'>FacebookID</p>
+        {{ form.sns_link_facebook|add_class:"change_sns_link_facebook change_item" }}
+        <p class='guide_message_change'>InstagramID</p>
+        {{ form.sns_link_instagram|add_class:"change_sns_link_instagram change_item" }}
+        <button type="submit" id='change_profile_btn'>保存</button>
+    </form>
+
+
+  {% endblock %}
+</body>
+
+
+</html>

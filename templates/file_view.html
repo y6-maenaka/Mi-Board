@@ -1,0 +1,14 @@
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  <title> FileView | Mi-Board</title>
+  <link rel='stylesheet' type='text/css' href="{% static 'css/file_view.css' %}" />
+  <link rel="icon" type="image/png" href="{% static 'image/mi-board-logo.png' %}">
+</head>
+
+<body>
+  <iframe src='/media/{{file_data.file_name}}' id='viewer'></iframe>
+</body>
+</html>

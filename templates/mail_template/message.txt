@@ -1,0 +1,9 @@
+{{ user.email }} 様
+このたびは[Mi-Board]に登録いただきありがとうございます。
+現段階ではまだ、アカウント登録は完了しておりません。
+下記のURLをクリックしてアカウント登録操作を完了してください。
+
+本登録用URL
+{{ protocol }}://{{ domain }}{% url 'accounts:user_create_complete' token %}
+
+Mi-Board

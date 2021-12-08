@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #c1c1c1;
+        stroke-width: 40px;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #c1c1c1;
+      }
+    </style>
+  </defs>
+  <image id="背景" width="1000" height="1000" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAA8UlEQVR4nO3RQQHAQAwEobT+Pe/Z4DFY4Nu2C+OvwlIIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphBMIZhCMIVgCsEUgikEUwimEEwhmEIwhWAKwRSCKQRTCKYQTCGYQjCFYArBFIIpBFMIphDJ3T0IYATEmP4svAAAAABJRU5ErkJggg=="/>
+  <rect id="長方形_1" data-name="長方形 1" class="cls-1" x="234" y="139" width="532" height="722"/>
+  <path id="長方形_3" data-name="長方形 3" class="cls-2" d="M322.1,613.844H694.841v16.929H322.1V613.844Zm0,0H694.841v16.929H322.1V613.844Zm0,0H694.841v16.929H322.1V613.844Z"/>
+  <path id="長方形_4" data-name="長方形 4" class="cls-2" d="M322.1,699.333H694.841v16.928H322.1V699.333Z"/>
+  <path id="楕円形_1" data-name="楕円形 1" class="cls-3" d="M409.9,218.564c51.957,0,94.144,39.889,94.7,89.356,0.56,49.758-41.161,91.051-93.671,91.971-53.048.93-96.453-39.624-96.453-90.314C314.478,259.19,357.417,218.564,409.9,218.564Z"/>
+  <path id="長方形_2" data-name="長方形 2" class="cls-4" d="M375.659,325.175l63.3-17.663,82.4,178.317-63.294,17.663Z"/>
+</svg>

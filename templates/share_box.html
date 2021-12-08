@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>ShareBox | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/share_box.css' %}" />
+  <script type="text/javascript" src="{% static 'js/share_box.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <h1 id='title_share_box'>受け取ったファイル</h1>
+  <ul id='share_file_box'>
+    {% for file in shared_file_list %}
+    <li class='share_file_item'>
+      <a name="{{file.shared_file_id}}" href='{% url "stoppo:file_view" file.shared_file_id %}' class='share_file_item_link' target="_blank">
+        {% if file.shared_file.extension == '.pdf' %}
+        <img src="/static/image/guide_pdf.png" style="margin-right:0.5vw;">
+        {% elif file.shared_file.extension == '.jpg' %}
+        <img src="/static/image/guide_image.png" style="margin-right:0.5vw;">
+        {% else %}
+        <img src="/static/image/guide_file.png" style="margin-right:0.5vw;">
+        {% endif %}
+        <p class='file_name'>{{file.shared_file.file_name}}</p>
+        <div class='file_detail'>
+        <a class='sender_name' href='{% url "friend:friend_profile" file.send_user.user_id%}'>from:{{file.send_user.last_name}}{{file.send_user.first_name}}</a>
+        <p class='received_at'>{{file.created_at|date:'Y-m-d'}}</p>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+
+
+  {% endblock %}
+</body>
+</html>

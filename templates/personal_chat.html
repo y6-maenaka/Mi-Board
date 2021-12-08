@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>PersonalChat | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/personal_chat.css' %}" />
+  <script type="text/javascript" src="{% static 'js/personal_chat.js' %}"></script>
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <div class='message_box_container'>
+
+    <div class='message_menu_container'>
+
+      <div class='message_menu'>
+        <a href='#' class='indicate_add_talker_page'><img src='/static/image/guide_address.png'></a>
+      </div>
+
+      <div class='user_selector'>
+        {% for talker in talker_list %}
+        {% if talker.owner_user.user_id == user.user_id %}
+        <a class='get_message_anker' href="/personal_chat/#/{{talker.invited_user.user_id}}/" id='{{talker.invited_user.user_id}}'>
+          {% if talker.invited_user.user_icon_image %}
+          <img class='get_message_anker_image' src="/media/{{talker.invited_user.user_icon_image}}/" class='talker_image'>
+          {% else %}
+          <img class='get_message_anker_image' src="/static/image/user.svg" class='talker_image'>
+          {% endif %}
+          {{ talker.invited_user.last_name }}{{ talker.invited_user.first_name }}<span class='talker_last_talk'>{{talker.last_update|date:'m/d'}}</span></a>
+        {% else %}
+        <a class='get_message_anker' href="/personal_chat/#/{{talker.owner_user.user_id}}/" id='{{talker.owner_user.user_id}}'>
+          {% if talker.owner_user.user_icon_image %}
+          <img class='get_message_anker_image' src="/media/{{talker.owner_user.user_icon_image}}/" class='talker_image'>
+          {% else %}
+          <img class='get_message_anker_image' src="/static/image/user.svg" class='talker_image'>
+          {% endif %}
+          {{ talker.owner_user.last_name }}{{ talker.owner_user.first_name }}<span class='talker_last_talk'>{{talker.last_update|date:'m/d'}}</span></a>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+
+    <div class='message_main_container'>
+
+      <div class='user_name_display_area'>
+      </div>
+
+      <div id='message_display_area'>
+        <div class='message_container' style="margin-top:10vh;"><p style='font-size:0.8vw;'>トーク相手を選択してチャットを開始します</p></div>
+      </div>
+
+      <div class='send_message_input_container'>
+        <input id='send_message_input' placeholder="メッセージを入力">
+      </div>
+    </div>
+  </div>
+
+
+<div id='add_talker_page_bg'>
+  <ul id='select_new_talker_ul'>
+      <form method='post'>
+        {% csrf_token %}
+        <input type='text' placeholder="宛先を検索" id='search_talker_input'>
+      </form>
+      <hr style="width:80%; color: gray;">
+  </ul>
+</div>
+
+
+<input type='hidden' value={{ user.user_id }} id='user_id_message'>
+  {% endblock %}
+</body>
+
+</html>

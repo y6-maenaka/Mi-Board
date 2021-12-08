@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title>Room | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/room.css' %}" />
+  <script type="text/javascript" src="{% static 'js/room.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <div class='room_info-room_chat'>
+    <div class='room_info_container'>
+      <div class='room_info'>
+        {% if room_data.room_image %}
+        <img src='/media/{{ room_data.room_image }}' class='room_icon'>
+        {% else %}
+        <img src='/static/image/room.svg' class='room_icon'>
+        {% endif %}
+        <h1 class='room_name'>{{ room_data.room_name }}</h1>
+
+        <div class='btn-room_action'>
+          {% if room_data.room_id in room_joining %}
+          <button class="btn-change_relation {{ room_data.room_id }}" id='secession' value='{{ room_data.room_id }}' name='secession'>退出</button>
+          {% else %}
+          <button class="btn-change_relation {{ room_data.room_id }}" id='join' value='{{ room_data.room_id }}' name='join'>参加</button>
+          {% endif %}
+          <a href='#' class="btn-room_action_design" id='btn-copy-link'>リンクコピー</a>
+          </div>
+
+        <p class='room_description'>{{ room_data.representative_person_name }}</p>
+        {% if room_data.week_at == 'その他' %}
+        <p class='room_description'>任意</p>
+        {% else %}
+        <p class='room_description'>{{ room_data.week_at }}</p>
+        {% endif %}
+        {% if not room_data.work_time == 10 %}
+        <p class='room_description'>{{ room_data.work_time }} 時間目</p>
+        {% endif %}
+        {% if room_data.subject_to == 'その他' %}
+        <p class='room_description'>サークル</p>
+        {% else %}
+        <p class='room_description'>{{ room_data.subject_to }}</p>
+        {% endif %}
+      </div>
+
+
+      <!-- <div class='room-setting_container'> -->
+          <!-- <a href='#' class='create_room_move_modal'>ルーム作成</a>
+          <a href='#'>ルーム編集</a> -->
+          <!-- <a id='post_ground_btn'>ルームから投稿する</a>
+        </div> -->
+    </div>
+
+  <div class='room_chat_container'>
+    <div id='room_chat'>
+    </div>
+
+    <div class='send_message_container'>
+      <input type='text' placeholder="メッセージを入力" id='send_message_input_room'>
+    </div>
+  </div>
+
+  </div>
+
+  <div class='room_detail_container'>
+    <ul class='room_joining_user_list_container'>
+      <p class='guide_box'>{{num_joining_user}}人の参加ユーザー</p>
+      {% for joining_user in room_joining_user_list %}
+      <li class='joining_user_item'>
+        <a href='{% url "friend:friend_profile" joining_user.user.user_id %}' class='joining_user_item_link'>
+          {% if joining_user.user.user_icon_image %}
+          <img class='joining_user_image' src='/media/{{joining_user.user.user_icon_image}}/'>
+          {% else %}
+          <img class='joining_user_image' src='{% static "image/user.svg" %}'>
+          {% endif %}
+          <div class='joining_user_detail'>
+            <p>{{joining_user.user.department}}{{joining_user.user.division}}</p>
+            <h2>{{joining_user.user.last_name}} {{joining_user.user.first_name}}</h2>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <ul id='related_board_box'>
+      <p class='guide_box'>{{related_board_list|length}}件の関連投稿</p>
+      {% for board in related_board_list %}
+      <li class='related_board_card'>
+        {% if board.category == '記事' %}
+        <a href='{% url "board:confirm_view_board" board.board_id %}' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
+        {% else %}
+        <a href='/board/{{board.board_id}}/' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+
+
+  <!-- <div id='post_ground_modal_bg'>
+    <form id='post_ground_modal' action='{% url "ground:post_ground" %}' method='post' enctype="multipart/form-data">
+      {% csrf_token %}
+      <h1 style='text-align:center;'>ルーム代表投稿[全体]</h1>
+      <textarea placeholder="投稿内容(400文字以内)" name='ground_content' id='ground_content_input'></textarea>
+      <img id='preview_post_image'>
+      <label class='ground_image_input_label'>
+          <p>+</p>
+        <input type='file' name='ground_image' id='ground_image_input'>
+      </label>
+      <button type='submit' id='post_ground'>投稿</button>
+      <input type='hidden' value='グローバル' name='ground_address'>
+      <input type='hidden' value='{{room_data.room_id}}' name='post_room_id'>
+    </form>
+  </div> -->
+
+  <ul id='related_board_box_main'>
+    <div id='post_board'>
+      <p class='post_guide_message'>投稿する/ファイルをシェアする</p>
+      <a href='javascript:void(0);' id='dummy_input_board'>| 投稿内容を入力</a>
+    </div>
+    {% if related_board_list %}
+    <p class='related_board_guide_message'>これまでの投稿</p>
+    {% endif %}
+    {% for board in related_board_list %}
+    <li class='related_board_item'>
+        <div class='related_board_detail'>
+          {% if board.display_name == 'anonymous' %}
+          <img src='{% static "image/user.svg"%}' class='board_post_user_icon'><p class='board_post_username'>匿名さん</p>
+          {% else %}
+          <a href='{% url "friend:friend_profile" board.posted_by_id %}' class='related_board_user_link'><img src='/media/{{board.posted_by.user_icon_image}}'class='board_post_user_icon'><p class='board_post_username'>{{board.posted_by.last_name}}{{board.posted_by.first_name}}</p></a><p class='related_board_datetime related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</p>
+          {% endif %}
+        </div>
+        <div class='related_board_body'>
+          {% if board.category == '記事' %}
+          <a class='related_board_title related_board_article' href='{% url "board:confirm_view_board" board.board_id %}'>{{board.title}}</a>
+          {% else %}
+          <a class='related_board_title' href='{% url "board:board" board.board_id %}'>{{board.title}}</a>
+          {% endif %}
+          {% if board.category == '記事' %}
+          <a class='related_board_content blur related_board_article_content' href='{% url "board:confirm_view_board" board.board_id %}'>この記事の内容はポイント消費で取得後に閲覧可能になります。</a>
+          {% else %}
+          <a class='related_board_content' href='#'>{{board.content}}</a>
+          {% endif %}
+        </div>
+        {% if board.attached_image %}
+        {% if board.category == '記事' %}
+        <a href='{% url "board:confirm_view_board" board.board_id %}' class='related_board_image_link related_article_board_image_link'>
+          <img src='{% static "image/board.svg"%}' style='width:20vw;' class='related_board_image related_board_article_image blur'>
+        </a>
+        {% else %}
+        <a href='{% url "board:board" board.board_id %}' class='related_board_image_link'>
+        <img src='/media/{{board.attached_image}}/' class='related_board_image'>
+        </a>
+        {% endif %}
+        {% endif %}
+        {% if board.attached_file %}
+        {% if board.category == '質問' %}
+        <a href='{% url "board:board" board.board_id %}' class='related_board_attached_file'>この投稿には添付ファイルがあります</a>
+        {% else %}
+        <a href='{% url "board:confirm_view_board" board.board_id %}' class='related_board_attached_file related_board_article_attached_file'>この投稿には添付ファイルがあります</a>
+        {% endif %}
+        {% endif %}
+        <p class='related_board_category_points'>{{board.category}} | {{board.bet_points}}ポイント</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+
+<div>
+</div>
+
+<div id='post_board_page_bg'>
+  <form id='post_board_page' method='post' action='{% url "board:post_board" %}' enctype="multipart/form-data" name='post_board_input_form'>
+    {% csrf_token %}
+    <p>タイトル</p>
+    <input type='text' name='title' placeholder='タイトル(120字以内)' id='input_title'>
+    <p>本文</p>
+    <textarea name='content' placeholder='内容(800字以内)' id='input_content' style='height:12vh;'></textarea>
+    <p>タグ</p>
+    <input type='text' name='tags' placeholder='例)課題　例)過去問' id='input_tags'>
+    <p>設定コイン</p>
+    <input type='number' name='bet_points' placeholder='例) 20' id='input_bet_points'>
+    <p>添付画像</p>
+    <input type="file" name="attached_image" id='input_attached_image'>
+    <p>添付ファイル</p>
+    <input type="file" name="attached_file" id='input_attached_file'>
+    <p>投稿タイプ</p>
+    <select name='category' id='input_category'>
+      <option value='質問'>質問</option>
+      <option value='記事'>記事</option>
+    </select>
+
+
+    <p>投稿者名</p>
+    <div class='select_post_user_container'>
+    <input type='radio' name='select_post_user' id='input_anonymous' value='anonymous' class='radio_input'>
+    <label for='input_anonymous' class='radio_label'>匿名</label>
+    </div>
+
+    <div class='select_post_user_container'>
+    <input type='radio' name='select_post_user' id='input_real_name' value='real_name' class='radio_input' checked>
+    <label for='input_real_name' class='radio_label'>実名</label>
+    </div>
+
+    <input type='hidden' name='related_department' value='{{ room_data.subject_to }}'>
+    <input type='hidden' name='related_room' value='{{room_data.room_id}}'>
+    <button type='submit' style='font-size: 0.7vw; font-weight:bold; margin: 0.3vh 0;'>投稿</button>
+   </form>
+</div>
+
+<input type='hidden' value={{ room_data.room_id }} id='message_room_id'>
+<input type='hidden' value={{ user.user_id}} id='message_user_id'>
+
+<script>
+  var date = '{% now "Y" %}-{% now "m" %}-{% now "d" %}'
+  $('.related_board_created_at').each(function(){
+    if($(this).html() == date){
+      $(this).attr('style','color:red; font-weight:bold;')
+    }
+  })
+</script>
+  {% endblock %}
+</body>
+</html>

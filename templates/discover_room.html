@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> DiscoverRoom | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/discover_room.css' %}" />
+  <script type="text/javascript" src="{% static 'js/discover_room.js' %}"></script>\
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <form id='search_room_form' method="" action="" onsubmit="return false">
+    <a href='{% url "discover:discover_friend" %}' class='change_search_option_link'><img src="{% static 'image/friend.svg' %}" class='change_search_option'></a>
+      <input type='search' name='search' placeholder="ルームを探す" id='search_room_input'>
+      <p style='font-size:0.6vw; font-weight:bold; margin:0 0.4vw; opacity:0.8;'>種類</p>
+      <select form='search_room_form' class='narrowed_down_menu' name='category'>
+        <option value='講義'>講義</option>
+        <option value='その他'>その他</option>
+      </select>
+  </form>
+
+  <p style='margin: 1vh 0 1vh 0; opacity: 0.7; font-weight: bold;'>おすすめの講義・ルーム</p>
+
+
+  <ul class='room_card_container'>
+  {% for room in room_list %}
+  <li class='room_card' role='article'>
+    <div class='room_img_detail'>
+
+      <a href="{% url "room:room" room.room_id %}" style='display:flex; align-items:center;'>
+        {% if room.room_image %}
+        <img src='/media/{{ room.room_image }}' class='room_icon'>
+        {% else %}
+        <img src='/static/image/room.svg' class='room_icon'>
+        {% endif %}
+      </a>
+
+      <div class='room_detail'>
+        <p class='room_attribution'>{{ room.category }}</p>
+        <a id='room_name' href="{% url "room:room" room.room_id %}">{{ room.room_name }}</a>
+      </div>
+    </div>
+
+    {% if room.room_id in joining %}
+    <button class='btn-change-relation {{room.room_id}}' value='{{ room.room_id }}' id='secession' name='secession'>退出</button>
+    {% else %}
+    <button class='btn-change-relation {{room.room_id}}' value='{{ room.room_id }}' id='join' name='join'>参加</button>
+    {% endif %}
+
+  </li>
+  {% endfor %}
+  </ul>
+
+
+  {% endblock %}
+</body>
+</html>

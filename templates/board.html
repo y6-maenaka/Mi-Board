@@ -74,7 +74,7 @@
       {% if board_content.attached_file%}
       <hr>
       <p class='image_file_guide'>-添付ファイル-</p>
-      <iframe src="media/{{board_content.attached_file}}"></iframe>
+      <iframe src="/media/{{board_content.attached_file}}"></iframe>
       <a href='/media/{{board_content.attached_file}}' download="/media/{{board_content.attached_file}}" class='download_link'>ファイルダウンロード</a>
       <p style='text-align:center;'>タグ:{{board_content.tags}}</p>
       {% endif %}

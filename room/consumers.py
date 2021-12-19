@@ -3,6 +3,7 @@ import json
 from room.models import Rooms
 from channels.db import database_sync_to_async
 from room.models import RoomMessage
+import asyncio
 
 class RoomChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -11,18 +12,27 @@ class RoomChatConsumer(AsyncWebsocketConsumer):
 
         self.room_group_name = str(self.group_name)
 
+        print("チャネル接続")
+        print(self.room_group_name)
+
         await self.channel_layer.group_add(
-            self.room_group_name,
-            self.channel_name
-        )
+           self.room_group_name,
+           self.channel_name,
+         )
+
+        print('チャネルグループ接続完了')
 
         await self.accept()
 
+        print("チャネル完全接続完了")
+
     async def disconnect(self,close_code):
+        print("websocketエラー")
         await self.channel_layer.group_discard(
             self.room_group_name,
-            self.channel_name
+            self.channel_name,
         )
+        print('websocketは正常に閉じられました')
 
     # Receive message from WebSocket　JSから受信
     async def receive(self, text_data):

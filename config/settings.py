@@ -11,27 +11,24 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import environ
+from dotenv import load_dotenv
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, '.env'))
-
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['52.196.235.255','mi-board.com']
 
 # Application definition
 
@@ -56,6 +53,7 @@ INSTALLED_APPS = [
     'recommend_system',
     'ground',
     'stoppo',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -94,12 +92,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': env('DB_ENGINE'),
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
@@ -157,6 +155,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT =  '/var/www/Mi-Board/static'
+#STATIC_ROOT = '/home/ec2-user/Mi-Board-Container/Mi-Board/static'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -174,7 +175,8 @@ LOGOUT_REDIRECT_URL = 'accounts/login'
 
 
 #サーバーから見たメディアファイルの絶対パス
-MEDIA_ROOT = os.path.join(BASE_DIR,'media_file')
+MEDIA_ROOT = '/var/www/Mi-Board/media_file'
+#MEDIA_ROOT = '/home/ec2-user/Mi-Board-Container/Mi-Board/media_file'
 MEDIA_URL = 'media/'
 
 
@@ -184,7 +186,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('0.0.0.0', 6379)],
         },
     },
 }

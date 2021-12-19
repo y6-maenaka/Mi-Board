@@ -33,8 +33,8 @@ $(function(){
   }
 
   var notificationSocket = new WebSocket(
-    'ws://'+window.location.host+
-    '/ws/notification/');
+    'ws://'+window.location.hostname+
+    ':8001/ws/notification/');
 
     notificationSocket.onmessage = function(e){
       var data = JSON.parse(e.data);

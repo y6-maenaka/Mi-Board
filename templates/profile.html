@@ -63,7 +63,7 @@
           <p class='my_board_title' style='background-color:#A9D0F5;'>{{ post_board.title }}</p>
           {% if post_board.attached_image %}
           <div class='my_board_image_container'>
-          <img src='/media/{{post_board.attached_image}}/' class='my_board_image'>
+          <img src='/media/{{post_board.attached_image}}' class='my_board_image'>
           </div>
           {% endif %}
         </a>
@@ -74,7 +74,7 @@
           <p class='my_board_title'>{{ post_board.title }}</p>
           {% if post_board.attached_image %}
           <div class='my_board_image_container'>
-          <img src='/media/{{post_board.attached_image}}/' class='my_board_image'>
+          <img src='/media/{{post_board.attached_image}}' class='my_board_image'>
           </div>
           {% endif %}
         </a>
@@ -96,7 +96,7 @@
           <p class='my_board_title' style='background-color:#A9D0F5;'>{{ good_board.title }}</p>
           {% if good_board.attached_image %}
           <div class='my_board_image_container'>
-          <img src='/media/{{good_board.attached_image}}/' class='my_board_image'>
+          <img src='/media/{{good_board.attached_image}}' class='my_board_image'>
           </div>
           {% endif %}
         </a>
@@ -107,7 +107,7 @@
           <p class='my_board_title'>{{ good_board.title }}</p>
           {% if good_board.attached_image %}
           <div class='my_board_image_container'>
-          <img src='/media/{{good_board.attached_image}}/' class='my_board_image'>
+          <img src='/media/{{good_board.attached_image}}' class='my_board_image'>
           </div>
           {% endif %}
         </a>
@@ -128,8 +128,8 @@
           <p class='my_board_title' style='background-color:#A9D0F5;'>{{ store_board.title }}</p>
           {% if store_board.attached_image %}
           <div class='my_board_image_container'>
-          <img src='/media/{{store_board.attached_image}}/' class='my_board_image'>
-          </div>
+          <img src='/media/{{store_board.attached_image}}' class='my_board_image'>
+         </div>
           {% endif %}
         </a>
       </li>
@@ -139,7 +139,7 @@
           <p class='my_board_title'>{{ store_board.title }}</p>
           {% if store_board.attached_image %}
           <div class='my_board_image_container'>
-          <img src='/media/{{store_board.attached_image}}/' class='my_board_image'>
+          <img src='/media/{{store_board.attached_image}}' class='my_board_image'>
           </div>
           {% endif %}
         </a>
@@ -165,7 +165,7 @@
   <li class='ground_item'>
     <p style='font-size: 0.75vw; padding:0 0.4vw;'>{{ground.ground_content}}</p>
     {% if ground.ground_image %}
-    <img src='/media/{{ground.ground_image}}/' class='ground_image'>
+    <img src='/media/{{ground.ground_image}}' class='ground_image'>
     {% endif %}
     <p class='ground_created_at'>{{ground.created_at}}</p>
   </li>

@@ -27,7 +27,7 @@
         {% if talker.owner_user.user_id == user.user_id %}
         <a class='get_message_anker' href="/personal_chat/#/{{talker.invited_user.user_id}}/" id='{{talker.invited_user.user_id}}'>
           {% if talker.invited_user.user_icon_image %}
-          <img class='get_message_anker_image' src="/media/{{talker.invited_user.user_icon_image}}/" class='talker_image'>
+          <img class='get_message_anker_image' src="/media/{{talker.invited_user.user_icon_image}}" class='talker_image'>
           {% else %}
           <img class='get_message_anker_image' src="/static/image/user.svg" class='talker_image'>
           {% endif %}
@@ -35,7 +35,7 @@
         {% else %}
         <a class='get_message_anker' href="/personal_chat/#/{{talker.owner_user.user_id}}/" id='{{talker.owner_user.user_id}}'>
           {% if talker.owner_user.user_icon_image %}
-          <img class='get_message_anker_image' src="/media/{{talker.owner_user.user_icon_image}}/" class='talker_image'>
+          <img class='get_message_anker_image' src="/media/{{talker.owner_user.user_icon_image}}" class='talker_image'>
           {% else %}
           <img class='get_message_anker_image' src="/static/image/user.svg" class='talker_image'>
           {% endif %}

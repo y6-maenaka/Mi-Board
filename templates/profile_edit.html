@@ -19,7 +19,7 @@
       {% csrf_token %}
       <div id='change_user_icon_image_container'>
         {% if user.user_icon_image %}
-        <img src='/media/{{user.user_icon_image}}/' id='before_user_icon_image'>
+        <img src='/media/{{user.user_icon_image}}' id='before_user_icon_image'>
         {% else %}
         <img src='/static/image/user.svg' id='before_user_icon_image'>
         {% endif %}
@@ -28,7 +28,7 @@
       </div>
 
       <div id='change_user_background_image_container'>
-        <img src='/media/{{user.user_background_image}}/' id='before_user_background_image'>
+        <img src='/media/{{user.user_background_image}}' id='before_user_background_image'>
         <p class='guide_message_change'>バックグラウンド写真</p>
         {{ form.user_background_image|add_class:"change_user_background_image change_item" }}
       </div>

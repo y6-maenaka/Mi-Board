@@ -79,7 +79,8 @@ class RegisterForm(forms.ModelForm):
             ('獣医学科','獣医学科'),
             ('応用生物科学科','応用生物科学科'),
             ('医学科','医学科'),
-            ('看護学科','看護学科')
+            ('看護学科','看護学科'),
+            ('地域資源創生学科','地域資源創生学科'),
             ],
         widget = forms.Select(attrs={
                 'id':'choice_division',}))

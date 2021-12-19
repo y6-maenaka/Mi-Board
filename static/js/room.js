@@ -29,8 +29,8 @@ $(function(){
 
 
   var roomChatSocket = new WebSocket(
-    'ws://'+window.location.host+
-    '/ws/room_chat/'+room_id+'/');
+    'ws://'+window.location.hostname+
+    ':8001/ws/room_chat/'+room_id+'/');
 
   roomChatSocket.onmessage = function(e){
     var data = JSON.parse(e.data);

@@ -251,4 +251,8 @@ p{
     width: 4.5vmax;
     height: 4.5vmax;
   }
+
+  .selected{
+    box-shadow: none;
+  }
 }

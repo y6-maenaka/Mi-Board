@@ -1,2 +1,4 @@
 .env
-config
+config/
+static/image
+media_file/

@@ -608,6 +608,14 @@ td:not(#timetable_time):hover{
     display: none;
   }
 
+  .friend_room_container{
+    display:none;
+  }
+
+  #go_stoppo_container{
+    display:none;
+  }
+
 }
 
 @media(max-width: 1050px){
@@ -615,9 +623,6 @@ td:not(#timetable_time):hover{
     width: 85%;
   }
 
-  .friend_room_container{
-    display: none;
-  }
 
   .link_container_room_image{
     width: 6.2vw;

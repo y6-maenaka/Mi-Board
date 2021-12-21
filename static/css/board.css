@@ -407,6 +407,10 @@ hr{
 }
 
 
+iframe{
+ height:100vh;
+}
+
 @media(max-width: 990px){
   .main_content{
     width: 85%;

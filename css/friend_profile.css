@@ -1,0 +1,270 @@
+/* .timetable_container{
+  width: 100%;
+  height: 20px;
+  display: block;
+} */
+
+p{
+  padding : 0;
+  margin : 0;
+  line-height: 1;
+}
+
+
+
+.main_content{
+  display: flex;
+  width: 55%;
+  z-index: 0;
+  flex-direction:  column;
+}
+
+
+.friend-profile_background{
+  width: 100%;
+  height: 10vw;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 8px gray;
+  border-radius: 5px;
+}
+
+.friend_main_detail_container{
+  width: 50%;
+}
+
+.friend-profile{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+  border-radius: 5px;
+}
+
+.friend_icon{
+  border-radius: 50%;
+  width: 6vmax;
+  height: 6vmax;
+  box-shadow: 0 0 4px gray;
+  /* border: solid 0.1rem gray; */
+  margin: 0 5%;
+}
+
+
+
+.friend_name{
+  display: inline-block;
+  text-align: center;
+  padding: 0;
+  margin: 3px 0;
+  font-size: 2vw;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.friend-profile-parts-left_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.friend-profile-parts-right_container{
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  align-items: center;
+  flex: 1;
+  border-left:1px solid gray;
+}
+
+.friend-profile-parts-right_container::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
+}
+.friend_profile_item{
+  width: 90%;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  font-size: 1vw;
+  margin: 3px 0 3px 0;
+  font-weight: bold;
+}
+
+.friend_profile_item:hover{
+  box-shadow: 0 0 8px gray;
+}
+
+.friend_university{
+  font-size: 0.7vw;
+}
+
+.timetable_friend{
+  margin-top: 1.5vh;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.friend_timetable{
+  width: 75%;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: #D1D1D1;
+  border-radius: 10px;
+  table-layout: fixed;
+  box-shadow: 0 0 8px #D1D1D1;
+}
+
+.friend_list_container{
+  width: 24%;
+  display: flex;
+}
+
+.friend_list{
+  width: 100%;
+  height: 48%;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px #D1D1D1;
+  border-radius: 10px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friend_list::-webkit-scrollbar{
+  display: none;
+  -webkit-appearance: none;
+}
+
+.friend_card{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0.5vh 0 0.5vh 1vw;
+}
+
+.friend_card_icon{
+  width: 1.8vmax;
+  height: 1.8vmax;
+  border-radius: 50%;
+  margin-right: 0.4vw;
+  border: solid 0.1rem #E4E6E8;
+}
+
+.friend_info{
+  width: 70%;
+}
+
+.friend_info > p{
+  font-size: 0.3vw;
+}
+
+.friend_name_link{
+  font-size: 0.73vw;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.room_card > a{
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+th{
+  height: 3vh;
+  opacity: 0.3;
+}
+
+#timetable_time{
+  font-size: 1rem;
+  width: 2vw;
+  text-align: center;
+  opacity: 0.3;
+}
+
+td:not(#timetable_time){
+  border-radius: 10px;
+  width:19%;
+  box-shadow: 0 0 1.6px #D1D1D1;
+  /* transition: background-color 0.2s ease; */
+}
+
+
+td:not(#timetable_time):hover{
+  /* background-color: #E4E6E8;
+  box-shadow: 0 0 8px gray; */
+}
+
+.spot_container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 0.5vh;
+}
+
+.timetable_room_icon{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: solid 0.1rem #E4E6E8;
+}
+
+.link_container_room_image{
+  width: 3.2vw;
+  height: 3.2vw;
+  display: inline;
+}
+
+.link_container_room_name{
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 0;
+  margin: 0.5vh 0 0.5vh 0;
+  font-size: 0.3vw;
+  font-weight: bold;
+}
+
+.button_container a{
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 0.5vw;
+  text-decoration: none;
+  padding: 0.5vh 0.7vw 0.5vh 0.7vw;
+  box-shadow: 0 0 8px gray;
+  margin-right: 0.3vw;
+}
+
+.button_container .friend_profile_follow{
+  background: linear-gradient(to bottom right, #00d4ff, #003fff);
+}
+
+.button_container .friend_profile_message{
+  background: linear-gradient(to bottom right, #5dff00, #00d122);
+}
+
+
+@media(max-width: 1050px){
+  .main_content{
+    width: 85%;
+  }
+}

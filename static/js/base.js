@@ -1,4 +1,13 @@
 $(function(){
+
+ var ua = navigator.userAgent;
+  if(ua.indexOf("iPhone") > 0 || ua.indexOf("Android") > 0 && ua.indexOf("Mobile") > 0){
+  console.log("スマートフォン用のコードを書く");
+  }else{
+
+
+
+
   var url = new URL(window.location.href);
   var params = url.pathname.split('/')[1];
 
@@ -31,6 +40,7 @@ $(function(){
     //   $('#global_menu_item_ground').attr('class','selected')
     //   break;
   }
+ }
 
   var notificationSocket = new WebSocket(
     'ws://'+window.location.hostname+
@@ -48,6 +58,11 @@ $(function(){
       $('.notification_area').animate({'top':'100px'},500)
 
     }
+
+    notificationSocket.onopen = function(e){
+      console.log('socket open')
+    }
+
 
     notificationSocket.onclose = function(e){
       console.error('notification socket closed unexpectedly')

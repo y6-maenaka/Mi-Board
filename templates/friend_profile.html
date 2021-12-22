@@ -28,7 +28,11 @@
           <p class='friend_university'>{{ friend_profile_data.university }}</p>
           <p class='friend_name'>{{ friend_profile_data.last_name }}&nbsp;{{ friend_profile_data.first_name }}</p>
           <div class='button_container'>
-            <a href='#' class='friend_profile_follow friend_profile_btn'>フォロー</a>
+            {% if follows %}
+            <button class='friend_profile_follow friend_profile_btn' id='unfollow' value="{{friend_profile_data.user_id}}">フォロー解除</button>
+            {% else %}
+            <button class='friend_profile_follow friend_profile_btn' id='follow' value="{{friend_profile_data.user_id}}">フォロー</button>
+            {% endif %}
             <a href='/personal_chat/#/{{friend_profile_data.user_id}}' class='friend_profile_message friend_profile_btn'>メッセージ</a>
           </div>
         </div>

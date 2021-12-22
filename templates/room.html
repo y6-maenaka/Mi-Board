@@ -76,7 +76,7 @@
       <li class='joining_user_item'>
         <a href='{% url "friend:friend_profile" joining_user.user.user_id %}' class='joining_user_item_link'>
           {% if joining_user.user.user_icon_image %}
-          <img class='joining_user_image' src='/media/{{joining_user.user.user_icon_image}}/'>
+          <img class='joining_user_image' src='/media/{{joining_user.user.user_icon_image}}'>
           {% else %}
           <img class='joining_user_image' src='{% static "image/user.svg" %}'>
           {% endif %}

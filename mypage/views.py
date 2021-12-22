@@ -15,9 +15,7 @@ from board.models import Boards
 from django.core import serializers
 import json
 
-
 # Create your views here.
-
 
 class MypageView(LoginRequiredMixin,View):
     # * args contains query parameters
@@ -42,9 +40,7 @@ class MypageView(LoginRequiredMixin,View):
             random_extracting_user = Users.objects.filter(university = request.user.university).exclude(user_id=request.user.user_id).order_by('?')[:30].values_list('user_id',flat=True)
             # recommend_board_list = recommend_system.get_recommend_board_sub(base_user,random_extracting_user)[0:12]
             recommend_board_list = Boards.objects.filter(category='質問')[0:4].values()
-            print('success')
         except:
-            print('mypage recommend_error')
             recommend_board_list = ''
         # values : キーと値
         # values_list : 値のみ
@@ -127,6 +123,13 @@ def add_room_timetable(request,room_id,**kwargs):
     else:
         add_room_to_timetable = TimeTable(spot=mod_datetime.group(),user_id=request.user.user_id,room_id=room_id)
         add_room_to_timetable.save()
+
+    joining_room = RoomJoining.objects.filter(user_id = request.user.user_id).values()
+    joining_room_list =  [str(_['room_id']) for _ in joining_room]
+
+    if not room_id in joining_room_list:
+        change_relation = RoomJoining(user_id = request.user.user_id,room_id = room_id)
+        change_relation.save()
 
     return redirect('mypage:mypage',request.user.user_id)
 

@@ -46,13 +46,10 @@ room = RoomView.as_view()
 
 @login_required
 def create_room(request):
-    print('here create room')
     try:
         if request.method == 'POST':
             new_room_data = request.POST
             new_room_data_image = request.FILES
-            print(new_room_data)
-            print(new_room_data_image)
 
             try:
                 if new_room_data_image['room_image']:

@@ -89,6 +89,8 @@ $(function(){
      if(!$(e.target).closest('.register_room_modal').length && $(e.target).closest('.register_room_modal_bg').length) {
        // ターゲット要素の外側をクリックした時の操作
        $('.register_room_modal_bg').fadeOut(300)
+       $('.recomend_room_card').remove()
+       $('.cancel_add_room').remove()
      } else {
        // ターゲット要素をクリックした時の操作
      }

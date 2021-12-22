@@ -242,7 +242,7 @@ td:not(#timetable_time):hover{
   font-weight: bold;
 }
 
-.button_container a{
+.button_container a,button{
   border: none;
   color: #ffffff;
   font-weight: bold;
@@ -254,8 +254,12 @@ td:not(#timetable_time):hover{
   margin-right: 0.3vw;
 }
 
-.button_container .friend_profile_follow{
+#follow{
   background: linear-gradient(to bottom right, #00d4ff, #003fff);
+}
+
+#unfollow{
+  background: linear-gradient(to bottom right, #FE2E2E, #B40404);
 }
 
 .button_container .friend_profile_message{

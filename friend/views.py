@@ -32,6 +32,7 @@ class FriendProfileView(LoginRequiredMixin,View):
 
         """フレンドプロフィールデータ取得"""
         friend_profile_data = Users.objects.values(
+                                        'user_id',
                                         'university',
                                         'last_name',
                                         'first_name',
@@ -48,7 +49,6 @@ class FriendProfileView(LoginRequiredMixin,View):
                                         'sns_link_twitter',
                                         'sns_link_instagram',
                                         'sns_link_facebook',
-                                        'email',
                                         ).get(user_id = self.kwargs['friend_id'])
 
         friend_profile_data = {key : value for key, value in friend_profile_data.items() if value is not None}
@@ -60,6 +60,10 @@ class FriendProfileView(LoginRequiredMixin,View):
 
         except:
             pass
+
+        follows = Follows.objects.filter(followee_id = request.user.user_id,follower_id = friend_id)
+
+        print(follows)
 
 
         friend_followee = Follows.objects.filter(followee_id = friend_id).values_list('follower_id',flat=True)
@@ -85,6 +89,7 @@ class FriendProfileView(LoginRequiredMixin,View):
             'friend_profile_data' : friend_profile_data,
             'friend_friend_list': friend_friend_list,
             'timetable':list(timetable_data),
+            'follows':follows,
         }
 
         return render(request,'friend_profile.html',context)

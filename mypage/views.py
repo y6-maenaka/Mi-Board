@@ -130,6 +130,7 @@ def add_room_timetable(request,room_id,**kwargs):
     if not room_id in joining_room_list:
         change_relation = RoomJoining(user_id = request.user.user_id,room_id = room_id)
         change_relation.save()
+        print('success')
 
     return redirect('mypage:mypage',request.user.user_id)
 

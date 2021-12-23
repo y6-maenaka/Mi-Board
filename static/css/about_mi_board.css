@@ -1,0 +1,129 @@
+body{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+#mi_board_logo img{
+  width: 4.5vmax;
+  height: 4.5vmax;
+  box-shadow: 0 0 4px gray;
+  border-radius: 20px;
+}
+
+#mi_board_logo a{
+  margin: 0 0.8vw;
+  background: linear-gradient(to bottom right, #009fe6, #0866ad);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+#mi_board_logo{
+  margin: 4vh;
+}
+
+
+h2{
+  font-weight: bold;
+  margin-top: 3vh;
+  font-size:1.2rem;
+}
+
+h4{
+  font-size: 1rem;
+}
+
+.func_intro{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 12vh 0;
+}
+
+
+.func_image{
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 0 0 4px gray;
+}
+
+.intro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro p{
+  text-align: center;
+  margin: 0 0.3vw;
+}
+
+.extra_image{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+#main{
+  margin: 5vh 0;
+  width: 65%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#main #mi_board_logo{
+  display: flex;
+  align-items: center;
+}
+
+
+#environment{
+  display: flex;
+  align-items: center;
+  width: 45%;
+  justify-content: space-around;
+}
+
+#start_mi_board{
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+  margin-top: 12vh;
+}
+
+#start_mi_board:hover{
+  text-decoration: underline;
+}
+
+#start_mi_board_attention{
+  line-height: 0;
+  font-size: 0.6rem;
+  margin-bottom: 8vh;
+}
+
+#environment_guide{
+  margin-top: 20vh;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul h3{
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+li p{
+  font-size: 0.7rem;
+  text-align: center;
+}

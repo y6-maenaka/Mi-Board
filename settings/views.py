@@ -63,3 +63,10 @@ class ChangeRoomNameView(LoginRequiredMixin,View):
 
 
 change_room_name = ChangeRoomNameView.as_view()
+
+
+class AboutMiBoardView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'about_mi_board.html')
+
+about_mi_board = AboutMiBoardView.as_view()

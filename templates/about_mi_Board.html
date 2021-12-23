@@ -1,0 +1,102 @@
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  <title>About Mi-Board</title>
+  <link rel='stylesheet' type='text/css' href="{% static 'css/about_mi_board.css' %}" />
+  <link rel="icon" type="image/png" href="{% static 'image/mi-board-logo.png' %}">
+</head>
+
+<body>
+  <div id='main'>
+    <div id='mi_board_logo'>
+      <img src="{% static 'image/mi-board-logo.png' %}"><a href='{% url "accounts:login" %}'>Mi-Board</a>
+    </div>
+    <h2>Mi-Boardとは</h2>
+    <p>Mi-Board(マイボード)は宮崎大学生専用に製作したアプリケーションです</p>
+
+    <div class='func_intro'>
+      <img src="{% static 'image/about_mi_baord_timetable.png' %}" class='func_image'>
+      <div class='intro'>
+      <h4>Mi時間割</h4>
+      <p>自分の時間割をMi-Board上で<br>講義アイコンをクリックすることで専用ページに移動<br>
+      時間割は半年に１回自動リフレッシュ</p>
+      </div>
+    </div>
+
+    <div class='func_intro'>
+      <div class='intro'>
+      <h4>オンラインファイル管理(ストレージ)</h4>
+      <p>講義ファイルや資料をオンライン上で管理<br>
+      　　スマホからでもパソコンからでもアクセス可能<br>
+          友達へのファイル送信もワンタッチで</p>
+      </div>
+      <img src="{% static 'image/about_mi_board_stoppo.png' %}" class='func_image'>
+    </div>
+
+    <div class='func_intro'>
+      <img src="{% static 'image/about_mi_board_board.png' %}" class='func_image'>
+      <div class='intro'>
+        <h4>レポート、課題共有(Q&A)</h4>
+        <p>分からない課題や過去問題の収集、学校生活の悩みなど何でも投稿<br>
+        　　実名・匿名を選択することでプライバシー保護も</p>
+      </div>
+    </div>
+
+    <div class='func_intro'>
+      <div class='intro'>
+        <h4>友達検索・フォロー</h4>
+        <p>Mi-Boardで友達をフォローできる<br>友達にフォローされると時間割を見れる</p>
+      </div>
+      <img src="{% static 'image/about_mi_board_friend_profile.png' %}" class='func_image'>
+    </div>
+
+    <div class='func_intro'>
+      <img src="{% static 'image/about_me_board_room.png' %}" class='func_image'>
+      <div class='intro'>
+        <h4>講義・学外活動ルーム</h4>
+        <p>講義・学外活動専用ルームで匿名チャット<br>分からない問題や過去問の収集もここで<br>
+        関連のある投稿は一覧表示される</p>
+      </div>
+    </div>
+
+    <div class='func_intro'>
+      <div class='intro'>
+        <h4>チャット</h4>
+        <p>高速なチャット機能を提供</p>
+      </div>
+      <img src="{% static 'image/about_mi_board_personal_chat.png' %}" class='func_image'>
+    </div>
+
+
+    <a id='start_mi_board' href='{% url "accounts:login" %}'>Mi-Boardを始めましょう</a>
+    <p id='start_mi_board_attention'>登録には宮崎大学学生専用メールアドレスが必要です</p>
+
+
+    <h2 id='environment_guide'>開発環境</h2>
+    <div id='environment'>
+      <ul>
+        <h3>Application Side</h3>
+          <li><p>Python(Django)</p></li>
+          <li><p>HTML</p></li>
+          <li><p>CSS</p></li>
+          <li><p>JavaScript(jquery)</p></li>
+          <li><p>SQL(MySQL)</p></li>
+          <li><p>Swift近日公開(IOS版)</p></li>
+      </ul>
+
+
+    <ul>
+    <h3>Server Side</h3>
+      <li><p>AWS(EC2)(Server)</p></li>
+      <li><p>Amazon Linux 2(OS)</p></li>
+      <li><p>MuuMuuDomain(Domain)</p></li>
+      <li><p>Nginx(Reverse Proxy)</p></li>
+      <li><p>gunicorn(Http/Https)</p></li>
+      <li><p>Daphne(Websocket)</p></li>
+    </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -40,7 +40,7 @@
 
       <ul class='friend-profile-parts-right_container'>
         {% for key,value in friend_profile_data.items %}
-        {% if  key != 'user_icon_image' and key != 'user_background_image' and key != 'university' and key != 'first_name' and key != 'last_name' %}
+        {% if  key != 'user_icon_image' and key != 'user_background_image' and key != 'university' and key != 'first_name' and key != 'last_name' and key != 'user_id' %}
         <li class='friend_profile_item'>
           {{ value }}
         </li>

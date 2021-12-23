@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  top:80px;
 }
 
 .stoppo_item{
@@ -35,7 +36,7 @@
 
 #welcome_message a{
   font-size: 2vw;
-  background: linear-gradient(to bottom right, #00d4ff, #003fff);
+  background: linear-gradient(#009fe6, #0866ad);
   -webkit-background-clip: text;
   color: transparent;
   font-weight: bold;
@@ -113,7 +114,7 @@
 #new_directory_name_guide{
   font-size: 1vw;
   text-align: center;
-  background: linear-gradient(to bottom right, #00d4ff, #003fff);
+  background: linear-gradient(#009fe6, #0866ad);
   -webkit-background-clip: text;
   color: transparent;
   font-weight: bold;
@@ -141,7 +142,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, #2E9AFE, #A9E2F3);
+  background: linear-gradient(#009fe6, #0866ad);
   color: #ffffff;
   font-weight: bold;
 }
@@ -416,7 +417,7 @@
 #back_btn{
   width: 50%;
   margin: 0.6vh;
-  background: linear-gradient(to bottom right, #00d4ff, #003fff);
+  background: linear-gradient(#009fe6, #0866ad);
   opacity: 0.8;
   border-radius: 10px;
   box-shadow: 0 0 4px #D1D1D1;

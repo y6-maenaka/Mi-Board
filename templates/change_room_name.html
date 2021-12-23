@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> SETTINGS | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/change_room_name.css' %}" />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <form action='{% url "settings:change_room_name" room_id %}' method='POST' enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form}}
+  <button type='submit'>変更</button>
+  </form>
+
+  {% endblock %}
+</body>
+</html>

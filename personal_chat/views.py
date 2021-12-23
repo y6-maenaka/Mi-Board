@@ -32,7 +32,6 @@ personal_chat = PersonalChatView.as_view()
 def add_talker(request):
     """新しくチャットを開始する人を探す場合"""
     if request.method == 'GET':
-        print('here is add_talker get page')
         yet_talker_owner = list(PersonalChatLayerGroup.objects.filter(owner_user_id = request.user.user_id).values_list('invited_user_id',flat=True))
         yet_talker_inviter = list(PersonalChatLayerGroup.objects.filter(invited_user_id=request.user.user_id).values_list('owner_user_id',flat=True))
 

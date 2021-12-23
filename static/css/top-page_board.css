@@ -135,7 +135,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, #00d4ff, #003fff);
+  background: linear-gradient(#009fe6, #0866ad);
   /* background: linear-gradient(to bottom right, #00d4ff, #D8D8D8); */
   opacity: 0.8;
   border-radius: 15px;

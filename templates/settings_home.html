@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> Settings | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/discover_friend.css' %}" />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <h2>管理者ページ</h2>
+  <a href='{% url "settings:settings_room" %}'>ルーム情報変更</a>
+
+  {% endblock %}
+</body>
+</html>

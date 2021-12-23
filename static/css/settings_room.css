@@ -1,0 +1,45 @@
+
+
+.room_card_link{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+li{
+  background-color: #ffffff;
+  margin: 0.7vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.2vh 0.5vw;
+  border-radius: 5px;
+}
+
+.room_card_link *{
+  margin: 0;
+  padding: 0
+}
+
+
+img{
+  width: 2vmax;
+  height: 2vmax;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+h3{
+  font-size: 0.8vw;
+}
+
+p{
+  font-size: 0.65vw;
+}
+
+.main_content{
+  top:70px;
+}

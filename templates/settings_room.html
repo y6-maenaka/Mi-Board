@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> SETTINGS | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/settings_room.css' %}" />
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <h2 style='text-align:center;'>Developer Only</h2>
+
+  <ul>
+  {% for room in room_list %}
+    <li><p>{{room.room_id}} | {{room.work_time}} | {{room.week_at}}</p>
+      <a href='{% url "settings:change_room_name" room.room_id %}' class='room_card_link'><img src='/media/{{room.room_image}}'><h3 style='margin-left:1vw;'>{{room.room_name}}</h3></a></li>
+  {% endfor %}
+  </ul>
+
+  {% endblock %}
+</body>
+</html>

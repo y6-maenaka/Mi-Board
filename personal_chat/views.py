@@ -85,4 +85,5 @@ def get_message(request,friend_id):
         #message_tableが大きくなるのでjoinでは遅くなる
         group_name = PersonalChatLayerGroup.objects.get(Q(invited_user_id=talker_id,owner_user_id=request.user.user_id)|Q(invited_user_id=request.user.user_id,owner_user_id=talker_id))
         message_list = Message.objects.filter(group_name_id=group_name).values('message','send_by','send_user_id')
+
     return JsonResponse({'message_list':list(message_list),'talker_data':list(talker_data)})

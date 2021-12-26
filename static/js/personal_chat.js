@@ -89,9 +89,9 @@ $(function(){
       success:function(response){
         for(var key in response.message_list){
           if(response.message_list[key].send_user_id ==$('#user_id_message').val()){
-            var yet_message = '<div class="message_container_me message_container"><p class="message_me message" >'+response.message_list[key].message+'</p></div>'
+            var yet_message = '<div class="message_container_me message_container"><p class="message_me message" >'+response.message_list[key].message+'</p></div><p class="send_by_me">'+response.message_list[key].send_by+'</p>'
           }else{
-            var yet_message = '<div class="message_container_friend message_container" ><p class="message_friend message" >'+response.message_list[key].message+'</p></div>'
+            var yet_message = '<div class="message_container_friend message_container" ><p class="message_friend message" >'+response.message_list[key].message+'</p></div><p class="send_by_friend">'+response.message_list[key].send_by+'</p>'
           }
           $('#message_display_area').append(yet_message).trigger('create');
         }

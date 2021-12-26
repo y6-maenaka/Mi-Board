@@ -46,16 +46,20 @@ $(function(){
     'ws://'+window.location.hostname+
     ':8001/ws/notification/');
 
+
     notificationSocket.onmessage = function(e){
       var data = JSON.parse(e.data);
-      if(data['send_user_id'] == $('notification_user_id').val()){
+      if(data['send_user_id'] == $('#notification_user_id').val()){
         console.log('')
       }else{
-      var notification = '<div class="notification_card"><p>'+data.notification_detail+'</p><h1>新しいメッセージがあります</h1></div>'
+      var notification = '<div class="notification_card"><p>From '+data.notification_detail+'</p><h1>新しいメッセージがあります</h1><img class="notification_logo" src="/static/image/mi-board-logo.png"></div>'
+      setTimeout(() => {
+        $('.notification_card').fadeOut(100)
+        // $('.notification_area').empty();
+      }, 4000);
     }
-      $('.notification_card').empty()
-      $(window).append(notification).trigger('create')
-      $('.notification_area').animate({'top':'100px'},500)
+
+    $('.notification_area').append(notification)
 
     }
 

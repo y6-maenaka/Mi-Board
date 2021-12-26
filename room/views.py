@@ -8,6 +8,7 @@ from django.http import HttpResponse,JsonResponse
 from django.db import connection
 from accounts.models import Users
 from board.models import Boards
+from django.utils import timezone
 # Create your views here.
 
 @login_required
@@ -28,6 +29,15 @@ class RoomView(LoginRequiredMixin,View):
         room_joining_user_list = RoomJoining.objects.filter(room_id = self.kwargs['room_id']).exclude(user_id = request.user.user_id)
 
         related_board_list = Boards.objects.filter(related_room_id = self.kwargs['room_id']).order_by('created_at').reverse()
+
+        try:
+            update_last_access = RoomJoining.objects.get(room_id = self.kwargs['room_id'],user_id = request.user.user_id)
+            update_last_access.last_access = timezone.now()
+            update_last_access.save()
+
+        except:
+            pass
+
 
         context = {
             'room_data':room_data,

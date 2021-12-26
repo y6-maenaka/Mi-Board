@@ -44,6 +44,8 @@ class Rooms(models.Model):
         null = True,
     )
 
+    last_update = models.DateTimeField(default=timezone.now)
+
 class RoomJoining(models.Model):
     class Meta:
         db_table = 'room_joining'
@@ -52,6 +54,7 @@ class RoomJoining(models.Model):
     room = models.ForeignKey(Rooms,on_delete = models.CASCADE,related_name='joining_room_id')
     user = models.ForeignKey(Users,on_delete = models.CASCADE,related_name='joining_user_id')
     spot_id = models.IntegerField(null=True)
+    last_access = models.DateTimeField(null=True,default=timezone.now)
 
 
 class RoomMessage(models.Model):

@@ -3,7 +3,7 @@ from django.views import View
 from accounts.models import Users, Follows
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, JsonResponse
-from room.models import Rooms,RoomJoining
+from room.models import Rooms,RoomJoining,RoomMessage
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 import re
@@ -33,7 +33,6 @@ class MypageView(LoginRequiredMixin,View):
             timetable_data[index]['room_image'] = str(element.room.room_image)
 
 
-
         '''レコメンドボード情報取得'''
         try:
             base_user = request.user.user_id
@@ -52,11 +51,25 @@ class MypageView(LoginRequiredMixin,View):
         room_list = list(Rooms.objects.filter(room_id__in =my_joining_room).values('room_id','room_name','room_image'))[0:8]
 
 
+        unread_room_list = []
+        for _ in timetable_data:
+            last_update = Rooms.objects.get(room_id = _['room_id'])
+            try:
+                last_access = RoomJoining.objects.get(room_id = _['room_id'],user_id = request.user.user_id)
+
+                tmp = last_access.last_access - last_update.last_update
+                if (tmp.total_seconds() < 0):
+                    unread_room_list.append(_['room_id'])
+
+            except:
+                print('=============')
+
         context = {
             'friend_list' : friend_list,
             'room_list':room_list,
             'recommend_board_list':recommend_board_list,
             'timetable':list(timetable_data),
+            'unread_room_list':unread_room_list,
         }
 
         return render(request,'mypage.html',context)
@@ -130,8 +143,6 @@ def add_room_timetable(request,room_id,**kwargs):
     if not room_id in joining_room_list:
         change_relation = RoomJoining(user_id = request.user.user_id,room_id = room_id)
         change_relation.save()
-        print('success')
-
     return redirect('mypage:mypage',request.user.user_id)
 
 

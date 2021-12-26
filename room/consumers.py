@@ -1,9 +1,9 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
-from room.models import Rooms
+from room.models import Rooms,RoomMessage
 from channels.db import database_sync_to_async
-from room.models import RoomMessage
 import asyncio
+from django.utils import timezone
 
 class RoomChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -41,6 +41,7 @@ class RoomChatConsumer(AsyncWebsocketConsumer):
         send_user_id = text_data_json['send_user']
 
         await self.store_message(message,send_user_id,self.group_name)
+        await self.update_room(self.group_name)
 
 
         # Send message to room group
@@ -60,6 +61,7 @@ class RoomChatConsumer(AsyncWebsocketConsumer):
         message = event['message']
         send_user_id = event['send_user_id']
 
+
         # Send message to WebSocket
         await self.send(text_data=json.dumps({
             'message': message,
@@ -70,3 +72,9 @@ class RoomChatConsumer(AsyncWebsocketConsumer):
     def store_message(self,message,send_user_id,group_name):
         new_message = RoomMessage(message=message,send_user_id=send_user_id,room_id=group_name)
         new_message.save()
+
+    @database_sync_to_async
+    def update_room(self,group_name):
+        update_room = Rooms.objects.get(room_id = group_name)
+        update_room.last_update = timezone.now()
+        update_room.save()

@@ -19,6 +19,12 @@ img{
   object-fit: cover;
 }
 
+.notification_image{
+  width: 2vmax;
+  height: 2vmax;
+  border-radius: 20px;
+}
+
 
 button{
   cursor:pointer
@@ -145,7 +151,7 @@ p{
 }
 
 .notification_card{
-  width: 90%;
+  width: 70%;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -154,10 +160,19 @@ p{
   box-shadow: 0 0 8px gray;
   justify-content: center;
   padding: 1vh 2vw 1vh 2vw;
+  position: relative;
 }
 
 .notification_card > h1{
   font-size: 0.7vw;
+}
+
+.notification_logo{
+  position: absolute;
+  top: 10%;
+  right: 3%;
+  width: 1.2vmax;
+  height: 1.2vmax;
 }
 
 .menu_user{

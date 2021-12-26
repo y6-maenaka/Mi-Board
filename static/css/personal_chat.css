@@ -275,6 +275,18 @@
   font-size: 0.75vw;
 }
 
+.send_by_me{
+  font-size: 0.4vw;
+  width:95%;
+  text-align: end;
+}
+
+.send_by_friend{
+  font-size: 0.4vw;
+  width:95%;
+  text-align: start;
+}
+
 .message_container_friend{
   width:95%;
   margin: 1vh 0 1vh 0;

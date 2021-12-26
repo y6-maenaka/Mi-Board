@@ -117,8 +117,6 @@
 
   </table>
 
-
-
   <div class='friend_room_container'>
 
       <ul class='friend_room_list_container'>
@@ -175,12 +173,21 @@
 <script>
 
   var timetable = {{timetable|safe}}
+  var unread_room_list = {{unread_room_list|safe}}
 
   for(var key in timetable){
     if(timetable[key].room_image){
+      if(unread_room_list.includes(timetable[key].room_id)){
+        var timetable_room_card = '<div class="spot_container room_unread"><a href="/room/'+timetable[key].room_id+'/" class="link_container_room_image"><img src="/media/'+timetable[key].room_image+'" class="timetable_room_icon"></a><a class="link_container_room_name" href="/room/'+timetable[key].room_id+'/">'+timetable[key].room_name+'</a></div>'
+      }else{
         var timetable_room_card = '<div class="spot_container"><a href="/room/'+timetable[key].room_id+'/" class="link_container_room_image"><img src="/media/'+timetable[key].room_image+'" class="timetable_room_icon"></a><a class="link_container_room_name" href="/room/'+timetable[key].room_id+'/">'+timetable[key].room_name+'</a></div>'
+      }
     }else{
+      if(unread_room_list.includes(timetable[key].room_id)){
+        var timetable_room_card = '<div class="spot_container room_unread"><a href="/room/'+timetable[key].room_id+'/" class="link_container_room_image"><img src="/media/'+timetable[key].room_image+'" class="timetable_room_icon"></a><a class="link_container_room_name" href="/room/'+timetable[key].room_id+'/">'+timetable[key].room_name+'</a></div>'
+      }else{
         var timetable_room_card = '<div class="spot_container"><a href="/room/'+timetable[key].room_id+'/" class="link_container_room_image"><img src="{% static "image/room.svg" %}" class="timetable_room_icon"></a><a class="link_container_room_name" href="/room/'+timetable[key].room_id+'/">'+timetable[key].room_name+'</a></div>'
+      }
     }
     $('#'+timetable[key].spot).append(timetable_room_card)
   }

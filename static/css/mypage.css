@@ -590,6 +590,14 @@ td:not(#timetable_time):hover{
   background-color: #E1E1E1;
 }
 
+.room_unread{
+  border-top: solid 2px #009fe6;
+  border-right: solid 2px #0866ad;
+  border-bottom: solid 2px #0866ad;
+  border-left: solid 2px #009fe6;
+  border-radius: 15px;
+}
+
 
 @media(max-width: 480px){
   .main_content{

@@ -8,7 +8,8 @@ from recommend_system.models import BrowsingHistory,SearchHistory
 from recommend_system import views as recommend_system
 from accounts.models import Users
 from django.db.models import Q
-from room.models import RoomJoining
+from room.models import RoomJoining,Rooms
+from django.utils import timezone
 # Create your views here.
 
 class TopPageBoardView(LoginRequiredMixin,View):
@@ -181,6 +182,11 @@ def post_board(request):
                                     university = request.user.university)
 
         create_board_data.save()
+
+        if new_board_data['related_room']:
+            update_room = Rooms.objects.get(room_id = new_board_data['related_room'])
+            update_room.last_update = timezone.now()
+            update_room.save()
 
 
 

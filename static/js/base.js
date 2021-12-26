@@ -42,19 +42,36 @@ $(function(){
   }
  }
 
+ Push.Permission.request();
+ var notification_sound = new Audio('/static/image/notification sound.mp3');
+
   var notificationSocket = new WebSocket(
-    'ws://'+window.location.hostname+
-    ':8001/ws/notification/');
+    'ws://'+window.location.host+
+    '/ws/notification/');
 
 
     notificationSocket.onmessage = function(e){
+      notification_sound.play();
+      notification_sound.currentTime = 0;
       var data = JSON.parse(e.data);
       if(data['send_user_id'] == $('#notification_user_id').val()){
         console.log('')
       }else{
+        Push.create('Mi-Board', {
+        　　body: ''+data.notification_detail+'から新しい通知があります',
+        　　icon: '/static/image/mi-board-logo.png',
+        　　timeout: 8000, // 通知が消えるタイミング
+        　　vibrate: [100, 100, 100], // モバイル端末でのバイブレーション秒数
+        　　onClick: function() {
+        　　　　// 通知がクリックされた場合の設定
+        　　　console.log(this);
+        　　}
+        });
+
       var notification = '<div class="notification_card"><p>From '+data.notification_detail+'</p><h1>新しいメッセージがあります</h1><img class="notification_logo" src="/static/image/mi-board-logo.png"></div>'
       setTimeout(() => {
         $('.notification_card').fadeOut(100)
+        notification_sound.pause();
         // $('.notification_area').empty();
       }, 4000);
     }

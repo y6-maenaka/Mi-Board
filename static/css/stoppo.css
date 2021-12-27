@@ -444,6 +444,86 @@
   width: 1.4vw;
 }
 
+#complete_share_file_bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.4);
+  z-index: 100;
+}
+
+#complete_share_file{
+  position: relative;
+  top:400px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow:hidden;
+  width:20vw;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7vh 0;
+}
+
+#file_size_over_alert_bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.4);
+  z-index: 100;
+}
+
+#file_size_over_alert{
+  position: relative;
+  top:400px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow:hidden;
+  width:20vw;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7vh 0;
+}
+
+#file_size_over_alert p{
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+#complete_share_file p{
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+#total_file_size{
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+#total_file_size meter{
+  flex:1;
+  height: 2.5vh;
+}
+
+#total_file_size p{
+  font-size: 0.5vw;
+  font-weight: bold;
+}
+
 @media(max-width: 990px){
   .main_content{
     width: 90%;

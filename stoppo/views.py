@@ -17,10 +17,22 @@ class StoppoView(LoginRequiredMixin,View):
         upload_file_list = UploadFile.objects.filter(upload_user_id = request.user.user_id,is_root=True)
         address_list = Follows.objects.filter(followee_id = request.user.user_id)
 
+        all_upload_file = UploadFile.objects.filter(upload_user_id = request.user.user_id).values_list('file_size',flat=True)
+
+        total_file_size = 0
+        for _ in all_upload_file:
+            try:
+                total_file_size = total_file_size + int(_)
+            except:
+                pass
+
+        print(total_file_size)
+
         context = {
             'directory_list':directory_list,
             'address_list':address_list,
             'upload_file_list':upload_file_list,
+            'total_file_size':total_file_size,
         }
 
 
@@ -50,13 +62,19 @@ def store_file(request):
     if request.method == 'POST':
 
         root,extension = os.path.splitext(str(request.FILES['upload_file']))
+        print('uploaded file size is',request.POST['upload_file_size'])
+
+
+        if int(request.POST['upload_file_size']) >= 52428800:
+            response = HttpResponse(status=500) # ステータスコードに500を指定
+            return response
         try:
 
-            upload_file = UploadFile(upload_user_id = request.user.user_id,upward_directory_id = request.POST['upward_directory_id'],file = request.FILES['upload_file'],file_name=str(request.FILES['upload_file']),extension=extension)
+            upload_file = UploadFile(upload_user_id = request.user.user_id,upward_directory_id = request.POST['upward_directory_id'],file = request.FILES['upload_file'],file_name=str(request.FILES['upload_file']),extension=extension,file_size=request.POST['upload_file_size'])
             upload_file.save()
 
         except:
-            upload_file = UploadFile(upload_user_id = request.user.user_id,is_root = True,file = request.FILES['upload_file'],file_name=str(request.FILES['upload_file']),extension=extension)
+            upload_file = UploadFile(upload_user_id = request.user.user_id,is_root = True,file = request.FILES['upload_file'],file_name=str(request.FILES['upload_file']),extension=extension,file_size=request.POST['upload_file_size'])
             upload_file.save()
 
     return HttpResponse('')

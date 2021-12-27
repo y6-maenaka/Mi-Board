@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="{% static 'image/mi-board-logo.png' %}">
 </head>
 
-<body>
+<body> 
   <div id='main'>
     <div id='mi_board_logo'>
       <img src="{% static 'image/mi-board-logo.png' %}"><a href='{% url "accounts:login" %}'>Mi-Board</a>
@@ -77,21 +77,27 @@
     <h2 id='environment_guide'>開発環境</h2>
     <div id='environment'>
       <ul>
-        <h3>Application Side</h3>
-          <li><p>Python(Django)</p></li>
+          <h3>App</h3>
+          <li><p>Django</p></li>
+          <li><p>MySQL(main database)</p></li>
+          <li><p>Redis(channels backend)</p></li>
+      </ul>
+
+
+      <ul>
+        <h3>Languages</h3>
+          <li><p>Python</p></li>
           <li><p>HTML</p></li>
           <li><p>CSS</p></li>
           <li><p>JavaScript(jquery)</p></li>
-          <li><p>SQL(MySQL)</p></li>
           <li><p>Swift近日公開(IOS版)</p></li>
       </ul>
 
 
     <ul>
-    <h3>Server Side</h3>
-      <li><p>AWS(EC2)(Server)</p></li>
-      <li><p>Amazon Linux 2(OS)</p></li>
-      <li><p>MuuMuuDomain(Domain)</p></li>
+    <h3>Infra</h3>
+      <li><p>AWS(EC2)</p></li>
+      <li><p>Amazon Linux 2</p></li>
       <li><p>Nginx(Reverse Proxy)</p></li>
       <li><p>gunicorn(Http/Https)</p></li>
       <li><p>Daphne(Websocket)</p></li>

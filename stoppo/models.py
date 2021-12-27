@@ -53,6 +53,8 @@ class UploadFile(models.Model):
 
     extension = models.CharField(max_length=10,null=True)
 
+    file_size = models.BigIntegerField(null=True)
+
 class ShareFile(models.Model):
     class Meta:
         db_table = 'share_file'

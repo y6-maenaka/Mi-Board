@@ -53,6 +53,11 @@
 
   <a href='javascript:void(0);' id='back_btn'>戻る</a>
 
+  <div id='total_file_size'>
+  <meter value="{{total_file_size}}" max="3221225472" min="0">50%</meter>
+  <p>{{total_file_size}}/3221225472byte(3GB)</p>
+  </div>
+
   <div id='stoppo_action_container'>
     <a href='{% url "stoppo:share_box" user.user_id %}' id='go_share_item_page_btn'><img src='{% static "image/guide_share_item.png" %}' class='action_guide_image'>シェアファイル確認</a>
     <form method="post" id='store_file_form' enctype="multipart/form-data">
@@ -102,6 +107,18 @@
       <a href='javascript:void(0);' id='detaile_link'>削除</a>
     </div>
     <input type='hidden' value='' id='selecting_file_id'>
+  </div>
+</div>
+
+<div id='complete_share_file_bg'>
+  <div id='complete_share_file'>
+    <p>ファイルは正常にシェアされました</p>
+  </div>
+</div>
+
+<div id='file_size_over_alert_bg'>
+  <div id='file_size_over_alert'>
+    <p>アップロードしようとしたファイルが大きすぎます。<br>50MB以内のファイルのみアップロードできます。</p>
   </div>
 </div>
 
@@ -159,13 +176,22 @@
       }
 
     $('#upload_file').change(function(e){
+      let upload_file_info = $(this).prop('files')[0]
       e.preventDefault();
+      if(upload_file_info.size > 52428800){
+        $('#file_size_over_alert_bg').fadeIn(100)
+        setTimeout(() => {
+            $('#file_size_over_alert_bg').fadeOut(250);
+        }, 4000);
+        return
+      }
       var url = new URL(window.location.href);
       var params = url.pathname.split('/');
       var upward_directory_id = params.slice(-2)[0]
       var upload_file = new FormData($('#store_file_form').get(0));
       upload_file.append("csrfmiddlewaretoken", "{{ csrf_token }}");
       upload_file.append('upward_directory_id',upward_directory_id)
+      upload_file.append('upload_file_size',upload_file_info.size)
       $.ajax({
         method:'POST',
         url:'/stoppo/store_file/',

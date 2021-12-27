@@ -60,6 +60,11 @@ h4{
 .intro p{
   text-align: center;
   margin: 0 0.3vw;
+  font-size: 0.8vw;
+}
+
+.explanation{
+  font-weight: bold; 
 }
 
 .extra_image{
@@ -86,7 +91,7 @@ h4{
 
 #environment{
   display: flex;
-  align-items: center;
+  align-items:stretch;
   width: 45%;
   justify-content: space-around;
 }
@@ -111,6 +116,7 @@ h4{
 #environment_guide{
   margin-top: 20vh;
 }
+
 
 ul{
   list-style: none;

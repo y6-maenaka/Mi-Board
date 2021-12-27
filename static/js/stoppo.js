@@ -3,6 +3,8 @@ $(function(){
   $('#create_directory_bg').hide()
   $('#select_address_bg').hide()
   $('#setting_file_bg').hide()
+  $('#complete_share_file_bg').hide()
+  $('#file_size_over_alert_bg').hide()
 
   $('#create_directory_btn').click(function(){
     $('#create_directory_bg').fadeIn(300);
@@ -185,7 +187,10 @@ $(function(){
         'share_directory_id':share_directory_id,
       },
       success:function(response){
-        console.log('success')
+        $('#complete_share_file_bg').fadeIn(100);
+        setTimeout(() => {
+            $('#complete_share_file_bg').fadeOut(250);
+        }, 500);
       },
       error:function(response){
         console.log('error')

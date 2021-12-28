@@ -56,6 +56,15 @@ $(function(){
    })
  })
 
+ $(document).on('click',function(e) {
+    if(!$(e.target).closest('#notification_box').length && $(e.target).closest('#notification_box_bg').length) {
+      // ターゲット要素の外側をクリックした時の操作
+      $('#notification_box_bg').fadeOut(300)
+    } else {
+      // ターゲット要素をクリックした時の操作
+    }
+ });
+
  Push.Permission.request();
  var notification_sound = new Audio('/static/image/notification_sound.mp3');
 

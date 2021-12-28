@@ -7,6 +7,7 @@ $(function(){
 
 
 
+    $('#notification_box_bg').hide()
 
   var url = new URL(window.location.href);
   var params = url.pathname.split('/')[1];
@@ -41,6 +42,19 @@ $(function(){
     //   break;
   }
  }
+ $('#notification_bell').click(function(){
+   $('#notification_box_bg').fadeIn(200)
+   $.ajax({
+     type:'GET',
+     url:'/notification/checked_notification/',
+     success:function(response){
+       console.log('checked')
+     },
+     error:function(response){
+       console.log('error chekced')
+     }
+   })
+ })
 
  Push.Permission.request();
  var notification_sound = new Audio('/static/image/notification_sound.mp3');

@@ -53,12 +53,56 @@
   </main>
 
 
-
+<div id='notification_box_bg'>
+  <ul id='notification_box'>
+    <p>新しい通知</p>
+  </ul>
+</div>
 
   <div class='notification_area'>
 
   </div>
   <input type='hidden' value={{user.user_id}} id='notification_user_id'>
 
+  <div id='notification_container'>
+    <img src="/static/image/notification_on.png" id="notification_bell">
+    <p id='notification_message'>新しい通知があります</p>
+  </div>
+
+  <script>
+    $.ajax({
+      type:'GET',
+      url:'/notification/get_notification/',
+      success:function(response){
+        if(response.length === 0){
+          $('#notification_message').hide()
+          $('#notification_bell').attr('src','/static/image/notification_off.png')
+          var notification_card = "<h2 class='nothing_notification'>新しい通知はありません</h2>"
+          $('#notification_box').append(notification_card).trigger('create')
+        }else{
+          for(var key in response){
+            switch(response[key]['fields']['type']){
+              case "personal_chat":
+                var notification_card = "<li class='notification_item'><a href='/personal_chat/'><div class='notification_from'><img src='/static/image/message.png' class='notification_image'><h2>"+response[key]['fields']['display_name']+"</h2></div><p class='notification_detail'>"+response[key]['fields']['detail']+"</p></a></li>"
+                break;
+              case "room_chat":
+                var notification_card = "<li class='notification_item'><a href='/room/"+response[key]['fields']['room']+"'><div class='notification_from'><img src='/static/image/room.png' class='notification_image'><h2>"+response[key]['fields']['display_name']+"</h2></div><p class='notification_detail'>"+response[key]['fields']['detail']+"</p></a></li>"
+                break;
+              case "related_board":
+                var notification_card = "<li class='notification_item'><a href='/room/"+response[key]['fields']['room']+"'><div class='notification_from'><img src='/static/image/board.png' class='notification_image'><h2>"+response[key]['fields']['display_name']+"</h2></div><p class='notification_detail'>新しい投稿があります</p></a></li>"
+                break;
+              case "share_file":
+                var notification_card = "<li class='notification_item'><a href='/stoppo/{{user.user_id}}/share_box/'><div class='notification_from'><img src='/static/image/stoppo.png' class='notification_image'><h2>"+response[key]['fields']['display_name']+"</h2></div><p class='notification_detail'>ファイルを受信しました</p></a></li>"
+                break;
+            }
+            $('#notification_box').append(notification_card).trigger('create')
+          }
+      }
+      },
+      error:function(response){
+        console.log('error')
+      }
+    })
+  </script>
 </body>
 </html>

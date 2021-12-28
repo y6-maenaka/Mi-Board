@@ -6,6 +6,7 @@ from django.db.models import Q
 from accounts.models import Users
 from personal_chat.models import Message
 from django.utils import timezone
+from notification.models import Notification
 
 class PersonalChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -35,6 +36,7 @@ class PersonalChatConsumer(AsyncWebsocketConsumer):
 
         await self.store_message(message,send_user_id,self.group_name)
         await self.last_update(self.group_name)
+        await self.add_notification(message)
 
         # Send message to room group
         await self.channel_layer.group_send(
@@ -59,6 +61,17 @@ class PersonalChatConsumer(AsyncWebsocketConsumer):
             'send_user_id':send_user_id,
         }))
 
+    @database_sync_to_async
+    def add_notification(self,message):
+        user_id = Users.objects.get(username=self.scope['user']).user_id
+
+        if str(user_id) == str(self.scope['url_route']['kwargs']['friend_id']):
+            return
+
+        display_name = Users.objects.get(user_id = user_id)
+
+        add_notification = Notification(receiver_id = self.scope['url_route']['kwargs']['friend_id'],partner_id=user_id,detail=message,type='personal_chat',display_name=f'{display_name.last_name}{display_name.first_name}')
+        add_notification.save()
 
     @database_sync_to_async
     def group_name(self):

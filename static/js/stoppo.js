@@ -189,7 +189,7 @@ $(function(){
       success:function(response){
         $('#complete_share_file_bg').fadeIn(100);
         setTimeout(() => {
-            $('#complete_share_file_bg').fadeOut(250);
+            $('#complete_share_file_bg').fadeOut(350);
         }, 500);
       },
       error:function(response){

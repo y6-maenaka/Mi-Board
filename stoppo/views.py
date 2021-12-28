@@ -8,6 +8,7 @@ import uuid
 from accounts.models import Follows
 import os
 import json
+from notification.models import Notification
 
 
 class StoppoView(LoginRequiredMixin,View):
@@ -106,6 +107,9 @@ def share_file(request):
         share_file_data = request.GET
         share_file = ShareFile(shared_file_id = share_file_data['share_directory_id'],receive_user_id=share_file_data['address'],send_user_id=request.user.user_id)
         share_file.save()
+
+        add_notification = Notification(receiver_id=share_file_data['address'],partner_id = request.user.user_id,type='share_file',display_name=f'{request.user.last_name}{request.user.first_name}')
+        add_notification.save()
         return HttpResponse('')
 
 

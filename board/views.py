@@ -10,6 +10,7 @@ from accounts.models import Users
 from django.db.models import Q
 from room.models import RoomJoining,Rooms
 from django.utils import timezone
+from notification.models import Notification
 # Create your views here.
 
 class TopPageBoardView(LoginRequiredMixin,View):
@@ -165,8 +166,6 @@ def post_board(request):
         except:
             new_board_data_image_file['attached_file'] = ''
 
-        print('=============')
-        print(new_board_data['related_room'])
 
         create_board_data = Boards(category = new_board_data['category'],
                                     title = new_board_data['title'],
@@ -188,7 +187,13 @@ def post_board(request):
             update_room.last_update = timezone.now()
             update_room.save()
 
-
+            display_name = Rooms.objects.get(room_id = new_board_data['related_room'])
+            joining_room_id_list = RoomJoining.objects.filter(room_id = new_board_data['related_room']).exclude(user_id = request.user.user_id).values_list('user_id',flat=True)
+            notification_list = []
+            for notification in list(joining_room_id_list):
+                add_notification = Notification(receiver_id=notification,room_id = new_board_data['related_room'],detail=new_board_data['title'],type='related_board',display_name=f'{display_name.room_name}')
+                notification_list.append(add_notification)
+            Notification.objects.bulk_create(notification_list)
 
         redirect_board_id = Boards.objects.get(posted_by_id=request.user.user_id,title = new_board_data['title'],content = new_board_data['content'],bet_points = new_board_data['bet_points']).board_id
 

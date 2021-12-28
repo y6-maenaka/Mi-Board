@@ -7,8 +7,6 @@ $(function(){
 
 
 
-    $('#notification_box_bg').hide()
-
   var url = new URL(window.location.href);
   var params = url.pathname.split('/')[1];
 
@@ -65,6 +63,9 @@ $(function(){
     }
  });
 
+ $('#notification_box_bg').hide()
+ $('#communication_state_unstable_bg').hide()
+
  Push.Permission.request();
  var notification_sound = new Audio('/static/image/notification_sound.mp3');
 
@@ -109,6 +110,7 @@ $(function(){
 
 
     notificationSocket.onclose = function(e){
+      $('#communication_state_unstable_bg').fadeIn(100)
       console.error('notification socket closed unexpectedly')
     }
 });

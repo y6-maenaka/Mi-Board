@@ -5,12 +5,49 @@ from room.models import Rooms
 from django.views.generic import ListView
 from .forms import ChangeRoomInfoForm
 from django.contrib.auth.decorators import login_required
+from .models import Report
+from accounts.models import Users
 
 # Create your views here.
 
 @login_required
 def settings_home(request):
     return render(request,'settings_home.html')
+
+class SendReportView(LoginRequiredMixin,View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'send_report.html')
+
+    def post(self,request,*args,**kwargs):
+        report = request.POST
+        store_report = Report(user_id=request.user.user_id,report=report['report'])
+        store_report.save()
+
+        context = {
+            'complete_send_report':'complete_send_report',
+        }
+
+        return render(request,'send_report.html',context)
+
+send_report = SendReportView.as_view()
+
+@login_required
+def list_report(request):
+    if request.method == 'GET':
+        list_report = Report.objects.all().order_by('created_at').reverse()
+        context = {
+            'list_report':list_report,
+        }
+        return render(request,'list_report.html',context)
+
+@login_required
+def list_user_info(request):
+    if request.method == 'GET':
+        list_user_info = Users.objects.all().exclude(user_id = request.user.user_id).order_by('created_at')
+        context = {
+            'list_user_info':list_user_info,
+        }
+        return render(request,'list_user_info.html',context)
 
 class SettingsRoomView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
@@ -67,6 +104,15 @@ change_room_name = ChangeRoomNameView.as_view()
 
 class AboutMiBoardView(View):
     def get(self,request,*args,**kwargs):
-        return render(request,'about_mi_board.html')
+        user_list = list(Users.objects.all().values_list('department',flat=True))
+        context = {
+            'engineering':int(user_list.count('工学部')),
+            'agriculture':int(user_list.count('農学部')),
+            'education':int(user_list.count('教育学部')),
+            'region':int(user_list.count('地域資源創生学部')),
+            'medicine':int(user_list.count('医学部')),
+            'total':int(len(user_list)),
+        }
+        return render(request,'about_mi_board.html',context)
 
 about_mi_board = AboutMiBoardView.as_view()

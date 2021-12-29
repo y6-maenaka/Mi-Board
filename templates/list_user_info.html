@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> LIST_USER_INFO | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/list_user_info.css' %}">
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <a href='{% url "settings:settings_home" %}'>セッティング画面に戻る</a>
+
+  <ul id='list_user_box'>
+  {% for user in list_user_info %}
+  <li>
+    <a style="font-size:1.2rem; font-weight:bold;" href='{% url "friend:friend_profile" user.user_id %}'>{{user.last_name}} {{user.first_name}}</a>
+    <p>user_id <span>{{user.user_id}}</span></p>
+    <p>username <span>{{user.username}}</span></p>
+    <p>user affiliation <span>{{user.university}}-{{user.department}}-{{user.division}}</span></p>
+    <p>created_at <span>{{user.created_at}}</span></p>
+    <p>points <span>{{user.points}}points</span></p>
+    <p>laboratory <span>{{user.laboratory}}</span></p>
+    <p>circle <span>{{user.circle}}</span></p>
+    <p>hometown <span>{{user.hometown}}</span></p>
+    <p>sns_link_twitter <span>{{user.sns_link_twitter}}</span></p>
+    <p>sns_link_facebook <span>{{user.sns_link_facebook}}</span></p>
+    <p>sns_link_instagram <span>{{user.sns_link_instagram}}</span></p>
+  </li>
+  {% endfor %}
+  </ul>
+
+  <style>
+    p{
+      font-size: 0.6rem;
+    }
+
+    #list_user_box li{
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin: 1vh 0.5vw;
+      box-shadow: 0 0 4px gray;
+      padding: 0.2vh 0.5vw;
+    }
+
+    span{
+      font-size: 0.9rem;
+      background: #E1E1E1;
+      border-radius: 5px;
+      padding: 0.1vh 0.3vw;
+    }
+  </style>
+  {% endblock %}
+</body>
+</html>

@@ -8,71 +8,109 @@
   <link rel="icon" type="image/png" href="{% static 'image/mi-board-logo.png' %}">
 </head>
 
-<body> 
+<body>
   <div id='main'>
     <div id='mi_board_logo'>
       <img src="{% static 'image/mi-board-logo.png' %}"><a href='{% url "accounts:login" %}'>Mi-Board</a>
     </div>
     <h2>Mi-Boardとは</h2>
-    <p>Mi-Board(マイボード)は宮崎大学生専用に製作したアプリケーションです</p>
+    <p style='text-align:center;'>Mi-Board(マイボード)は宮崎大学の学生向けに製作したアプリケーションです。
+      <br>宮崎大学の学生の大学生活が充実するように便利な機能を実装してリリースしました。
+      <br>Mi-Boardは便利ツール、コミュニケーションツール、その他様々な用途でお使いいただけます。
+      <br><span style='font-size:0.6rem;'>※Mi-Boardを利用するには宮崎大学学生専用メールアドレスが必要です。</span></p>
+
+    <div id='numver_of_user_container'>
+      <h2>現在のユーザー数</h2>
+      <ul id='number_of_user'>
+        <li class='number_of_user_card'>工学部<br>
+        <span style='font-weight:bold; text-decoration:underline;'>{{engineering}} 人</span></li>
+        <li class='number_of_user_card'>農学部<br>
+        <span style='font-weight:bold; text-decoration:underline;'>{{agriculture}} 人</span></li>
+        <li class='number_of_user_card'>教育学部<br>
+        <span style='font-weight:bold; text-decoration:underline;'>{{education}} 人</span></li>
+        <li class='number_of_user_card'>地域資源創生学部<br>
+        <span style='font-weight:bold; text-decoration:underline;'>{{region}} 人</span></li>
+        <li class='number_of_user_card'>医学部<br>
+        <span style='font-weight:bold; text-decoration:underline;'>{{medicine}} 人</span></li>
+        <li class='number_of_user_card'>合計<br>
+        <span style='font-weight:bold; text-decoration:underline;'>{{total}} 人</span></li>
+      </ul>
+    </div>
 
     <div class='func_intro'>
       <img src="{% static 'image/about_mi_baord_timetable.png' %}" class='func_image'>
       <div class='intro'>
       <h4>Mi時間割</h4>
-      <p>自分の時間割をMi-Board上で<br>講義アイコンをクリックすることで専用ページに移動<br>
-      時間割は半年に１回自動リフレッシュ</p>
+      <p>時間割を設定することで、ホーム画面から簡単に各講義ルームにワンクリックで遷移する事が出来ます。
+        <br>各コマの余白をクリックすることで、ルーム追加モーダル画面が表示され、時間割に講義を設定する事が出来ます</p>
       </div>
     </div>
 
     <div class='func_intro'>
+      <img src="{% static 'image/about_mi_board_stoppo.png' %}" class='func_image'>
       <div class='intro'>
       <h4>オンラインファイル管理(ストレージ)</h4>
-      <p>講義ファイルや資料をオンライン上で管理<br>
-      　　スマホからでもパソコンからでもアクセス可能<br>
-          友達へのファイル送信もワンタッチで</p>
+      <p>講義ファイルや資料をオンライン上で管理する事が出来ます。
+        <br>パソコンからでもスマホからでも自分だけのオンラインストレージにアクセスる事が出来ます。
+        <br>また、ファイルシェアも簡単かつ高速に行えます。
+        <br>SPAの振る舞いをするよう実装しました。</p>
       </div>
-      <img src="{% static 'image/about_mi_board_stoppo.png' %}" class='func_image'>
     </div>
 
     <div class='func_intro'>
       <img src="{% static 'image/about_mi_board_board.png' %}" class='func_image'>
       <div class='intro'>
         <h4>レポート、課題共有(Q&A)</h4>
-        <p>分からない課題や過去問題の収集、学校生活の悩みなど何でも投稿<br>
-        　　実名・匿名を選択することでプライバシー保護も</p>
+        <p>聞きたいことや、分からない課題、過去問題の投稿が出来ます。
+          <br>質問・記事、２つの投稿方式があり、分からない課題は「質問」で、過去問題の投稿は「記事」を選択して投稿する事が出来ます。
+          <br>また、ポイント制を導入しており、ポイントを設定して投稿した記事を読まれたり、質問に回答してベストコメントに選ばれるとポイントを獲得する事が出来ます。</p>
       </div>
     </div>
 
     <div class='func_intro'>
+      <img src="{% static 'image/about_mi_board_friend_profile.png' %}" class='func_image'>
       <div class='intro'>
         <h4>友達検索・フォロー</h4>
-        <p>Mi-Boardで友達をフォローできる<br>友達にフォローされると時間割を見れる</p>
+        <p>一般的なSNSのように友達を検索したり、フォローする事が出来ます。
+          <br>また、友達の設定しているプロフィールを閲覧することも出来ます。
+          <br>フォローされると相手の時間割を閲覧する事が出来るようになります。</p>
       </div>
-      <img src="{% static 'image/about_mi_board_friend_profile.png' %}" class='func_image'>
     </div>
 
     <div class='func_intro'>
       <img src="{% static 'image/about_me_board_room.png' %}" class='func_image'>
       <div class='intro'>
         <h4>講義・学外活動ルーム</h4>
-        <p>講義・学外活動専用ルームで匿名チャット<br>分からない問題や過去問の収集もここで<br>
-        関連のある投稿は一覧表示される</p>
+        <p>講義・学外活動専用ルームで匿名チャットで質問したり、コミュニケーションをとる事が出来ます。
+          <br>また、質問・記事投稿の際に関連ルームとして設定した場合、そのルーム内で質問・記事を参照できます。
+          <br>ルームから同ルームに関連付けて質問・記事を投稿することも出来ます。
+          <br>匿名チャットにはポーリングなど高負荷な処理を避け、リアルタイムでのメッセージの送受信を行うため、django-channels(WebSocket)を用いて実装しています。</p>
       </div>
     </div>
 
     <div class='func_intro'>
+      <img src="{% static 'image/about_mi_board_personal_chat.png' %}" class='func_image'>
       <div class='intro'>
         <h4>チャット</h4>
-        <p>高速なチャット機能を提供</p>
+        <p>一般的なチャット機能を提供しています。<br>
+          専用ルームの匿名チャット同様django-channelsを用いて実装しています。</p>
       </div>
-      <img src="{% static 'image/about_mi_board_personal_chat.png' %}" class='func_image'>
     </div>
 
 
-    <a id='start_mi_board' href='{% url "accounts:login" %}'>Mi-Boardを始めましょう</a>
-    <p id='start_mi_board_attention'>登録には宮崎大学学生専用メールアドレスが必要です</p>
 
+    <hr style='margin-bottom:10vh;'>
+    <h3>@12/28 小規模アップデート</h3>
+    <img src='/static/image/mi-board-new-func.png' class='mi-board_update'>
+    <h4>以下の機能を新規に追加・改善しました</h4>
+    <ol>
+      <li>時間割上でのルーム更新確認機能</li>
+      <li>画面左下、全ての通知確認機能</li>
+      <li>プッシュ通知(Push.js)・簡易プッシュ通知機能</li>
+      <li>オンラインストレージアップロード制限メーター</li>
+      <li>ロゴ・アイコンの変更(supported by Remon)</li>
+    </ol>
+    <hr style='margin-top:10vh;'>
 
     <h2 id='environment_guide'>開発環境</h2>
     <div id='environment'>

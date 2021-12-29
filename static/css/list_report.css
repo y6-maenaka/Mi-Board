@@ -1,0 +1,24 @@
+.main_content{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+#list_report_box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#list_report_box li{
+  margin: 0.5vh 0;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 4px gray;
+  width: 80%;
+  padding: 0.8vh 0.5vw;
+}

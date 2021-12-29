@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='utf-8'>
+  {% block title %}<title> LIST_REPORT | Mi-Board</title>{% endblock %}
+  {% block head %}
+  <link rel='stylesheet' type='text/css' href="{% static 'css/list_report.css' %}">
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+
+  <a href='{% url "settings:settings_home" %}'>セッティング画面に戻る</a>
+  {% for report in list_report %}
+  <ul id='list_report_box'>
+    <li>
+      <p style='font-weight:bold;'>{{report.report}}</p>
+      <p style='font-size:0.4rem; text-align:end;'>{{report.created_at}}<br>{{report.user.department}}-{{report.user.division}}<br>{{report.user.last_name}} {{report.user.first_name}}</p>
+    </li>
+  </ul>
+  {% endfor %}
+
+  {% endblock %}
+</body>
+</html>

@@ -40,13 +40,14 @@ h4{
 .func_intro{
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-around;
   margin: 12vh 0;
 }
 
 
 .func_image{
-  width: 60%;
+  width: 75%;
   border-radius: 10px;
   box-shadow: 0 0 4px gray;
 }
@@ -64,7 +65,7 @@ h4{
 }
 
 .explanation{
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .extra_image{
@@ -132,4 +133,36 @@ ul h3{
 li p{
   font-size: 0.7rem;
   text-align: center;
+}
+
+
+.mi-board_update{
+  width:80%;
+}
+
+hr{
+  width: 100%;
+}
+
+#number_of_user{
+  display: flex;
+  align-items: center;
+}
+
+#number_of_user li{
+  margin: 1vh 2vw;
+}
+
+
+#numver_of_user_container{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 6vh 0;
+}
+
+.number_of_user_card{
+  text-align:center;
 }

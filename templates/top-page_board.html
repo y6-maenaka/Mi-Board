@@ -18,7 +18,7 @@
     {% csrf_token %}
     <h1>質問や記事をお探しですか？</h1>
     <div class='narrowed_down_menu'>
-      <input type='search' name='search_word' placeholder="検索ワード" id='search_box_board' class='search_item' maxlength="3">
+      <input type='search' name='search_word' placeholder="検索ワード" id='search_box_board' class='search_item' minlength="3">
 
         <select form='search_box_container' class='narrowed_down_item search_item' name='filtering_department'>
           <option>全て</option>
@@ -28,11 +28,6 @@
           <option>地域資源創生学部</option>
           <option>医学部</option>
         </select>
-
-        <!-- <select form='search_box_container' class='narrowed_down_item search_item' name='filtering_order'>
-          <option value='likes'>人気順</option>
-          <option value='created_at'>投稿順</option>
-        </select> -->
 
         <select form='search_box_container' class='narrowed_down_item search_item' name='selection_style_board'>
           <option value='全て'>全て</option>
@@ -172,7 +167,14 @@
           <p class='guide_message'>3-質問・記事のタグを入力してください(ヒットされやすくなります)(*)</p>
           <input type='text' name='tags' placeholder='例)課題　例)過去問' id='input_tags'>
           <p class='guide_message'>4-質問・記事に設定するポイントを入力してください(*)</p>
-          <input type='number' name='bet_points' placeholder='例) 20' id='input_bet_points'>
+          <select name='bet_points' id='input_bet_points'>
+              <option value='0'>0ポイント</option>
+              <option value='3'>3ポイント</option>
+              <option value='5'>5ポイント</option>
+              <option value='10'>10ポイント</option>
+              <option value='15'>15ポイント</option>
+              <option value='30'>30ポイント</option>
+          </select>
           <p class='guide_message'>5-質問・記事に添付する画像ファイルを選択してください(jpeg,png)</p>
           <input type="file" name="attached_image" id='input_attached_image'>
           <p class='guide_message'>6-質問・記事に添付するファイルを選択してください(pdf,word,excel)</p>

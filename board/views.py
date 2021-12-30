@@ -17,12 +17,18 @@ class TopPageBoardView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
 
         try:
-            base_user = request.user.user_id
-            random_extracting_user = Users.objects.filter(university = request.user.university).exclude(user_id=request.user.user_id).order_by('?')[:30].values_list('user_id',flat=True)
-            recommend_board_list = recommend_system.get_recommend_board_main(base_user,random_extracting_user)
+            print('here')
+            board_list_from_recommend_system = recommend_system.create_recommend_board_list(request)
+            selected_board_list = Boards.objects.filter(board_id__in = board_list_from_recommend_system)
+            recommend_board_list = []
+            for index,_ in enumerate(board_list_from_recommend_system):
+                for _1 in selected_board_list:
+                    if board_list_from_recommend_system[index] == _1.board_id:
+                        recommend_board_list.append(_1)
+
 
         except:
-            recommend_board_list = Boards.objects.all()[:10]
+            recommend_board_list = Boards.objects.all().order_by('created_at').reverse()[:10]
 
         latest_board_list = Boards.objects.exclude(posted_by_id=request.user.user_id).values()[:20]
 

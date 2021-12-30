@@ -65,7 +65,7 @@
   <input type='hidden' value={{user.user_id}} id='notification_user_id'>
 
   <div id='notification_container'>
-    <img src="/static/image/notification_on.png" id="notification_bell">
+    <img src="/static/image/notification_off.png" id="notification_bell">
     <p id='notification_message'>新しい通知があります</p>
   </div>
 
@@ -83,11 +83,11 @@
       url:'/notification/get_notification/',
       success:function(response){
         if(response.length === 0){
-          $('#notification_message').hide()
-          $('#notification_bell').attr('src','/static/image/notification_off.png')
           var notification_card = "<h2 class='nothing_notification'>新しい通知はありません</h2>"
           $('#notification_box').append(notification_card).trigger('create')
         }else{
+          $('#notification_message').show()
+          $('#notification_bell').attr('src','/static/image/notification_on.png')
           for(var key in response){
             switch(response[key]['fields']['type']){
               case "personal_chat":

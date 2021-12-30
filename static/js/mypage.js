@@ -1,5 +1,5 @@
 $(function(){
-  $('.register_room_modal_bg').hide()
+  // $('.register_room_modal_bg').hide()
 
 
 

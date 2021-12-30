@@ -5,7 +5,7 @@ $(function(){
     return false; // Disable Tab!
 }
 
-  $('#create_room_page_bg').hide();
+  // $('#create_room_page_bg').hide();
   $('.create_room_move_modal').click(function(){
     $('#create_room_page_bg').fadeIn(300);
     return false

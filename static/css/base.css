@@ -84,6 +84,7 @@ p{
   background-color: #D1D1D1;
   padding: 0.3vh 0.4vw;
   border-radius: 10px;
+  display: none;
 }
 
 
@@ -95,6 +96,8 @@ p{
   height: 100vh;
   background-color: rgba(0,0,0,.4);
   z-index: 100;
+  display: none;
+
 }
 
 #notification_box{
@@ -328,6 +331,7 @@ p{
   z-index: 100;
   align-items: center;
   justify-content: center;
+  display: none;
 }
 
 #communication_state_unstable_bg h1{

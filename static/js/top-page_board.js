@@ -1,5 +1,5 @@
 $(function(){
-  $('#post_board_page_bg').hide();
+  // $('#post_board_page_bg').hide();
 
   window.onkeydown = function(e) {
   if (e.keyCode == 9)

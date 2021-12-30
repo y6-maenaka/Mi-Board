@@ -14,7 +14,6 @@
 <body>
   {% block content %}
 
-{% if recommend_board_list %}
 
 <div id='go_stoppo_container'>
   <div id='go_stoppo'>
@@ -30,13 +29,17 @@
   </div>
 </div>
 
+{% if recommend_board_list %}
 <div>
   <p class='anotation_recommend_board'>おすすめの記事</p>
 <ul id='recommend_board_main_container'>
   {% for recommend_board in recommend_board_list %}
-  {% if recommend_board.category == '質問'%}
   <li class='recommend_board_item'>
+    {% if recommend_board.category == '質問' %}
     <a class='recommend_baord_item_link' href='{% url "board:board" recommend_board.board_id %}'>
+    {% else %}
+    <a class='recommend_baord_item_link' href='{% url "board:confirm_view_board" recommend_board.board_id %}'>
+    {% endif %}
     <h1>{{recommend_board.title}}</h1>
     <div class='recommend_board_content_image_container'>
       {% if recommend_board.category == '記事' %}
@@ -45,13 +48,16 @@
       <p class='recommend_board_content'>{{recommend_board.content}}</p>
       {% endif %}
       {% if recommend_board.attached_image %}
+      {% if recommend_board.category == '質問' %}
       <img class='recommend_board_image' src='/media/{{ recommend_board.attached_image }}'>
+      {% else %}
+      <img class='recommend_board_image blur' src='/static/image/board.png'>
+      {% endif %}
       {% else %}
       {% endif %}
     </div>
   </a>
   </li>
-  {% endif %}
   {% endfor %}
 </ul>
 </div>

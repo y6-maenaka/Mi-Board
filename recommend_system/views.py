@@ -7,6 +7,7 @@ from accounts.models import Users
 from .models import BrowsingHistory
 from django.utils import timezone
 from board.models import Boards
+from collections import OrderedDict
 
 
 @login_required
@@ -133,3 +134,54 @@ def get_recommend_board_main(base_user,random_extracting_user):
                 recommend_board_list[j] = min
 
     return recommend_board_list
+
+
+
+
+
+
+def create_recommend_board_list(request):
+    my_history = BrowsingHistory.objects.filter(user_id = request.user.user_id).values_list('board_id',flat=True)[:30]
+    random_users = Users.objects.all().exclude(user_id = request.user.user_id).values_list('user_id',flat=True)[:30]
+
+    random_user_board_list = []
+    random_users_board_list = []
+
+    for user in random_users:
+        for _ in BrowsingHistory.objects.filter(user_id = user).values_list('board_id',flat=True)[:30]:
+            random_user_board_list.append(_)
+        random_users_board_list.append(random_user_board_list)
+        random_user_board_list = []
+
+    similar_board_list = {}
+    for _1 in random_users_board_list:
+        similar_board_list[juccard(my_history,_1)] = _1
+
+    sorted_similar_board_list = sorted(similar_board_list.items(), key=lambda x:x[0],reverse=True)
+
+    recommend_board_list = []
+    for _2 in sorted_similar_board_list:
+        for _3 in _2[1]:
+            recommend_board_list.append(_3)
+
+    sorted_recommend_board_list = list(OrderedDict.fromkeys(recommend_board_list))
+
+    board_point = 0
+    recommend_board_list = {}
+    for _4 in sorted_recommend_board_list:
+        if _4 in my_history:
+            pass
+        else:
+            board = Boards.objects.get(board_id = _4)
+            board_point = (board.bet_points + 1)*0.25
+            board_point += 50/(((timezone.now() - board.created_at).days)+1)
+            recommend_board_list[board.board_id] = board_point
+            board_point = 0
+
+    sorted_board_list = sorted(recommend_board_list.items(), key=lambda x:x[1],reverse=True)
+    print(sorted_board_list)
+    board_list = []
+    for _5 in sorted_board_list:
+        board_list.append(_5[0])
+
+    return board_list

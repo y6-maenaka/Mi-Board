@@ -21,7 +21,6 @@ class MypageView(LoginRequiredMixin,View):
     # * args contains query parameters
     def get(self,request,*args,**kwargs):
 
-
         # timetable = TimeTable.objects.filter(user_id = request.user.user_id)
 
         timetable = TimeTable.objects.filter(user_id = request.user.user_id)
@@ -38,7 +37,7 @@ class MypageView(LoginRequiredMixin,View):
             base_user = request.user.user_id
             random_extracting_user = Users.objects.filter(university = request.user.university).exclude(user_id=request.user.user_id).order_by('?')[:30].values_list('user_id',flat=True)
             # recommend_board_list = recommend_system.get_recommend_board_sub(base_user,random_extracting_user)[0:12]
-            recommend_board_list = Boards.objects.filter(category='質問')[0:4].values()
+            recommend_board_list = Boards.objects.all()[:4].values()
         except:
             recommend_board_list = ''
         # values : キーと値
@@ -62,7 +61,7 @@ class MypageView(LoginRequiredMixin,View):
                     unread_room_list.append(_['room_id'])
 
             except:
-                print('=============')
+                pass
 
         context = {
             'friend_list' : friend_list,

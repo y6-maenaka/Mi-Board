@@ -287,6 +287,11 @@ td:not(#timetable_time):hover{
   .friend_profile_item{
     font-size: 0.6rem !important;
   }
+
+  .button_container a,button{
+    padding: 0.2vh 0.7vw 0.2vh 0.7vw;
+    font-size: 0.45rem !important;
+  }
 }
 
 @media(max-width: 1050px){

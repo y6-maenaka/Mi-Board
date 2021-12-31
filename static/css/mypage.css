@@ -610,14 +610,26 @@ td:not(#timetable_time):hover{
     margin: 1vh 0 !important;
   }
 
+  #go_stoppo_link h1{
+    font-size: 1rem;
+  }
+
+  #go_stoppo_link p{
+    font-size: 0.5rem;
+  }
+
+  #report_container a{
+    font-size: 0.6rem;
+  }
+
 
   .link_container_room_name{
-    font-size: 0.3rem !important;
+    font-size: 0.2rem !important;
   }
 
   .link_container_room_image{
-    width: 20vw !important;
-    height: 20vw !important;
+    width: 14vw !important;
+    height: 14vw !important;
   }
 
 

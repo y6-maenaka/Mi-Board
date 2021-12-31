@@ -257,4 +257,23 @@
     width: 100%;
   }
 
+  .room_card_image{
+    width: 9vw !important;
+    height: 9vw !important;
+  }
+
+  .room_image_affiliation_card p{
+    font-size: 0.7rem !important;
+  }
+
+  .discover_room_btn{
+    font-size: 0.8rem;
+    margin: 1vh 0;
+  }
+
+  .create_room_move_modal{
+    font-size: 0.8rem;
+    margin: 1vh 0;
+  }
+
 }

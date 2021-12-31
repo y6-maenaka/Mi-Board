@@ -305,6 +305,15 @@ td:not(#timetable_time):hover{
   .friend_list_container{
     display: none;
   }
+
+  .friend_timetable{
+    width: 100% !important;
+  }
+
+  .link_container_room_image{
+    width: 8vw;
+    height: 8vw;
+  }
 }
 
 @media(max-width: 1050px){

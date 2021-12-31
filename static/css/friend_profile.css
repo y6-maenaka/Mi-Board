@@ -272,8 +272,8 @@ td:not(#timetable_time):hover{
     width: 100%;
   }
 
-  .friend-profile{
-    height: 22vh;
+  .friend-profile_background{
+    height: 12vh;
   }
 }
 

@@ -606,19 +606,20 @@ td:not(#timetable_time):hover{
     display:none;
   }
 
+  #go_stoppo_container{
+    margin: 0.5vh 0;
+  }
+
 
   .link_container_room_name{
     font-size: 0.3rem;
   }
 
   .link_container_room_image{
-    width: 15vw;
-    height: 15vw;
+    width: 20vw;
+    height: 20vw;
   }
 
-  .anotation_recommend_board{
-    font-size: 0.1rem;
-  }
 
   #recommend_board_main_container{
     display: none;

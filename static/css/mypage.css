@@ -619,12 +619,12 @@ td:not(#timetable_time):hover{
   }
 
   .link_container_room_name{
-    font-size: 0.5rem;
+    font-size: 0.4rem;
   }
 
   .link_container_room_image{
-    width: 5vw;
-    height: 5vw;
+    width: 8vw;
+    height: 8vw;
   }
 
 }

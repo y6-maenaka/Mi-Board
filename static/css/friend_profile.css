@@ -275,6 +275,10 @@ td:not(#timetable_time):hover{
   .friend-profile_background{
     height: 12vh;
   }
+
+  .friend_name{
+    font-size: 0.5rem !important;
+  }
 }
 
 @media(max-width: 1050px){

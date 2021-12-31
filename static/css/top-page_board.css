@@ -621,7 +621,7 @@ hr{
   }
 
   .input_post_user_label{
-    font-size: 0.4rem !important;
+    font-size: 0.5rem !important;
   }
 
   .post_board{
@@ -638,6 +638,10 @@ hr{
 
   .board_content{
     font-size: 0.4rem !important;
+  }
+
+  .guide_box{
+    font-size: 0.3rem !important;
   }
 
 

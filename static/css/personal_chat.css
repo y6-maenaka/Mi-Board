@@ -364,16 +364,25 @@
   }
 
   .get_message_anker img{
-    width: 4vw;
-    height: 4vw;
+    width: 6vw;
+    height: 6vw;
   }
 
   .get_message_anker{
-    font-size: 0.4rem;
+    font-size: 0.8rem;
   }
 
   .message{
-    font-size: 0.4rem;
+    font-size: 0.44rem !important;
+    padding: 0.3vh 0.5vw !important;
+  }
+
+  #message_display_area{
+    height: 80% !important;
+  }
+
+  .send_message_input_container{
+    height: 10% !important;
   }
 
 }

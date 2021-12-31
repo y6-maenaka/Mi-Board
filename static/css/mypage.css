@@ -546,17 +546,9 @@ td:not(#timetable_time):hover{
   opacity:0.5;
   font-weight: bold;
   font-size: 0.25vw;
-  padding-top:0.5vh;
-  margin: 0;
-}
-
-.anotation_recommend_board{
-  margin-top:0.5vh;
-  margin-bottom:0.8vh;
-  opacity:0.5;
-  font-weight:
-  bold; font-size: 0.3vw;
+  padding-top: 0.5vh;
   padding: 0;
+  margin: 0;
 }
 
 .blur{
@@ -614,17 +606,26 @@ td:not(#timetable_time):hover{
     display:none;
   }
 
-  #go_stoppo_container{
-    display:none;
-  }
 
   .link_container_room_name{
-    font-size: 0.4rem;
+    font-size: 0.3rem;
   }
 
   .link_container_room_image{
-    width: 8vw;
-    height: 8vw;
+    width: 15vw;
+    height: 15vw;
+  }
+
+  .anotation_recommend_board{
+    font-size: 0.1rem;
+  }
+
+  #recommend_board_main_container{
+    display: none;
+  }
+
+  .anotation_recommend_board{
+    display: none;
   }
 
 }

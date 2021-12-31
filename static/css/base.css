@@ -429,6 +429,10 @@ p{
   }
 
   #notification_box p{
-    font-size: 6px !important;
+    font-size: 9px !important;
+  }
+
+  #notification_box h2{
+    font-size: 7px !important;
   }
 }

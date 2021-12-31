@@ -378,15 +378,15 @@
   }
 
   #message_display_area{
-    height: 80% !important;
+    height: 82% !important;
   }
 
   .send_message_input_container{
-    height: 10% !important;
+    height: 8% !important;
   }
 
   #send_message_input{
-    height: 60%;
+    height: 70%;
     font-size: 0.44rem !important;
   }
 

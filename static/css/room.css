@@ -727,7 +727,6 @@
 
   .joining_user_item{
     width: 90% !important;
-    height: 4vh !important;
     margin: 0 !important;
   }
 
@@ -740,7 +739,44 @@
   }
 
   .related_board_card a{
-    font-size: 0.33rem !important;
+    font-size: 7px !important;
+  }
+
+  .related_board_card span{
+    font-size: 6px !important;
+  }
+
+  .related_board_item{
+    width: 90%;
+  }
+
+  .board_post_username{
+    font-size: 6px !important;
+  }
+
+  .board_post_user_icon{
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .related_board_article{
+    font-size: 9px !important;
+  }
+
+  .related_board_article_content{
+    font-size: 6px !important;
+  }
+
+  .related_board_article_attached_file{
+    font-size: 5px !important;
+  }
+
+  .related_board_category_points{
+    font-size: 4px !important;
+  }
+
+  #post_board{
+    height: 6vh;
   }
 
 }

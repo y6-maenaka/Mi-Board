@@ -688,7 +688,7 @@
 
 @media(max-width: 510px){
   .room_detail_container ul{
-    height: 10vh !important;
+    height: 14vh !important;
   }
 
   .room_info_container{
@@ -710,7 +710,7 @@
   }
 
   .joining_user_detail p{
-    font-size: 0.32rem !important;
+    font-size: 0.20rem !important;
   }
 
   .joining_user_detail h2{
@@ -718,11 +718,11 @@
   }
 
   #send_message_input_room{
-    font-size: 16px !important;
+    font-size: 0.44rem !important;
   }
 
   .guide_box{
-    font-size: 0.2rem !important;
+    display: none;
   }
 
 }

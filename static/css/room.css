@@ -699,6 +699,24 @@
     font-size: 0.44rem !important;
     padding: 0.5vh 2vw !important;
   }
+
+  .room_chat_container{
+    width: 100%;
+  }
+
+  .joining_user_image{
+    width: 5vw !important;
+    height: 5vw !important;
+  }
+
+  .joining_user_detail p{
+    font-size: 0.52rem !important;
+  }
+
+  #send_message_input_room{
+    font-size: 0.44rem !important;
+  }
+
 }
 
 @media(max-width: 1050px){

@@ -612,7 +612,7 @@ td:not(#timetable_time):hover{
   }
 
   #go_stoppo_container{
-    margin: 1vh 0 !important;
+    margin: 3vh 0 !important;
   }
 
   #go_stoppo_link h1{
@@ -629,7 +629,7 @@ td:not(#timetable_time):hover{
 
 
   .link_container_room_name{
-    font-size: 0.1rem !important;
+    font-size: 0.05rem !important;
   }
 
   .link_container_room_image{

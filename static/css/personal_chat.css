@@ -369,12 +369,12 @@
   }
 
   .get_message_anker{
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 
   .message{
     font-size: 0.44rem !important;
-    padding: 0.3vh 0.5vw !important;
+    padding: 0.3vh 1vw !important;
   }
 
   #message_display_area{
@@ -383,6 +383,19 @@
 
   .send_message_input_container{
     height: 10% !important;
+  }
+
+  #send_message_input{
+    height: 80%;
+  }
+
+  .talking_user_name{
+    font-size: 0.8rem;
+  }
+
+  #talking_user_icon{
+    width: 6vw;
+    height: 6vw;
   }
 
 }

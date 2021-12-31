@@ -140,7 +140,7 @@
 
 @media(mex-width:510px){
   .main_content{
-    width: 100%;
+    width: 100% !important;
   }
 }
 

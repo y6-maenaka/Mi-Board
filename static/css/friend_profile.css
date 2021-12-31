@@ -277,7 +277,15 @@ td:not(#timetable_time):hover{
   }
 
   .friend_name{
+    font-size: 0.8rem !important;
+    margin: 0;
+  }
+  .friend_university{
     font-size: 0.5rem !important;
+  }
+
+  .friend_profile_item{
+    font-size: 0.6rem !important;
   }
 }
 

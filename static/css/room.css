@@ -727,6 +727,11 @@
 
   .joining_user_item{
     width: 90%;
+    height: 4vh;
+  }
+
+  .related_board_link{
+    font-size: 0.3rem !important;
   }
 
 }

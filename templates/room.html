@@ -94,9 +94,9 @@
       {% for board in related_board_list %}
       <li class='related_board_card'>
         {% if board.category == '記事' %}
-        <a href='{% url "board:confirm_view_board" board.board_id %}' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
+        <a href='{% url "board:confirm_view_board" board.board_id %}' class='related_board_link' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
         {% else %}
-        <a href='/board/{{board.board_id}}/' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
+        <a href='/board/{{board.board_id}}/' class='related_board_link' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
         {% endif %}
       </li>
       {% endfor %}

@@ -255,25 +255,34 @@
 @media(max-width: 510px){
   .main_content{
     width: 100%;
+    top: 70px;
   }
 
   .room_card_image{
-    width: 9vw !important;
-    height: 9vw !important;
+    width: 8vw !important;
+    height: 8vw !important;
   }
 
   .room_image_affiliation_card p{
-    font-size: 0.7rem !important;
+    font-size: 0.6rem !important;
+  }
+
+  .room_card_link p{
+    font-size: 0.6rem !important;
   }
 
   .discover_room_btn{
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     margin: 1vh 0;
   }
 
   .create_room_move_modal{
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     margin: 1vh 0;
+  }
+
+  .guide_box{
+    font-size: 0.3rem;
   }
 
 }

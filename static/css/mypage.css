@@ -595,6 +595,7 @@ td:not(#timetable_time):hover{
 @media(max-width: 510px){
   .main_content{
     width: 100%;
+    top: 70px;
   }
 
   .timetable{
@@ -624,12 +625,12 @@ td:not(#timetable_time):hover{
 
 
   .link_container_room_name{
-    font-size: 0.2rem !important;
+    font-size: 0.15rem !important;
   }
 
   .link_container_room_image{
-    width: 14vw !important;
-    height: 14vw !important;
+    width: 10vw !important;
+    height: 10vw !important;
   }
 
 

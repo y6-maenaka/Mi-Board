@@ -97,5 +97,27 @@
     top:75px;
   }
 
+  .friend_card_image{
+    width: 8vw !important;
+    height: 8vw !important;
+  }
+
+  .friend_image_affiliation_card p{
+    font-size: 0.6rem !important;
+  }
+
+  .discover_friend_btn{
+    font-size: 0.6rem;
+    margin: 1vh 0;
+  }
+
+  .friend_image_affiliation_card p{
+    font-size: 0.6rem !important;
+  }
+  
+  .guide_box{
+    font-size: 0.3rem;
+  }
+
 
 }

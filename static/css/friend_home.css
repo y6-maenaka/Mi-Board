@@ -121,3 +121,9 @@
 
 
 }
+
+@media(max-width: 1050px){
+  .main_content{
+    width: 90%;
+  }
+}

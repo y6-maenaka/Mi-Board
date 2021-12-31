@@ -301,6 +301,10 @@ td:not(#timetable_time):hover{
     padding: 0 !important;
     margin: 0.4vh 0 !important;
   }
+
+  .friend_list_container{
+    display: none;
+  }
 }
 
 @media(max-width: 1050px){

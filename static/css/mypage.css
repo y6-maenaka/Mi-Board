@@ -629,7 +629,7 @@ td:not(#timetable_time):hover{
 
 
   .link_container_room_name{
-    font-size: 0.05rem !important;
+    font-size: 5px !important;
   }
 
   .link_container_room_image{
@@ -644,6 +644,10 @@ td:not(#timetable_time):hover{
 
   .anotation_recommend_board{
     display: none;
+  }
+
+  .register_room_modal{
+    width: 60% !important;
   }
 
 }

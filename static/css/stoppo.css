@@ -525,27 +525,36 @@
 }
 
 @media(max-width: 510px){
-  #welcome_message{
+  #welcome_message p{
     display: none;
   }
 
   .file_image{
-    width: 5vw;
+    width: 7vw;
   }
 
   .file_name{
-    width: 7px;
+    width: 9px;
+  }
+
+  #directory_box{
+    width: 75%;
   }
 
   #back_btn{
     height:4vh;
-    font-size: 7px;
+    font-size: 9px;
     width: 75%;
   }
 
   #total_file_size{
     height: 3vh;
     width: 75%;
+  }
+
+  #total_file_size{
+    height: 3vh;
+    font-size: 4px;
   }
 
   #total_file_size p{

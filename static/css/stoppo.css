@@ -530,20 +530,20 @@
   }
 
   .file_image{
-    width: 7vw;
+    width: 7vw !important;
   }
 
   .file_name{
-    width: 9px;
+    width: 9px !important;
   }
 
   #directory_box{
-    width: 75%;
+    width: 75% !important;
   }
 
   #back_btn{
     height:4vh;
-    font-size: 9px;
+    font-size: 9px !important;
     width: 75%;
   }
 
@@ -558,7 +558,7 @@
   }
 
   #total_file_size p{
-    font-size: 4px;
+    font-size: 4px !important;
   }
 }
 

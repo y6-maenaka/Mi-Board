@@ -418,4 +418,17 @@ p{
   .selected{
     box-shadow: none;
   }
+
+  #notification_bell{
+    width: 10vw;
+    height: 10vw;
+  }
+
+  #notification_box{
+    width: 60%;
+  }
+
+  #notification_box p{
+    font-size: 6px !important;
+  }
 }

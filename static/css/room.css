@@ -725,6 +725,10 @@
     display: none;
   }
 
+  .joining_user_item{
+    width: 90%;
+  }
+
 }
 
 @media(max-width: 1050px){

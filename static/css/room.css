@@ -734,6 +734,10 @@
     font-size: 0.3rem !important;
   }
 
+  .related_board_link span{
+    font-size: 0.3rem !important;
+  }
+
 }
 
 @media(max-width: 1050px){

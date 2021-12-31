@@ -677,6 +677,25 @@ td:not(#timetable_time):hover{
     padding: 0;
   }
 
+  .register_room_modal p{
+    font-size: 3px;
+  }
 
+  .room_card_detail_container p{
+    font-size: 3px;
+  }
+
+  .room_card_detail_container h1{
+    font-size: 5px;
+  }
+
+  #btn_room_set{
+    font-size: 4px;
+  }
+
+  #room_card_img{
+    width: 6.7vw;
+    height: 6.7vw;
+  }
 
 }

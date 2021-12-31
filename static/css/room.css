@@ -777,6 +777,19 @@
 
   #post_board{
     height: 6vh;
+    width: 80%;
+  }
+
+  #dummy_input_board{
+    font-size: 8px !important;
+  }
+
+  .post_guide_message{
+    font-size: 7px !important;
+  }
+
+  .related_board_guide_message{
+    font-size: 8px !important;
   }
 
 }

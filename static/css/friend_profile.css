@@ -314,6 +314,10 @@ td:not(#timetable_time):hover{
     width: 8vw;
     height: 8vw;
   }
+
+  .link_container_room_name{
+    font-size: 4px !important;
+  }
 }
 
 @media(max-width: 1050px){

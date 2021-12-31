@@ -259,16 +259,16 @@
   }
 
   .room_card_image{
-    width: 8vw !important;
-    height: 8vw !important;
+    width: 7.2vw !important;
+    height: 7.2vw !important;
   }
 
   .room_image_affiliation_card p{
-    font-size: 0.6rem !important;
+    font-size: 0.4rem !important;
   }
 
   .room_card_link p{
-    font-size: 0.6rem !important;
+    font-size: 0.4rem !important;
   }
 
   .discover_room_btn{
@@ -282,7 +282,7 @@
   }
 
   .guide_box{
-    font-size: 0.3rem;
+    font-size: 0.25rem;
   }
 
 }

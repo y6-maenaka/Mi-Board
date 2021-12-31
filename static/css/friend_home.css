@@ -98,12 +98,12 @@
   }
 
   .friend_card_image{
-    width: 8vw !important;
-    height: 8vw !important;
+    width: 7.2vw !important;
+    height: 7.2vw !important;
   }
 
   .friend_image_affiliation_card p{
-    font-size: 0.6rem !important;
+    font-size: 0.4rem !important;
   }
 
   .discover_friend_btn{
@@ -111,10 +111,10 @@
     margin: 1vh 0;
   }
 
-  .friend_image_affiliation_card p{
-    font-size: 0.6rem !important;
+  .friend_card_link p{
+    font-size: 0.4rem !important;
   }
-  
+
   .guide_box{
     font-size: 0.3rem;
   }

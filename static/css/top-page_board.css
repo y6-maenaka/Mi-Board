@@ -611,6 +611,34 @@ hr{
     margin:0;
   }
 
+  .search_item{
+    font-size: 0.5rem !important;
+  }
+
+  .search_item{
+    font-size: 0.4rem !important;
+  }
+
+  .input_post_user_label{
+    font-size: 0.4rem !important;
+  }
+
+  .post_board{
+    font-size: 0.4rem !important;
+  }
+
+  .article_title{
+    font-size: 1rem !important;
+  }
+
+  .question_title{
+    font-size: 1rem !important;
+  }
+
+  .board_content{
+    font-size: 0.6rem !important;
+  }
+
 
 }
 

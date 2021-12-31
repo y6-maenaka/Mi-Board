@@ -524,13 +524,42 @@
   font-weight: bold;
 }
 
+@media(max-width: 510px){
+  #welcome_message{
+    display: none;
+  }
+
+  .file_image{
+    width: 5vw;
+  }
+
+  .file_name{
+    width: 7px;
+  }
+
+  #back_btn{
+    height:4vh;
+    font-size: 7px;
+    width: 75%;
+  }
+
+  #total_file_size{
+    height: 3vh;
+    width: 75%;
+  }
+
+  #total_file_size p{
+    font-size: 4px;
+  }
+}
+
 @media(max-width: 990px){
   .main_content{
     width: 90%;
   }
 
   #directory_box{
-    width: 75%;
+    width: 65%;
   }
 
   #welcome_message a{
@@ -538,27 +567,6 @@
   }
 
   .file_image{
-    width: 5vw !important;
+    width: 3vw;
   }
-
-  .file_name{
-    font-size: 6px !important;
-  }
-
-  #back_btn{
-    height: 3vh;
-    font-size: 7px !important;
-    width: 75%;
-  }
-
-  #total_file_size{
-    width: 75%;
-    height: 3vh;
-  }
-
-  #total_file_size p{
-    font-size: 4px !important;
-  }
-
-
 }

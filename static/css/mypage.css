@@ -22,6 +22,7 @@ p{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 1vh;
 }
 
 #go_stoppo{
@@ -541,7 +542,7 @@ td:not(#timetable_time):hover{
 
 
 .anotation_recommend_board{
-  margin-top:0.5vh;
+  margin-top:0.8vh;
   margin-bottom:0.8vh;
   opacity:0.5;
   font-weight: bold;

@@ -14,6 +14,10 @@
   width: 60vw;
 }
 
+select{
+  text-align: center;
+}
+
 .slide_item{
   float: left;
   width: 30vw;
@@ -242,6 +246,7 @@
   border: none;
   height: 3vh;
   background-color:hsla(0,50%,100%,0.425);
+  font-size: 0.8rem;
 }
 
 .narrowed_down_item:hover{
@@ -407,14 +412,13 @@ hr{
 }
 
 
-
 .guide_box{
   width: 100%;
   margin-top:0.5vh;
   margin-bottom:0.8vh;
   opacity:0.5;
   font-weight: bold;
-  font-size: 0.35vw;
+  font-size: 0.4rem;
   padding-top:0.5vh;
   margin: 0;
   text-align: center;
@@ -422,6 +426,7 @@ hr{
 
 .search_submit_btn{
   border-radius: 20px;
+  width: 10%;
 }
 
 
@@ -430,6 +435,10 @@ hr{
   font-weight: bold;
   margin: 1vh 0 1vh 0;
   padding: 0 0.5vw 0 0.5vw;
+}
+
+#search_box_board{
+  font-size: 1.0rem;
 }
 
 

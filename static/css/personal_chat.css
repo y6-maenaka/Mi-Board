@@ -263,7 +263,7 @@
 .message_container_me{
   width: 95%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin: 1vh 0 1vh 0;
 }
 

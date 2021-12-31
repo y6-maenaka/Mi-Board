@@ -411,6 +411,17 @@ iframe{
  height:100vh;
 }
 
+@media(max-width: 510px){
+
+  .main_content{
+    width: 100% !important;
+  }
+
+  #recommend_right_container{
+    display: none !important;
+  }
+}
+
 @media(max-width: 990px){
   .main_content{
     width: 85%;

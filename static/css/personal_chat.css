@@ -363,6 +363,19 @@
     height: 3vmax;
   }
 
+  .get_message_anker img{
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .get_message_anker{
+    font-size: 0.4rem;
+  }
+
+  .message{
+    font-size: 0.4rem;
+  }
+
 }
 
 

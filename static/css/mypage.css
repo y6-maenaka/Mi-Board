@@ -598,6 +598,10 @@ td:not(#timetable_time):hover{
     top: 70px;
   }
 
+  .send_report{
+    display: none;
+  }
+
   .timetable{
     width: 100%;
   }
@@ -625,7 +629,7 @@ td:not(#timetable_time):hover{
 
 
   .link_container_room_name{
-    font-size: 0.15rem !important;
+    font-size: 0.1rem !important;
   }
 
   .link_container_room_image{

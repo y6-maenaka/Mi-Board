@@ -617,6 +617,7 @@ hr{
 
   .search_item{
     font-size: 0.4rem !important;
+    color: black !important;
   }
 
   .input_post_user_label{
@@ -628,15 +629,15 @@ hr{
   }
 
   .article_title{
-    font-size: 1rem !important;
+    font-size: 0.7rem !important;
   }
 
   .question_title{
-    font-size: 1rem !important;
+    font-size: 0.7rem !important;
   }
 
   .board_content{
-    font-size: 0.6rem !important;
+    font-size: 0.4rem !important;
   }
 
 

@@ -726,8 +726,9 @@
   }
 
   .joining_user_item{
-    width: 90%;
-    height: 4vh;
+    width: 90% !important;
+    height: 4vh !important;
+    margin: 0 !important;
   }
 
   .related_board_link{
@@ -736,6 +737,10 @@
 
   .related_board_link span{
     font-size: 0.3rem !important;
+  }
+
+  .related_board_card a{
+    font-size: 0.33rem !important;
   }
 
 }

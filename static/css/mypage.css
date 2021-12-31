@@ -607,17 +607,17 @@ td:not(#timetable_time):hover{
   }
 
   #go_stoppo_container{
-    margin: 0.5vh 0;
+    margin: 1vh 0 !important;
   }
 
 
   .link_container_room_name{
-    font-size: 0.3rem;
+    font-size: 0.3rem !important;
   }
 
   .link_container_room_image{
-    width: 20vw;
-    height: 20vw;
+    width: 20vw !important;
+    height: 20vw !important;
   }
 
 

@@ -97,24 +97,5 @@
     top:75px;
   }
 
-  #my_frined_box{
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  }
-
-  .follows_box{
-    width: 55%;
-    margin-bottom: 2vh;
-  }
-
-  .friend_card_image{
-    width: 4vmax;
-    height: 4vmax;
-  }
-
-  .friend_image_affiliation_card p{
-    font-size: 0.5vw !important;
-  }
 
 }

@@ -250,3 +250,11 @@
 .room_image_affiliation_card{
   display: flex;
 }
+
+
+@media(max-width: 510px){
+  .main_content{
+    width: 100%;
+  }
+
+}

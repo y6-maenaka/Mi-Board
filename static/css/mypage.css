@@ -648,7 +648,9 @@ td:not(#timetable_time):hover{
 
   .register_room_modal{
     width: 60% !important;
-    height: 70% !important;
+    height: 60% !important;
+    position: fixed;
+    top: 100px;
   }
 
 }
@@ -678,8 +680,12 @@ td:not(#timetable_time):hover{
     padding: 0;
   }
 
-  .register_room_modal p{
-    font-size: 3px;
+  .register_room_guide{
+    font-size: 3px !important;
+  }
+
+  .cancel_add_room a{
+    font-size: 5px !important;
   }
 
   .room_card_detail_container p{

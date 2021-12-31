@@ -679,23 +679,23 @@ td:not(#timetable_time):hover{
   }
 
   .register_room_guide{
-    font-size: 3px !important;
+    font-size: 4px !important;
   }
 
   .cancel_add_room a{
-    font-size: 5px !important;
+    font-size: 7px !important;
   }
 
   .room_card_detail_container p{
-    font-size: 5px;
+    font-size: 5px !important;
   }
 
   .room_card_detail_container h1{
-    font-size: 7px;
+    font-size: 7px !important;
   }
 
   #btn_room_set{
-    font-size: 7px;
+    font-size: 7px !important;
   }
 
   #room_card_img{

@@ -530,7 +530,7 @@
   }
 
   #directory_box{
-    width: 65%;
+    width: 75%;
   }
 
   #welcome_message a{
@@ -538,6 +538,27 @@
   }
 
   .file_image{
-    width: 3vw;
+    width: 5vw !important;
   }
+
+  .file_name{
+    font-size: 6px !important;
+  }
+
+  #back_btn{
+    height: 3vh;
+    font-size: 7px !important;
+    width: 75%;
+  }
+
+  #total_file_size{
+    width: 75%;
+    height: 3vh;
+  }
+
+  #total_file_size p{
+    font-size: 4px !important;
+  }
+
+
 }

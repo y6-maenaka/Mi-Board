@@ -600,7 +600,7 @@ td:not(#timetable_time):hover{
 }
 
 
-@media(max-width: 480px){
+@media(max-width: 510px){
   .main_content{
     width: 100%;
   }
@@ -609,13 +609,6 @@ td:not(#timetable_time):hover{
     width: 100%;
   }
 
-  .anotation_recommend_board{
-    display: none;
-  }
-
-  #recommend_board_main_container{
-    display: none;
-  }
 
   .friend_room_container{
     display:none;
@@ -623,6 +616,10 @@ td:not(#timetable_time):hover{
 
   #go_stoppo_container{
     display:none;
+  }
+
+  .link_container_room_name{
+    font-size: 1.2rem;
   }
 
 }

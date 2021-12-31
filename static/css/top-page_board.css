@@ -277,6 +277,7 @@ select{
 .narrowed_down_menu > .search_item{
   margin: 0 0.2vw 0 0.2vw;
   opacity: 0.7;
+  font-size: 1rem;
 }
 
 .post_board_container{

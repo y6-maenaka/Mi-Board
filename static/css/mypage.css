@@ -649,8 +649,6 @@ td:not(#timetable_time):hover{
   .register_room_modal{
     width: 60% !important;
     height: 60% !important;
-    position: fixed;
-    top: 100px;
   }
 
 }

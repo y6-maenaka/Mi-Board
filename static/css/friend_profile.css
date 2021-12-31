@@ -267,6 +267,16 @@ td:not(#timetable_time):hover{
 }
 
 
+@media(max-width:510px){
+  .main_content{
+    width: 100%;
+  }
+
+  .friend-profile{
+    height: 12vh;
+  }
+}
+
 @media(max-width: 1050px){
   .main_content{
     width: 85%;

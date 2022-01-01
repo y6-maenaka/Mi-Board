@@ -332,7 +332,10 @@ td:not(#timetable_time):hover{
 
   .button_container a{
     width: 14vw !important;
-    height: 4vh !important;
+  }
+
+  .button_container button{
+    height: 2vh !important;
   }
 }
 

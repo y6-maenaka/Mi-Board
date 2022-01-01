@@ -161,7 +161,7 @@ hr{
   font-size: 0.25vw;
   padding-top:0.5vh;
   margin: 0;
-  text-align: end;
+  text-align: flex-end;
 }
 
 .comment_image_display{
@@ -420,6 +420,28 @@ iframe{
   #recommend_right_container{
     display: none !important;
   }
+
+  .board_main_container{
+    width: 98%;
+  }
+
+  .post_board_user_image{
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .board_title{
+    font-size: 10px !important;
+  }
+
+  .board_content{
+    font-size: 8px !important;
+    margin: 1vh 0;
+  }
+
+  .post_board_user_name{
+    font-size: 7px !important;
+  }
 }
 
 @media(max-width: 990px){
@@ -438,5 +460,10 @@ iframe{
   .post_board_user_image{
     width: 2.6vmax;
     height: 2.6vmax;
+  }
+
+  .action_container a{
+    height: 2vh;
+    font-size: 6px;
   }
 }

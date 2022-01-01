@@ -297,6 +297,45 @@
   font-weight: bold;
 }
 
+@media(max-width: 510px){
+  .main_content{
+    width: 100%;
+  }
+
+  .user-profile_background{
+    height: 16vh;
+  }
+
+  .user_name{
+    font-size: 15px !important;
+  }
+
+  .user_university{
+    font-size: 8px !important;
+  }
+
+  .user_icon{
+    width: 9vw;
+    height: 9vw;
+  }
+
+  .user_profile_item{
+    font-size: 8px !important;
+  }
+
+  .selection_li a{
+    font-size: 8px !important;
+  }
+
+  .my_board_title{
+    font-size: 8px !important;
+  }
+
+  .setting_item a{
+    font-size: 8px !important;
+  }
+}
+
 @media(max-width: 1050px){
   .main_content{
     width: 85%;

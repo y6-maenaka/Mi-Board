@@ -358,6 +358,10 @@ p{
     width: 100vw;
   }
 
+  #notification_message{
+    display: none;
+  }
+
   .logo_link{
     width: 10vw;
   }

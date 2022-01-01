@@ -684,7 +684,7 @@ td:not(#timetable_time):hover{
   }
 
   .cancel_add_room a{
-    font-size: 7px !important;
+    font-size: 9px !important;
   }
 
   .room_card_detail_container p{

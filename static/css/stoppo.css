@@ -534,13 +534,13 @@
   }
 
   #directory_box{
-    width: 75% !important;
+    width: 80% !important;
   }
 
   #back_btn{
     height:4vh;
     font-size: 9px !important;
-    width: 75%;
+    width: 80%;
   }
 
   #total_file_size{
@@ -607,20 +607,37 @@
   }
 
   #select_address{
-    width: 40%;
+    width: 45%;
   }
 
   .address_card_link img{
-    width: 5vw;
-    height: 5vw;
+    width: 5.4vw;
+    height: 5.4vw;
   }
 
   .address_card_username{
-    font-size: 8px !important;
+    font-size: 9px !important;
   }
 
   .address_card_department{
-    font-size: 8px !important;
+    font-size: 9px !important;
+  }
+
+  #create_directory_form{
+    width: 40%;
+    height: 10%;
+  }
+
+  #new_directory_name_guide{
+    font-size: 10px !important;
+  }
+
+  #new_directory_name{
+    font-size: 9px;
+  }
+
+  #submit_create_directory_btn{
+    font-size: 9px;
   }
 }
 

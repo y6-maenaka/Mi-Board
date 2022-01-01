@@ -248,7 +248,7 @@ hr{
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   height: 3vh;
 }
 
@@ -426,21 +426,54 @@ iframe{
   }
 
   .post_board_user_image{
-    width: 8vw;
-    height: 8vw;
+    width: 11vw;
+    height: 11vw;
   }
 
   .board_title{
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
 
   .board_content{
-    font-size: 8px !important;
+    font-size: 9px !important;
     margin: 1vh 0;
   }
 
   .post_board_user_name{
+    font-size: 8px !important;
+  }
+
+  .guide_box{
+    font-size: 5px !important;
+  }
+
+  .anotation_box{
+    font-size: 5px !important;
+  }
+
+  .comment_content{
     font-size: 7px !important;
+  }
+
+  .comment_user_name{
+    font-size: 4px !important;
+  }
+
+  .radio_container label{
+    font-size: 5px !important;
+  }
+
+  .comment_input{
+    font-size: 7px !important;
+  }
+
+  #comment_post_btn{
+    font-size: 7px !important;
+  }
+
+  .image_file_input_label img{
+    width: 9vw;
+    height: 9vw;
   }
 }
 

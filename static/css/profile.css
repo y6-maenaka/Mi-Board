@@ -303,28 +303,30 @@
   }
 
   .user-profile_background{
-    height: 16vh;
+    height: 14vh;
   }
 
   .user_name{
-    font-size: 15px !important;
+    font-size: 17px !important;
+    margin: 0;
   }
 
   .user_university{
     font-size: 8px !important;
+    margin: 0;
   }
 
   .user_icon{
-    width: 9vw;
-    height: 9vw;
+    width: 13vw;
+    height: 13vw;
   }
 
   .user_profile_item{
-    font-size: 8px !important;
+    font-size: 9px !important;
   }
 
   .selection_li a{
-    font-size: 8px !important;
+    font-size: 7px !important;
   }
 
   .my_board_title{
@@ -332,6 +334,14 @@
   }
 
   .setting_item a{
+    font-size: 8px !important;
+  }
+
+  #menu_my_board_list li{
+    width: 30%;
+  }
+
+  .owned_coins{
     font-size: 8px !important;
   }
 }

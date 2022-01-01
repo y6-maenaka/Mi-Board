@@ -625,19 +625,21 @@
 
   #create_directory_form{
     width: 40%;
-    height: 10%;
+    height: 12%;
   }
 
   #new_directory_name_guide{
-    font-size: 10px !important;
+    font-size: 9px !important;
   }
 
   #new_directory_name{
     font-size: 9px;
+    height: 1.5vh;
   }
 
   #submit_create_directory_btn{
     font-size: 9px;
+    height: 1.5vh;
   }
 }
 

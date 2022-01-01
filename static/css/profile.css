@@ -344,6 +344,10 @@
   .owned_coins{
     font-size: 8px !important;
   }
+
+  .board_content_setting_container{
+    margin: 2vh 0;
+  }
 }
 
 @media(max-width: 1050px){

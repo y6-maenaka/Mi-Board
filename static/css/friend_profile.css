@@ -277,11 +277,12 @@ td:not(#timetable_time):hover{
   }
 
   .friend_name{
-    font-size: 0.8rem !important;
+    font-size: 16px !important;
     margin: 0;
   }
   .friend_university{
-    font-size: 0.5rem !important;
+    font-size: 8px !important;
+    margin: 0;
   }
 
   .friend_profile_item{
@@ -317,6 +318,11 @@ td:not(#timetable_time):hover{
 
   .link_container_room_name{
     font-size: 4px !important;
+  }
+
+  .friend_icon{
+    width: 12vw;
+    height: 12vw;
   }
 }
 

@@ -104,6 +104,8 @@
 
   .friend_image_affiliation_card p{
     font-size: 6px !important;
+    display: flex;
+    align-items: center;
   }
 
   .discover_friend_btn{

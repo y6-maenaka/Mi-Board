@@ -252,6 +252,7 @@ td:not(#timetable_time):hover{
   padding: 0.5vh 0.7vw 0.5vh 0.7vw;
   box-shadow: 0 0 8px gray;
   margin-right: 0.3vw;
+  text-align: center;
 }
 
 #follow{
@@ -326,7 +327,14 @@ td:not(#timetable_time):hover{
   }
 
   .button_container *{
+    width: 15vw !important;
+    padding: 0.2vh 0.5vw !important;
     font-size: 6px !important;
+    margin: 0.3vh 0;
+  }
+
+  .button_container a{
+    width: 14vw !important;
   }
 }
 

@@ -164,7 +164,7 @@ p{
   width: 100%;
   height: 60vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .timetable{
@@ -604,7 +604,7 @@ td:not(#timetable_time):hover{
   }
 
   .timetable{
-    width: 95%;
+    width: 95% !important;
   }
 
 
@@ -619,13 +619,13 @@ td:not(#timetable_time):hover{
   #go_stoppo_link h1{
     font-size: 1.4rem;
     font-weight: bold;
-    font-family:'Franklin Gothic Medium' !important;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
   }
 
   #go_stoppo_link p{
     font-size: 0.5rem;
     font-weight: bold;
-    font-family:'Franklin Gothic Medium' !important;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
   }
 
   #report_container a{

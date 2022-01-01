@@ -536,7 +536,7 @@
   }
 
   #welcome_message a{
-    font-family:'Franklin Gothic Medium' !important;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
     font-size: 20px !important;
     font-weight: bold;
   }

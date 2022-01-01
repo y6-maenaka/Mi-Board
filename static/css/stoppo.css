@@ -586,24 +586,24 @@
   }
 
   #setting_file{
-    width: 10%;
-    height: 30%;
+    width: 30%;
+    height: 10%;
   }
 
   #guide_file_name{
-    font-size: 5px !important;
+    font-size: 7px !important;
   }
 
   #change_file_name{
-    font-size: 6px !important;
+    font-size: 9px !important;
   }
 
   #change_file_name_btn{
-    font-size: 6px !important;
+    font-size: 9px !important;
   }
 
   #detaile_link{
-    font-size: 6px !important;
+    font-size: 9px !important;
   }
 }
 

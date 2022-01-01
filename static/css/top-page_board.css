@@ -584,12 +584,12 @@ hr{
 
   #search_box_container{
     width: 95% !important;
-    height: 9vh !important;
+    height: 11vh !important;
   }
 
   #search_box_container input[type='submit']{
     font-size: 0.3vw;
-    height: 2.5vh;
+    height: 3vh;
   }
 
   .post_board_container{
@@ -613,6 +613,7 @@ hr{
 
   .search_item{
     font-size: 0.5rem !important;
+    height: 3vh;
   }
 
   .search_item{

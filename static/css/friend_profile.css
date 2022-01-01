@@ -312,20 +312,20 @@ td:not(#timetable_time):hover{
   }
 
   .link_container_room_image{
-    width: 8vw;
-    height: 8vw;
+    width: 10vw;
+    height: 10vw;
   }
 
   .link_container_room_name{
-    font-size: 4px !important;
+    font-size: 5px !important;
   }
 
   .friend_icon{
-    width: 12vw;
-    height: 12vw;
+    width: 13vw;
+    height: 13vw;
   }
 
-  .friend_profile_btn{
+  .button_container *{
     font-size: 6px !important;
   }
 }

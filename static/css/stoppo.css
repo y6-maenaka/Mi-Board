@@ -535,6 +535,12 @@
     display: none;
   }
 
+  #welcome_message a{
+    font-family:"Arial Black" !important;
+    font-size: 17px !important;
+    font-weight: bold;
+  }
+
   .file_image{
     width: 5.5vw !important;
   }

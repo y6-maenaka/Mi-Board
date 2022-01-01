@@ -610,6 +610,7 @@ td:not(#timetable_time):hover{
 
   .friend_room_container{
     display:none;
+    justify-content: center;
   }
 
   #go_stoppo_container{

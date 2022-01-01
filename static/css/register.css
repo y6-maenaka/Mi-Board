@@ -140,3 +140,30 @@ img{
   font-size: 0.6vw;
   color: gray;
 }
+
+@media(max-width: 510px){
+  form{
+    width: 98% !important;
+  }
+
+  form h1{
+    font-size: 10px !important;
+  }
+
+  form input{
+    font-size: 8px !important;
+  }
+
+  form p{
+    font-size: 6px !important;
+  }
+
+  form h3{
+    margin: 2vh 0;
+  }
+
+  #register_btn{
+    height: 3vh;
+    font-size: 7px !important;
+  }
+}

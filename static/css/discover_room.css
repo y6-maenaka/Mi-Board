@@ -173,6 +173,48 @@ button{
   background: linear-gradient(to bottom right, #00d4ff, #003fff);
 }
 
+@media(max-width: 510px){
+
+  .main_content{
+    width: 95% !important;
+  }
+
+  .room_icon{
+    width: 8vw;
+    height: 8vw;
+  }
+
+  #room_name{
+    font-size: 7px !important;
+  }
+
+  .room_attribution{
+    font-size: 4px !important;
+  }
+
+  .btn-change-relation{
+    font-size: 7px !important;
+  }
+
+  #search_room_form p{
+    font-size: 6px !important;
+  }
+
+  .change_search_option{
+    width: 8vw;
+    height: 8vw;
+  }
+
+  #search_room_input{
+    font-size: 8px !important;
+  }
+
+  .narrowed_down_menu{
+    font-size: 8px !important;
+  }
+
+}
+
 @media(max-width: 1050px){
   .main_content{
     width: 85%;

@@ -408,6 +408,26 @@
     width: 70%;
   }
 
+  #search_talker_input{
+    font-size: 7px !important;
+  }
+
+  #new_talker_icon{
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .new_talker_affiliation{
+    font-size: 4px !important;
+  }
+
+  .new_talker_username{
+    font-size: 6px !important;
+  }
+
+  .add_talker_btn{
+    font-size: 7px !important;
+  }
 }
 
 

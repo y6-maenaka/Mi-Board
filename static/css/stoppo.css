@@ -536,8 +536,8 @@
   }
 
   #welcome_message a{
-    font-family:"Arial Black" !important;
-    font-size: 17px !important;
+    font-family:'Franklin Gothic Medium' !important;
+    font-size: 20px !important;
     font-weight: bold;
   }
 
@@ -583,19 +583,19 @@
   }
 
   #go_share_item_page_btn{
-    font-size: 5px !important;
+    font-size: 6px !important;
   }
 
   #upload_file_label{
-    font-size: 5px !important;
+    font-size: 6px !important;
   }
 
   #create_directory_btn{
-    font-size: 5px !important;
+    font-size: 6px !important;
   }
 
   .file_name{
-    font-size: 7px !important;
+    font-size: 8px !important;
   }
 
   #setting_file{

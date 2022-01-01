@@ -168,7 +168,7 @@ p{
 }
 
 .timetable{
-  width: 75%;
+  width: 100%;
   height: 100%;
   background-color: #ffffff;
   box-shadow: 0 0 8px #D1D1D1;
@@ -619,13 +619,13 @@ td:not(#timetable_time):hover{
   #go_stoppo_link h1{
     font-size: 1.4rem;
     font-weight: bold;
-    font-family:"Arial Black" !important;
+    font-family:'Franklin Gothic Medium' !important;
   }
 
   #go_stoppo_link p{
     font-size: 0.5rem;
     font-weight: bold;
-    font-family:"Arial Black" !important;
+    font-family:'Franklin Gothic Medium' !important;
   }
 
   #report_container a{

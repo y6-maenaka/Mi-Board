@@ -193,7 +193,7 @@ button{
   .room_attribution{
     font-size: 5px !important;
     margin: 0;
-    line-height: 0;
+    line-height: 1;
   }
 
   .btn-change-relation{

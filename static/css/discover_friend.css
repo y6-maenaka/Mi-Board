@@ -173,7 +173,7 @@ select{
     .user_attribution{
       font-size: 4px !important;
       margin: 0;
-      line-height: 0;
+      line-height: 1;
     }
 
     .btn-change-relation{

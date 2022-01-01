@@ -460,7 +460,7 @@ iframe{
   }
 
   .radio_container label{
-    font-size: 5px !important;
+    font-size: 7px !important;
   }
 
   .comment_input{
@@ -472,8 +472,12 @@ iframe{
   }
 
   .image_file_input_label img{
-    width: 9vw;
-    height: 9vw;
+    width: 6vw;
+    height: 6vw;
+  }
+
+  .download_link{
+    font-size: 7px !important;
   }
 }
 

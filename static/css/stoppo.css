@@ -586,24 +586,41 @@
   }
 
   #setting_file{
-    width: 30%;
-    height: 10%;
+    width: 40%;
+    height: 8.5%;
   }
 
   #guide_file_name{
-    font-size: 7px !important;
+    font-size: 8px !important;
   }
 
   #change_file_name{
-    font-size: 9px !important;
+    font-size: 10px !important;
   }
 
   #change_file_name_btn{
-    font-size: 9px !important;
+    font-size: 10px !important;
   }
 
   #detaile_link{
-    font-size: 9px !important;
+    font-size: 10px !important;
+  }
+
+  #select_address{
+    width: 40%;
+  }
+
+  .address_card_link img{
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .address_card_username{
+    font-size: 8px !important;
+  }
+
+  .address_card_department{
+    font-size: 8px !important;
   }
 }
 

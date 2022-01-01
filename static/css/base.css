@@ -363,7 +363,7 @@ p{
   }
 
   #notification_message{
-    display: none;
+    font-size: 6px !important;
   }
 
   .logo_link{

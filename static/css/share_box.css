@@ -67,3 +67,25 @@
 .received_at{
   font-size: 0.55vw;
 }
+
+@media(max-width: 510px){
+  .main_content{
+    width: 95% !important;
+  }
+
+  .share_file_item_link img{
+    width: 5.5 !important;
+  }
+
+  .file_name{
+    font-size: 7px !important;
+  }
+
+  #title_share_box{
+    font-size: 5px !important;
+  }
+
+  .file_detail a{
+    font-size: 4px !important;
+  }
+}

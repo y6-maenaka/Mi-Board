@@ -299,7 +299,7 @@
 
 @media(max-width: 510px){
   .main_content{
-    width: 100%;
+    width: 98% !important;
     top: 70px;
   }
 

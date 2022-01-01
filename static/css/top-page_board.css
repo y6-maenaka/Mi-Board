@@ -551,7 +551,7 @@ hr{
 
 @media(max-width: 510px){
   .main_content{
-    width: 100%;
+    width: 100vw !important;
     margin: 0;
     padding: 0;
   }
@@ -583,7 +583,7 @@ hr{
   }
 
   #search_box_container{
-    width: 100%;
+    width: 95% !important;
     height: 9vh !important;
   }
 

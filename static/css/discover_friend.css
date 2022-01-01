@@ -154,6 +154,60 @@ select{
   text-align: center;
 }
 
+@media(max-width: 510px){
+    .main_content{
+      width: 98% !important;
+    }
+
+    .friend_icon{
+      width: 8vw;
+      height: 8vw;
+    }
+
+    #friend_name{
+      font-size: 7px !important;
+      margin: 0;
+    }
+
+    .user_attribution{
+      font-size: 4px !important;
+      margin: 0;
+    }
+
+    .btn-change-relation{
+      font-size: 7px !important;
+    }
+
+    #search_friend_form p{
+      font-size: 6px !important;
+    }
+
+    .change_search_option{
+      width: 7vw;
+      height: 7vw;
+    }
+
+    #search_friend_input{
+      font-size: 8px !important;
+      height: 3vh;
+    }
+
+    .narrowed_down_menu{
+      font-size: 8px !important;
+      height: 3vh;
+    }
+
+    .recommend_friend{
+      font-size: 7px !important;
+    }
+
+    .friend_card{
+      width: 70%;
+    }
+}
+
+
+
 @media(max-width: 1050px){
   .main_content{
     width: 85%;

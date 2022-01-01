@@ -176,7 +176,7 @@ button{
 @media(max-width: 510px){
 
   .main_content{
-    width: 95% !important;
+    width: 98% !important;
   }
 
   .room_icon{
@@ -186,10 +186,12 @@ button{
 
   #room_name{
     font-size: 7px !important;
+    margin: 0;
   }
 
   .room_attribution{
     font-size: 4px !important;
+    margin: 0;
   }
 
   .btn-change-relation{
@@ -201,16 +203,26 @@ button{
   }
 
   .change_search_option{
-    width: 8vw;
-    height: 8vw;
+    width: 7vw;
+    height: 7vw;
   }
 
   #search_room_input{
     font-size: 8px !important;
+    height: 3vh;
   }
 
   .narrowed_down_menu{
     font-size: 8px !important;
+    height: 3vh;
+  }
+
+  .recommend_room{
+    font-size: 7px !important;
+  }
+
+  .room_card{
+    width: 70%;
   }
 
 }

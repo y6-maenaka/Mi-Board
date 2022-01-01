@@ -691,7 +691,7 @@
 @media(max-width: 510px){
   .main_content{
     width: 98% !important;
-    top: 65px;
+    top: 10px;
   }
 
   .room_detail_container ul{

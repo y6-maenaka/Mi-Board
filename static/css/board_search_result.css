@@ -141,6 +141,7 @@
 @media(max-width: 510px){
   .main_content{
     width: 100% !important;
+    top: 10px;
   }
 
   #board_search_result_box{

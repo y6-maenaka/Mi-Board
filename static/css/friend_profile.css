@@ -271,6 +271,7 @@ td:not(#timetable_time):hover{
 @media(max-width:510px){
   .main_content{
     width: 95% !important;
+    top: 10px;
   }
 
   .friend-profile_background{

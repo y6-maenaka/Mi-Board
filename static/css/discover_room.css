@@ -177,6 +177,7 @@ button{
 
   .main_content{
     width: 98% !important;
+    top: 10px;
   }
 
   .room_icon{

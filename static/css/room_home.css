@@ -255,7 +255,7 @@
 @media(max-width: 510px){
   .main_content{
     width: 100% !important;
-    top: 70px;
+    top: 10px;
   }
 
   .room_card_image{

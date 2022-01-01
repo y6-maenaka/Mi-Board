@@ -71,6 +71,7 @@
 @media(max-width: 510px){
   .main_content{
     width: 95% !important;
+    top: 10px;
   }
 
   .share_file_item_link img{

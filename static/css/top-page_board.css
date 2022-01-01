@@ -612,13 +612,9 @@ hr{
   }
 
   .search_item{
-    font-size: 0.5rem !important;
-    height: 3vh;
-  }
-
-  .search_item{
     font-size: 0.4rem !important;
     color: black !important;
+    height: 4vh !important;
   }
 
   .input_post_user_label{

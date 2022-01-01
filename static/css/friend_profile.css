@@ -327,11 +327,12 @@ td:not(#timetable_time):hover{
     padding: 0.2vh 0.8vw !important;
     font-size: 6px !important;
     margin: 0.3vh 0;
-    margin-right: 10px !important; 
+    margin-right: 10px !important;
   }
 
   .button_container a{
     width: 14vw !important;
+    height: 4vh !important;
   }
 }
 

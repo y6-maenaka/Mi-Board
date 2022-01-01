@@ -290,15 +290,6 @@ td:not(#timetable_time):hover{
     font-size: 0.6rem !important;
   }
 
-  .button_container a,button{
-    padding: 0.2vh 0.7vw 0.2vh 0.7vw;
-    font-size: 0.45rem !important;
-    height: 3vh !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-  }
 
   .button_container{
     display: flex !important;
@@ -306,6 +297,7 @@ td:not(#timetable_time):hover{
     align-items: center !important;
     padding: 0 !important;
     margin: 0.4vh 0 !important;
+
   }
 
   .friend_list_container{
@@ -332,9 +324,10 @@ td:not(#timetable_time):hover{
 
   .button_container *{
     width: 15vw !important;
-    padding: 0.2vh 0.5vw !important;
+    padding: 0.2vh 0.8vw !important;
     font-size: 6px !important;
     margin: 0.3vh 0;
+    margin-right: 10px !important; 
   }
 
   .button_container a{

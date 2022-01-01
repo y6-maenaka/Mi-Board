@@ -164,11 +164,11 @@ p{
   width: 100%;
   height: 60vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .timetable{
-  width: 100%;
+  width: 75%;
   height: 100%;
   background-color: #ffffff;
   box-shadow: 0 0 8px #D1D1D1;

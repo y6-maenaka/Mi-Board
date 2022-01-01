@@ -285,6 +285,10 @@
     font-size: 0.25rem;
   }
 
+  .create_room_move_modal{
+    display: none;
+  }
+
 }
 
 @media(max-width: 1050px){

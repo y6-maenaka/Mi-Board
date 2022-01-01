@@ -566,7 +566,7 @@
   }
 
   .action_guide_image{
-    width: 7vw;
+    width: 5.8vw;
   }
 
   #go_share_item_page_btn{
@@ -574,15 +574,36 @@
   }
 
   #upload_file_label{
-    font-size: 8px !important;
+    font-size: 6px !important;
   }
 
   #create_directory_btn{
-    font-size: 8px !important;
+    font-size: 6px !important;
   }
 
   .file_name{
-    font-size: 8px !important;
+    font-size: 6px !important;
+  }
+
+  #setting_file{
+    width: 10%;
+    height: 10%;
+  }
+
+  #guide_file_name{
+    font-size: 5px !important;
+  }
+
+  #change_file_name{
+    font-size: 6px !important;
+  }
+
+  #change_file_name_btn{
+    font-size: 6px !important;
+  }
+
+  #detaile_link{
+    font-size: 6px !important;
   }
 }
 

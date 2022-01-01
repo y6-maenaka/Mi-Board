@@ -525,6 +525,12 @@
 }
 
 @media(max-width: 510px){
+
+  .main_content{
+      width: 100% !important;
+  }
+
+
   #welcome_message p{
     display: none;
   }
@@ -534,18 +540,23 @@
   }
 
   #directory_box{
-    width: 80% !important;
+    width: 100% !important;
+    border-radius: 0;
+  }
+
+  #welcome_message{
+    display: none;
   }
 
   #back_btn{
     height:4vh;
     font-size: 9px !important;
-    width: 80%;
+    width: 95%;
   }
 
   #total_file_size{
     height: 3vh;
-    width: 75%;
+    width: 85%;
   }
 
   #total_file_size{
@@ -562,7 +573,7 @@
   }
 
   #stoppo_action_container{
-    width: 85%;
+    width: 95%;
   }
 
   .action_guide_image{

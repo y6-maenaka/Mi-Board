@@ -595,12 +595,8 @@ td:not(#timetable_time):hover{
 
 @media(max-width: 510px){
   .main_content{
-    width: 100%;
+    width: 99% !important;
     top: 70px;
-  }
-
-  .send_report{
-    display: none;
   }
 
   .timetable{

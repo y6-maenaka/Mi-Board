@@ -304,7 +304,8 @@
 
   .main_content{
     width: 100% !important;
-    height: 86%;
+    height: 90% !important;
+    top: 60px;
   }
 
   body{
@@ -386,7 +387,7 @@
   }
 
   #send_message_input{
-    height: 60%;
+    height: 63%;
     font-size: 0.44rem !important;
   }
 
@@ -397,6 +398,14 @@
   #talking_user_icon{
     width: 6vw;
     height: 6vw;
+  }
+
+  .message_menu_container{
+    width: 30%;
+  }
+
+  .message_main_container{
+    width: 70%;
   }
 
 }

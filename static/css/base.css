@@ -358,6 +358,10 @@ p{
     width: 100vw;
   }
 
+  .notification_area{
+    width: 40%;
+  }
+
   #notification_message{
     display: none;
   }

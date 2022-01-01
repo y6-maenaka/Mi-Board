@@ -165,7 +165,7 @@ select{
     }
 
     #friend_name{
-      font-size: 9px !important;
+      font-size: 10px !important;
       margin: 0;
       line-height: 1;
     }
@@ -173,7 +173,7 @@ select{
     .user_attribution{
       font-size: 4px !important;
       margin: 0;
-      line-height: 1.3;
+      line-height: 1.5;
     }
 
     .btn-change-relation{

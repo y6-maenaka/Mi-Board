@@ -658,6 +658,13 @@ td:not(#timetable_time):hover{
     height: 60% !important;
   }
 
+  .timetable_friend_room{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 }
 
 @media(max-width: 1050px){

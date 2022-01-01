@@ -53,7 +53,7 @@
   <ul id='my_board_contents'>
     <ul id='tab1'>
       {% if not post_board_list %}
-      <p>投稿された質問・記事がありません</p>
+      <p class='no_board_message'>投稿された質問・記事がありません</p>
       {% endif %}
 
       {% for post_board in post_board_list %}
@@ -85,7 +85,7 @@
 
     <ul id='tab2'>
       {% if not good_board_list %}
-      <p>いいねした質問・記事がありません</p>
+      <p class='no_board_message'>いいねした質問・記事がありません</p>
       {% endif %}
 
       {% for good_board in good_board_list %}
@@ -118,7 +118,7 @@
 
     <ul id='tab3'>
       {% if not store_board_list %}
-      <p>保存した質問・記事がありません</p>
+      <p class='no_board_message'>保存した質問・記事がありません</p>
       {% endif %}
 
       {% for store_board in store_board_list %}

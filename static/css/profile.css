@@ -300,6 +300,7 @@
 @media(max-width: 510px){
   .main_content{
     width: 100%;
+    top: 70px;
   }
 
   .user-profile_background{
@@ -347,6 +348,10 @@
 
   .board_content_setting_container{
     margin: 2vh 0;
+  }
+
+  .no_board_message{
+    font-size: 5px !important;
   }
 }
 

@@ -324,6 +324,10 @@ td:not(#timetable_time):hover{
     width: 12vw;
     height: 12vw;
   }
+
+  .friend_profile_btn{
+    font-size: 6px !important;
+  }
 }
 
 @media(max-width: 1050px){

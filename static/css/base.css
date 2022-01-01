@@ -358,6 +358,10 @@ p{
     width: 100vw;
   }
 
+  .base_header{
+    bottom: 0;
+  }
+
   .notification_area{
     width: 40%;
   }

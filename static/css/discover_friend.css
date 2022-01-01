@@ -199,11 +199,15 @@ select{
     }
 
     .recommend_friend{
-      font-size: 6px !important;
+      display: none;
     }
 
     .friend_card{
       width: 70%;
+    }
+
+    .discover_friend_btn{
+      padding: 0.3vh 0.7vw;
     }
 }
 

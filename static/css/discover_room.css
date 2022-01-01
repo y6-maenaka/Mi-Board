@@ -193,6 +193,7 @@ button{
   .room_attribution{
     font-size: 5px !important;
     margin: 0;
+    line-height: 0;
   }
 
   .btn-change-relation{
@@ -218,11 +219,15 @@ button{
   }
 
   .recommend_room{
-    font-size: 7px !important;
+    display: none;
   }
 
   .room_card{
     width: 70%;
+  }
+
+  .discover_room_btn{
+    padding: 0.3vh 0.7vw;
   }
 
 }

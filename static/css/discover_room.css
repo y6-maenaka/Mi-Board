@@ -180,18 +180,19 @@ button{
   }
 
   .room_icon{
-    display: none;
+    width: 8vw;
+    height: 8vw;
   }
 
   #room_name{
-    font-size: 8px !important;
+    font-size: 9px !important;
     margin: 0;
+    line-height: 0;
   }
 
   .room_attribution{
     font-size: 5px !important;
     margin: 0;
-    line-height: 0;
   }
 
   .btn-change-relation{
@@ -203,8 +204,7 @@ button{
   }
 
   .change_search_option{
-    width: 7vw;
-    height: 7vw;
+    display: none;
   }
 
   #search_room_input{
@@ -218,7 +218,7 @@ button{
   }
 
   .recommend_room{
-    font-size: 6px !important;
+    font-size: 7px !important;
   }
 
   .room_card{

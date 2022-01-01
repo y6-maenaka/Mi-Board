@@ -160,12 +160,14 @@ select{
     }
 
     .friend_icon{
-      display: none;
+      width: 8vw;
+      height: 8vw;
     }
 
     #friend_name{
-      font-size: 7px !important;
+      font-size: 9px !important;
       margin: 0;
+      line-height: 0;
     }
 
     .user_attribution{
@@ -183,8 +185,7 @@ select{
     }
 
     .change_search_option{
-      width: 7vw;
-      height: 7vw;
+      display: none;
     }
 
     #search_friend_input{

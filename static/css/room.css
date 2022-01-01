@@ -691,6 +691,7 @@
 @media(max-width: 510px){
   .main_content{
     width: 98% !important;
+    top: 55px;
   }
 
   .room_detail_container ul{
@@ -810,6 +811,7 @@
     border-radius: 5px;
     padding: 1.3vh 1vw;
     align-items: center;
+    margin-bottom: 1vh;
   }
 
   #smartfon_room_detail img{
@@ -820,12 +822,12 @@
   }
 
   #smartfon_room_detail h1{
-    font-size: 16px !important;
+    font-size: 14px !important;
     margin: 0 1vw;
   }
 
   #smartfon_room_detail button{
-    height: 3vh;
+    height: 2vh;
     font-size: 8px;
   }
 
@@ -840,6 +842,10 @@
     margin: 0.5vh 0.4vw;
     background-color: #F1F1F1;
     border-radius: 5px;
+  }
+
+  .room_info-room_chat{
+    justify-content: center;
   }
 
 }

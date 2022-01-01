@@ -540,8 +540,7 @@
   }
 
   #directory_box{
-    width: 100% !important;
-    border-radius: 0;
+    width: 95% !important;
   }
 
   #welcome_message{

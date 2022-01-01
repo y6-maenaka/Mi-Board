@@ -599,8 +599,12 @@ td:not(#timetable_time):hover{
     top: 70px;
   }
 
+  #go_stoppo{
+    border-radius: 10px;
+  }
+
   .timetable{
-    width: 100%;
+    width: 95%;
   }
 
 

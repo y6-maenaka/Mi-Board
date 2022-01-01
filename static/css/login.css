@@ -106,7 +106,7 @@ input:focus{
 
 @media(max-width: 510px){
   form{
-    width: 60%;
+    width: 60% !important;
   }
 
   #mi-board-main h1{

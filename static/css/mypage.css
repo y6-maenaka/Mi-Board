@@ -596,7 +596,7 @@ td:not(#timetable_time):hover{
 @media(max-width: 510px){
   .main_content{
     width: 99% !important;
-    top: 70px;
+    top: 10px;
   }
 
   #go_stoppo{

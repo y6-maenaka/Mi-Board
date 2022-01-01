@@ -15,6 +15,25 @@
 <body>
   {% block content %}
 
+<div id='smartfon_room_detail'>
+  {% if room_data.room_image %}
+    <img src='/media/{{room_data.room_image}}'>
+  {% else %}
+    <img src='/static/image/room.svg'>
+  {% endif %}
+  <h1>{{room_data.room_name}}</h1>
+  <ul>
+    <li class='smartphone_room_detail'><p>{{ room_data.representative_person_name }}</p></li>
+    <li class='smartphone_room_detail'><p>{{ room_data.week_at }}</p></li>
+    <li class='smartphone_room_detail'><p>{{ room_data.work_time }}時間目</p></li>
+    <li class='smartphone_room_detail'><p>{{ room_data.subject_to }}</p></li>
+  </ul>
+  {% if room_data.room_id in room_joining %}
+  <button class="btn-change_relation {{ room_data.room_id }}" id='secession' value='{{ room_data.room_id }}' name='secession'>退出</button>
+  {% else %}
+  <button class="btn-change_relation {{ room_data.room_id }}" id='join' value='{{ room_data.room_id }}' name='join'>参加</button>
+  {% endif %}
+</div>
 
   <div class='room_info-room_chat'>
     <div class='room_info_container'>

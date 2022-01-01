@@ -171,13 +171,13 @@ select{
     }
 
     .user_attribution{
-      font-size: 4px !important;
+      font-size: 6px !important;
       margin: 0;
-      line-height: 1.5;
+      line-height: 1.8;
     }
 
     .btn-change-relation{
-      font-size: 7px !important;
+      font-size: 8px !important;
     }
 
     #search_friend_form p{

@@ -74,7 +74,7 @@
   }
 
   .share_file_item_link img{
-    width: 5.5 !important;
+    width: 5px !important;
   }
 
   .file_name{
@@ -85,7 +85,7 @@
     font-size: 5px !important;
   }
 
-  .file_detail a{
+  .file_detail a,p{
     font-size: 4px !important;
   }
 }

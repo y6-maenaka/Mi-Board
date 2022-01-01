@@ -142,6 +142,10 @@
   .main_content{
     width: 100% !important;
   }
+
+  #recommend_board_box{
+    display: none;
+  }
 }
 
 @media(max-width: 990px){
@@ -149,7 +153,23 @@
     width: 85%;
   }
 
+  #board_search_result_box{
+    width: 95%;
+  }
+
+  .anotation_box{
+    font-size: 4px !important;
+  }
+
   #board_area{
     justify-content: center;
+  }
+
+  .board_item_content_container h1{
+    font-size: 10px !important;
+  }
+
+  .board_item_content_container p{
+    font-size: 7px !important;
   }
 }

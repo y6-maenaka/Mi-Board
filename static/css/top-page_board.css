@@ -9,6 +9,10 @@
   display: none;
 }
 
+#attention_post_board{
+  display: none;
+}
+
 .post_board_form{
   position: absolute;
   width: 60vw;
@@ -641,7 +645,16 @@ hr{
     font-size: 4px !important;
   }
 
+  #attention_post_board{
+    display: flex;
+    font-size: 7px !important;
+    margin: 2vh 0;
+    font-weight: bold;
+  }
 
+  .post_board_container{
+    display: none;
+  }
 }
 
 @media(max-width: 990px){

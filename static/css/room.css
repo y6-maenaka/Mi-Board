@@ -687,6 +687,10 @@
 }
 
 @media(max-width: 510px){
+  .main_content{
+    width: 98% !important;
+  }
+
   .room_detail_container ul{
     height: 14vh !important;
   }
@@ -791,6 +795,10 @@
 
   .related_board_guide_message{
     font-size: 8px !important;
+  }
+
+  .room_chat_container{
+    width: 98%;
   }
 
 }

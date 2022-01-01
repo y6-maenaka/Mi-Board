@@ -180,8 +180,8 @@ button{
   }
 
   .room_icon{
-    width: 8vw;
-    height: 8vw;
+    width: 9vw;
+    height: 9vw;
   }
 
   #room_name{
@@ -224,10 +224,6 @@ button{
 
   .room_card{
     width: 70%;
-  }
-
-  .discover_room_btn{
-    padding: 0.3vh 0.7vw;
   }
 
 }

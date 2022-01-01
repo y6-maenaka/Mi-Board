@@ -206,8 +206,11 @@ select{
       width: 70%;
     }
 
-    .discover_friend_btn{
-      padding: 0.3vh 0.7vw;
+    .friend_detail{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
 }
 

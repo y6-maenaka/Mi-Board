@@ -365,6 +365,9 @@ p{
   .notification_area{
     width: 50%;
     top: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #notification_message{

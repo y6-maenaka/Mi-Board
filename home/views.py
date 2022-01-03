@@ -16,6 +16,6 @@ class AboutMiBoardView(View):
             'medicine':int(user_list.count('医学部')),
             'total':int(len(user_list)),
         }
-        return render(request,'about_mi_board.html',context)
+        return render(request,'about_mi_Board.html',context)
 
 about_mi_board = AboutMiBoardView.as_view()

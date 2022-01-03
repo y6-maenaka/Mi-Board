@@ -438,7 +438,7 @@ p{
   }
 
   #notification_box{
-    width: 60%;
+    width: 70%;
   }
 
   #notification_box p{
@@ -450,7 +450,19 @@ p{
   }
 
   #notification_container{
-    bottom: 6vh;
+    bottom: 7vh;
+  }
+
+  .notification_card p{
+    font-size: 9px !important;
+  }
+
+  .notification_card h1{
+    font-size: 8px !important;
+  }
+
+  .notification_logo{
+    display: none;
   }
 
 }

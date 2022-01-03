@@ -3,6 +3,7 @@ body{
   justify-content: center;
   padding: 0;
   margin: 0;
+  width: 100vw;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
 }
 
@@ -178,7 +179,7 @@ hr{
   }
 
   #main p{
-    font-size: 12px !important;
+    font-size: 15px !important;
   }
 
   #mi_board_logo{
@@ -186,15 +187,21 @@ hr{
   }
 
   .number_of_user_card{
-    font-size: 13px !important;
+    font-size: 16px !important;
   }
 
   .func_image{
-    width: 98% !important;
+    width: 99% !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  p span{
+    font-size: 8px !important;
   }
 
   h4{
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
 }
 

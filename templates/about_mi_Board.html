@@ -15,7 +15,7 @@
     </div>
     <h2>Mi-Boardとは</h2>
     <p style='text-align:center;'>Mi-Board(マイボード)は宮崎大学の学生向けに製作したアプリケーションです。
-      <br>宮崎大学の学生の大学生活が充実するように便利な機能を実装してリリースしました。
+      <br>宮崎大学の学生の学生生活が充実するように便利な機能を実装してリリースしました。
       <br>Mi-Boardは便利ツール、コミュニケーションツール、その他様々な用途でお使いいただけます。
       <br><span style='font-size:0.6rem;'>※Mi-Boardを利用するには宮崎大学学生専用メールアドレスが必要です。</span></p>
 
@@ -42,7 +42,7 @@
       <div class='intro'>
       <h4>Mi時間割</h4>
       <p>時間割を設定することで、ホーム画面から簡単に各講義ルームにワンクリックで遷移する事が出来ます。
-        <br>各コマの余白をクリックすることで、ルーム追加モーダル画面が表示され、時間割に講義を設定する事が出来ます</p>
+        <br>各コマの余白をクリックすることで、時間割に講義を設定する事が出来ます</p>
       </div>
     </div>
 
@@ -52,8 +52,7 @@
       <h4>オンラインファイル管理(ストレージ)</h4>
       <p>講義ファイルや資料をオンライン上で管理する事が出来ます。
         <br>パソコンからでもスマホからでも自分だけのオンラインストレージにアクセスる事が出来ます。
-        <br>また、ファイルシェアも簡単かつ高速に行えます。
-        <br>SPAの振る舞いをするよう実装しました。</p>
+        <br>また、ファイルシェアも簡単かつ高速に行えます。</p>
       </div>
     </div>
 
@@ -83,8 +82,7 @@
         <h4>講義・学外活動ルーム</h4>
         <p>講義・学外活動専用ルームで匿名チャットで質問したり、コミュニケーションをとる事が出来ます。
           <br>また、質問・記事投稿の際に関連ルームとして設定した場合、そのルーム内で質問・記事を参照できます。
-          <br>ルームから同ルームに関連付けて質問・記事を投稿することも出来ます。
-          <br>匿名チャットにはポーリングなど高負荷な処理を避け、リアルタイムでのメッセージの送受信を行うため、django-channels(WebSocket)を用いて実装しています。</p>
+          <br>ルームから同ルームに関連付けて質問・記事を投稿することも出来ます。</p>
       </div>
     </div>
 
@@ -92,25 +90,26 @@
       <img src="{% static 'image/about_mi_board_personal_chat.png' %}" class='func_image'>
       <div class='intro'>
         <h4>チャット</h4>
-        <p>一般的なチャット機能を提供しています。<br>
-          専用ルームの匿名チャット同様django-channelsを用いて実装しています。</p>
+        <p>一般的なチャット機能を提供しています。</p>
       </div>
     </div>
 
 
 
     <hr style='margin-bottom:10vh;'>
-    <h3>@12/28 小規模アップデート</h3>
+    <h3>@12/28 アップデート</h3>
     <img src='/static/image/mi-board-new-func.png' class='mi-board_update'>
     <h4>以下の機能を新規に追加・改善しました</h4>
     <ol>
       <li>時間割上でのルーム更新確認機能</li>
       <li>画面左下、全ての通知確認機能</li>
-      <li>プッシュ通知(Push.js)・簡易プッシュ通知機能</li>
+      <li>プッシュ通知・簡易プッシュ通知機能</li>
       <li>オンラインストレージアップロード制限メーター</li>
-      <li>ロゴ・アイコンの変更(supported by Remon)</li>
+      <li>ロゴ・アイコンの変更(Supported By Remon(<a href='https://www.instagram.com/remon_nomer66' target='_blank'> instagram</a> | <a href="{% url "friend:friend_profile" "b1fde164-0dcf-4e37-8b6e-168fdceb4ec1" %}">Mi-Board </a>)</li>
     </ol>
     <hr style='margin-top:10vh;'>
+
+    <a href='{% url "accounts:login" %}' id='user_mi-board'>Mi-Boardを使い始める</a>
 
     <h2 id='environment_guide'>開発環境</h2>
     <div id='environment'>

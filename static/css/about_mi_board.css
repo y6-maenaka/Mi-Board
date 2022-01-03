@@ -166,3 +166,8 @@ hr{
 .number_of_user_card{
   text-align:center;
 }
+
+#user_mi-board{
+  font-size: 1.5rem;
+  margin-top: 8vh;
+}

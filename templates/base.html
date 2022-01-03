@@ -23,7 +23,6 @@
 
       <ul class='global_menu_container'>
 
-        <!-- <li class='global_menu_item' id='global_menu_item_ground'><a class='global_menu_item_link' href='{% url "ground:ground_global" %}'><img src="{% static 'image/ground.svg' %}" class='global_menu_image'></a></li> -->
         <li class='global_menu_item' id='global_menu_item_room'><a class='global_menu_item_link' href="{% url 'room:room_home' %}"><img src="{% static 'image/room.png' %}" class='global_menu_image'></a></li>
         <li class='global_menu_item' id='global_menu_item_friend'><a class='global_menu_item_link' href='{% url "friend:friend_home" %}'><img src="{% static 'image/friend.png' %}" class='global_menu_image'></a></li>
         <li class='global_menu_item' id='global_menu_item_mypage'><a class='global_menu_item_link' href='{% url "mypage:mypage" user.user_id %}'><img src="{% static 'image/user.png' %}" class='global_menu_image'></a></li>

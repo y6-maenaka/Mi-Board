@@ -132,4 +132,13 @@
   .main_content{
     width: 90%;
   }
+
+  .friend_card_image{
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .friend_image_affiliation_card p{
+    font-size: 0.65rem;
+  }
 }

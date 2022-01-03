@@ -187,6 +187,11 @@ class Users(AbstractBaseUser, PermissionsMixin):
         null=True,
     )
 
+    authority = models.CharField(
+        max_length = 20,
+        default = 'general',
+    )
+
     objects = UserManager()
 
     USERNAME_FIELD = 'username'

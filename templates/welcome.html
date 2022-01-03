@@ -2,12 +2,13 @@
 <html lang='ja'>
 <head>
   <meta charset='utf-8'>
-
+  <link rel='stylesheet' type='text/css' href="{% static 'css/welcome.css' %}" />
 </head>
 
 <body>
 
-  <a href='52.196.235.255/accounts/login/'>Mi-Board</a>
+  
+  <a href='{% url "accounts:login" %}'>Mi-Board</a>
 
 </body>
 </html>

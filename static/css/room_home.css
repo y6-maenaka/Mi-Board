@@ -303,4 +303,13 @@
   .main_content{
     width: 90%;
   }
+
+  .room_card_image{
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .room_image_affiliation_card p{
+    font-size: 0.65rem;
+  }
 }

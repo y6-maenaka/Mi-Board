@@ -370,6 +370,12 @@ p{
     justify-content: center;
   }
 
+  .notification_card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   #notification_message{
     font-size: 6px !important;
   }

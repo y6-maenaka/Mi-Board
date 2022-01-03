@@ -190,8 +190,12 @@ hr{
     font-size: 16px !important;
   }
 
+  .func_intro{
+    margin: 2vh 0;
+  }
+
   .func_image{
-    width: 99% !important;
+    width: 99vw !important;
     margin: 0;
     padding: 0;
   }

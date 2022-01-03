@@ -171,3 +171,45 @@ hr{
   font-size: 1.5rem;
   margin-top: 8vh;
 }
+
+@media(max-width: 510px){
+  #main{
+    width: 100% !important;
+  }
+
+  #main p{
+    font-size: 12px !important;
+  }
+
+  #mi_board_logo{
+    margin: 0;
+  }
+
+  .number_of_user_card{
+    font-size: 13px !important;
+  }
+
+  .func_image{
+    width: 98% !important;
+  }
+
+  h4{
+    font-size: 15px !important;
+  }
+}
+
+@media(max-width: 1050px){
+  #main{
+    width: 95% !important;
+  }
+
+  .intro p{
+    font-size: 1.4vw;
+  }
+}
+
+@media(max-width: 1250px){
+  #main{
+    width: 90%;
+  }
+}

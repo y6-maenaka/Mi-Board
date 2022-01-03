@@ -62,3 +62,18 @@ form button:hover{
   font-size: 1rem;
   text-align: center;
 }
+
+
+@media(max-width: 510px){
+  .main_content{
+    width: 80% !important;
+  }
+
+  form{
+    width: 100% !important;
+  }
+
+  textarea{
+    width: 90% !important;
+  }
+}

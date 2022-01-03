@@ -364,6 +364,7 @@ p{
 
   .notification_area{
     width: 40%;
+    top: 1vh;
   }
 
   #notification_message{
@@ -446,6 +447,10 @@ p{
 
   #notification_box h2{
     font-size: 7px !important;
+  }
+
+  #notification_container{
+    bottom: 6vh;
   }
 
 }

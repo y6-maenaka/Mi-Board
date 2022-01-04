@@ -167,3 +167,9 @@ img{
     font-size: 7px !important;
   }
 }
+
+@media(max-width: 1050px){
+  #register_form{
+    width: 80% !important;
+  }
+}

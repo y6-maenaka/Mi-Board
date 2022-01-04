@@ -138,3 +138,26 @@ input:focus{
     font-size: 8px !important;
   }
 }
+
+@media(max-width: 1050px){
+  form{
+    width: 35% !important;
+  }
+
+  form h1{
+    font-size: 13px !important;
+  }
+
+  form p{
+    font-size: 9px !important;
+  }
+
+  #login-btn{
+    height: 3vh;
+    font-size: 9px !important;
+  }
+
+  #mi-board-main h1{
+    font-size: 17px !important;
+  }
+}

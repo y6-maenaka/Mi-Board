@@ -857,4 +857,8 @@
   .main_content{
     width: 85%;
   }
+
+  #post_board_page{
+    width: 50% !important;
+  }
 }

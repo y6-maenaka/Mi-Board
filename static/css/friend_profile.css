@@ -344,4 +344,9 @@ td:not(#timetable_time):hover{
   .main_content{
     width: 85%;
   }
+
+  .link_container_room_image{
+    width: 6.3vw !important;
+    height: 6.3vw !important;
+  }
 }

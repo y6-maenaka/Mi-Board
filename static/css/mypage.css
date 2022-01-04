@@ -10,6 +10,26 @@ p{
   line-height: 1;
 }
 
+
+#notification_from_developer{
+  width: 100vw;
+  height: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 60px;
+  margin: 0;
+  padding: 0;
+  background-color: #E1E1E1;
+}
+
+#notification_from_developer p{
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .main_content{
   display: flex;
   flex-direction: column;
@@ -597,6 +617,10 @@ td:not(#timetable_time):hover{
   .main_content{
     width: 99% !important;
     top: 10px;
+  }
+
+  #notification_from_developer{
+    display: none;
   }
 
   #go_stoppo{

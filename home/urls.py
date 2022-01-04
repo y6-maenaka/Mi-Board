@@ -5,4 +5,5 @@ app_name = 'home'
 
 urlpatterns = [
     path('',views.about_mi_board,name='about_mi_board'),
+    path('ranking/',views.ranking,name='ranking'),
 ]

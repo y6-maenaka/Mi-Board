@@ -154,24 +154,12 @@
   <ul id='setting'>
     <p class='owned_coins'>保有コイン:<span>{{user.points}}</span>ポイント</p>
     <li class='setting_item'><a href='{% url "home:about_mi_board" %}'>Mi-Boardトップページ</a></li>
+    <li class='setting_item'><a href="{% url 'home:ranking' %}">ランキング・統計(β版)</a></li>
     <li class='setting_item'><a href='{% url "stoppo:share_box" user.user_id %}'>シェアファイル</a></li>
     <li class='setting_item'><a href='{% url "accounts:profile_edit" user.user_id %}'>プロフィール編集</a></li>
     <li class='setting_item'><a href='{% url "accounts:logout" %}'>ログアウト</a></li>
   </ul>
   </div>
-
-<!-- <ul id='ground_list'>
-  <p style='width:60%; text-align:center; font-weight:bold; background-color:#D1D1D1;'>これまでの投稿</p>
-  {% for ground in ground_list %}
-  <li class='ground_item'>
-    <p style='font-size: 0.75vw; padding:0 0.4vw;'>{{ground.ground_content}}</p>
-    {% if ground.ground_image %}
-    <img src='/media/{{ground.ground_image}}' class='ground_image'>
-    {% endif %}
-    <p class='ground_created_at'>{{ground.created_at}}</p>
-  </li>
-  {% endfor %}
-</ul> -->
 
   {% endblock %}
 </body>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from accounts.models import Users
-
+from django.utils import timezone
 # Create your views here.
 
 class AboutMiBoardView(View):
@@ -19,3 +19,19 @@ class AboutMiBoardView(View):
         return render(request,'about_mi_Board.html',context)
 
 about_mi_board = AboutMiBoardView.as_view()
+
+
+def ranking(request):
+    if request.method == 'GET':
+
+        spend_days = timezone.now() - request.user.created_at
+        ranking_regist = Users.objects.all().order_by('created_at')[:7]
+
+        ranking_points = Users.objects.all().order_by('points').reverse()[:7]
+
+        context = {
+            'spend_days': spend_days.days,
+            'ranking_regist':ranking_regist,
+            'ranking_points':ranking_points,
+        }
+        return render(request,'ranking.html',context)

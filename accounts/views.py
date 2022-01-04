@@ -38,7 +38,6 @@ class RegisterView(View):
 
         # リクエストからフォームを作成
         form = RegisterForm(request.POST,request.FILES)
-        print(request.POST,request.FILES)
         # バリデーション
         if not form.is_valid():
             print('before')

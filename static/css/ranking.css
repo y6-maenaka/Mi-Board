@@ -1,0 +1,58 @@
+.main_content{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#when_start_mi_board{
+  padding: 1vh 2vw;
+  width: 80%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 4px #D1D1D1;
+}
+
+#when_start_mi_board *{
+  text-align: center;
+}
+
+#when_start_mi_board h2{
+  font-size: 1rem;
+}
+
+#when_start_mi_board h1{
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+#when_start_mi_board p{
+  font-size: 0.8rem;
+}
+
+.guide_day{
+  font-size: 1.5rem;
+}
+
+.user_name{
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+#ranking_regist{
+  margin: 1vh 0;
+}
+
+.ranking_username{
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.sub_ranking_li p{
+  font-size: 0.7rem;
+}
+
+#sub_ranking{
+  display: flex;
+  align-items: center;
+}

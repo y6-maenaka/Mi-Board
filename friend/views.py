@@ -1,4 +1,4 @@
-from django.shortcuts import render,render
+from django.shortcuts import render,redirect
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import connection
@@ -29,6 +29,9 @@ class FriendProfileView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
 
         friend_id = self.kwargs['friend_id']
+
+        if str(friend_id) == str(request.user.user_id):
+            return redirect('friend:friend_home')
 
         """フレンドプロフィールデータ取得"""
         friend_profile_data = Users.objects.values(
@@ -63,7 +66,6 @@ class FriendProfileView(LoginRequiredMixin,View):
 
         follows = Follows.objects.filter(followee_id = request.user.user_id,follower_id = friend_id)
 
-        print(follows)
 
 
         friend_followee = Follows.objects.filter(followee_id = friend_id).values_list('follower_id',flat=True)

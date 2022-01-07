@@ -13,18 +13,18 @@ from django.http import HttpResponse,JsonResponse
 
 @login_required
 def settings_home(request):
-    if not request.user.authority == 'root' or request.user.authority == 'editor':
+    if request.user.authority == 'general':
         return HttpResponse(status=500)
     return render(request,'settings_home.html')
 
 class SendReportView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
-        if not request.user.authority == 'root' or request.user.authority == 'editor':
+        if request.user.authority == 'general':
             return HttpResponse(status=500)
         return render(request,'send_report.html')
 
     def post(self,request,*args,**kwargs):
-        if not request.user.authority == 'root' or request.user.authority == 'editor':
+        if request.user.authority == 'general':
             return HttpResponse(status=500)
         report = request.POST
         store_report = Report(user_id=request.user.user_id,report=report['report'])
@@ -41,7 +41,7 @@ send_report = SendReportView.as_view()
 @login_required
 def list_report(request):
     if request.method == 'GET':
-        if not request.user.authority == 'root' or request.user.authority == 'editor':
+        if request.user.authority == 'general':
             return HttpResponse(status=500)
         list_report = Report.objects.all().order_by('created_at').reverse()
         context = {
@@ -52,7 +52,7 @@ def list_report(request):
 @login_required
 def list_user_info(request):
     if request.method == 'GET':
-        if not request.user.authority == 'root' or request.user.authority == 'editor':
+        if request.user.authority == 'general':
             return HttpResponse(status=500)
         list_user_info = Users.objects.all().exclude(user_id = request.user.user_id).order_by('created_at')
         context = {
@@ -62,7 +62,7 @@ def list_user_info(request):
 
 class SettingsRoomView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
-        if not request.user.authority == 'root' or request.user.authority == 'editor':
+        if request.user.authority == 'general':
             return HttpResponse(status=500)
 
         room_list = Rooms.objects.all()
@@ -77,7 +77,7 @@ settings_room = SettingsRoomView.as_view()
 
 class ChangeRoomNameView(LoginRequiredMixin,View):
     def get(self,request,room_id):
-        if not request.user.authority == 'root' or request.user.authority == 'editor':
+        if request.user.authority == 'general':
             return HttpResponse(status=500)
         room_info = Rooms.objects.filter(room_id = room_id)
 
@@ -106,7 +106,7 @@ class ChangeRoomNameView(LoginRequiredMixin,View):
         return render(request,'change_room_name.html',context)
 
     def post(self,request,room_id):
-        if not request.user.authority == 'root' or request.user.authority == 'editor':
+        if request.user.authority == 'general':
             return HttpResponse(status=500)
 
         modifying_data = get_object_or_404(Rooms,room_id = room_id)

@@ -19,6 +19,38 @@ img{
   object-fit: cover;
 }
 
+.room_list_icon{
+  position: absolute;
+  top: 5.7vh;
+  display: none;
+}
+.friend_list_icon{
+  position: absolute;
+  top: 5.7vh;
+  display: none;
+}
+.mypage_icon{
+  position: absolute;
+  top: 5.7vh;
+  display: none;
+}
+.board_icon{
+  position: absolute;
+  top: 5.7vh;
+  display: none;
+}
+.personal_chat_icon{
+  position: absolute;
+  top: 5.7vh;
+  display: none;
+}
+.stoppo_icon{
+  position: absolute;
+  top: 5.7vh;
+  display: none;
+}
+
+
 .notification_image{
   width: 2vmax;
   height: 2vmax;
@@ -240,6 +272,7 @@ p{
 .global_menu_item{
   display: flex;
   align-items:center;
+  justify-content: center;
   margin: 0 5px 0 5px;
   border-radius: 10px;
   transition: background-color 0.2s ease;

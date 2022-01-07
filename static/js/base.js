@@ -5,7 +5,15 @@ $(function(){
   console.log("スマートフォン用のコードを書く");
   }else{
 
+    $('.global_menu_item_link').hover(function(){
+      icon_name = $(this).attr('id')
+      console.log('.'+icon_name)
 
+            $("."+icon_name).css({'display':'flex','font-size':'0.8rem','background':'gray','color':'#ffffff','padding':'1vh 0.6vw','border-radius':'5px'})
+    },
+    function(){
+      $("."+icon_name).css('display','none')
+    })
 
   var url = new URL(window.location.href);
   var params = url.pathname.split('/')[1];
@@ -113,4 +121,5 @@ $(function(){
       $('#communication_state_unstable_bg').fadeIn(100)
       console.error('notification socket closed unexpectedly')
     }
+
 });

@@ -158,6 +158,9 @@
     <li class='setting_item'><a href='{% url "stoppo:share_box" user.user_id %}'>シェアファイル</a></li>
     <li class='setting_item'><a href='{% url "accounts:profile_edit" user.user_id %}'>プロフィール編集</a></li>
     <li class='setting_item'><a href='{% url "accounts:logout" %}'>ログアウト</a></li>
+    {% if not user.authority == 'general' %}
+    <li class='setting_item'><a href='{% url "settings:settings_home" %}' style='background-color:#F1F1F1;'>各種設定操作</a></li>
+    {% endif %}
   </ul>
   </div>
 

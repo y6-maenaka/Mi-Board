@@ -35,7 +35,7 @@ def add_talker(request):
         yet_talker_owner = list(PersonalChatLayerGroup.objects.filter(owner_user_id = request.user.user_id).values_list('invited_user_id',flat=True))
         yet_talker_inviter = list(PersonalChatLayerGroup.objects.filter(invited_user_id=request.user.user_id).values_list('owner_user_id',flat=True))
 
-        """既にグループがある人を選び出す(uuidの為苦戦)"""
+        """既にグループがある人を選び出す"""
         yet_talker = []
 
         for _ in yet_talker_owner:

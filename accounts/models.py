@@ -253,3 +253,14 @@ class PersonalChatLayerGroup(models.Model):
     owner_bloking = models.BooleanField(default=False)
     inviter_bloking = models.BooleanField(default=False)
     last_update = models.DateTimeField(default=timezone.now)
+
+
+class PointsHistory(models.Model):
+    class Meta:
+        db_table = 'points_history'
+
+    is_consumption = models.BooleanField()
+    consumed_points = models.IntegerField()
+    created_at = models.DateTimeField(default=timezone.now)
+    consumed_user = models.ForeignKey(Users,on_delete=models.CASCADE)
+    detail = models.CharField(max_length=100,null=True)

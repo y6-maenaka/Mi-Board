@@ -1,0 +1,56 @@
+h1{
+  font-size: 20rem;
+}
+
+.main_content{
+  width:50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#points_history_box{
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.history_card{
+  background-color: #ffffff;
+  box-shadow: 0 0 4px #D1D1D1;
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3vh 0.4vw;
+  margin: 0.3vh;
+}
+
+.history_card *{
+  margin: 0 0.4vw;
+}
+
+
+.points{
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.minus_point{
+  color: blue;
+}
+
+.plus_point{
+  color:red;
+}
+
+.points_detail{
+  font-size: 0.8rem;
+}
+
+.points_created_at{
+  font-size: 0.6rem;
+}

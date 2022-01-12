@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views import View
 from django.http import HttpResponse
-from .models import Users
+from .models import Users,PointsHistory
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import LoginForm, RegisterForm, ProfileEditForm
 from board.models import Boards,GoodBoard,StoreBoard
@@ -265,14 +265,12 @@ class ProfileView(LoginRequiredMixin,View):
         store_board_id_list = StoreBoard.objects.filter(store_user_id = request.user.user_id).values_list('board_id',flat=True)
         store_board_list = Boards.objects.filter(board_id__in = store_board_id_list).values()
 
-        # ground_list = Ground.objects.filter(post_user_id = request.user.user_id)
 
         context = {
             'user_profile_data':user_profile_data,
             'post_board_list':post_board_list,
             'good_board_list':good_board_list,
             'store_board_list':store_board_list,
-            # 'ground_list':ground_list,
         }
 
         return render(request,'profile.html',context)

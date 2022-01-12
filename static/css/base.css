@@ -68,6 +68,7 @@ img{
   margin: 0;
   padding: 0;
   background-color: #E1E1E1;
+  z-index: 120;
 }
 
 #notification_from_developer p{

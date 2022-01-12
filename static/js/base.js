@@ -9,7 +9,7 @@ $(function(){
       icon_name = $(this).attr('id')
       console.log('.'+icon_name)
 
-            $("."+icon_name).css({'display':'flex','font-size':'0.8rem','background':'gray','color':'#ffffff','padding':'1vh 0.6vw','border-radius':'5px'})
+          $("."+icon_name).css({'display':'flex','font-size':'0.8rem','background':'gray','color':'#ffffff','padding':'1vh 0.6vw','border-radius':'5px','z-index':'300'})
     },
     function(){
       $("."+icon_name).css('display','none')
@@ -119,7 +119,8 @@ $(function(){
 
     notificationSocket.onclose = function(e){
       $('#communication_state_unstable_bg').fadeIn(100)
-      console.error('notification socket closed unexpectedly')
+
+
     }
 
 });

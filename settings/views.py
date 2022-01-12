@@ -6,7 +6,7 @@ from django.views.generic import ListView
 from .forms import ChangeRoomInfoForm
 from django.contrib.auth.decorators import login_required
 from .models import Report
-from accounts.models import Users
+from accounts.models import Users,PointsHistory
 from django.http import HttpResponse,JsonResponse
 
 # Create your views here.
@@ -59,6 +59,15 @@ def list_user_info(request):
             'list_user_info':list_user_info,
         }
         return render(request,'list_user_info.html',context)
+
+@login_required
+def points_history(request):
+    if request.method == 'GET':
+        points_history = PointsHistory.objects.filter(consumed_user_id=request.user.user_id).order_by('created_at').reverse()
+        context = {
+            'points_history':points_history,
+        }
+        return render(request,'points_history.html',context)
 
 class SettingsRoomView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):

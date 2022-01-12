@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 import re
 from accounts.models import Follows
 from mypage.models import TimeTable
+from friend.models import ViewFriendProfile
 # Create your views here.
 
 @login_required
@@ -29,6 +30,10 @@ class FriendProfileView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
 
         friend_id = self.kwargs['friend_id']
+
+        view_friend_profile = ViewFriendProfile(owner_user_id = friend_id,visitor_user_id=request.user.user_id)
+        view_friend_profile.save()
+
 
         if str(friend_id) == str(request.user.user_id):
             return redirect('friend:friend_home')

@@ -6,7 +6,7 @@ from .models import Boards,BoardComment,PurchaseHistory,GoodBoard,StoreBoard
 from django.http import HttpResponse,JsonResponse
 from recommend_system.models import BrowsingHistory,SearchHistory
 from recommend_system import views as recommend_system
-from accounts.models import Users
+from accounts.models import Users,PointsHistory
 from django.db.models import Q
 from room.models import RoomJoining,Rooms
 from django.utils import timezone
@@ -17,7 +17,6 @@ class TopPageBoardView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
 
         try:
-            print('here')
             board_list_from_recommend_system = recommend_system.create_recommend_board_list(request)
             selected_board_list = Boards.objects.filter(board_id__in = board_list_from_recommend_system)
             recommend_board_list = []
@@ -157,6 +156,14 @@ def post_board(request):
         if(int(Users.objects.get(user_id=request.user.user_id).points) < int(new_board_data['bet_points']) and (new_board_data['category'] == '質問')):
             return redirect('board:top_page_board')
 
+        elif int(Users.objects.get(user_id=request.user.user_id).points) > int(new_board_data['bet_points']) and (new_board_data['category'] == '質問'):
+            consume_points_user = Users.objects.get(user_id = request.user.user_id)
+            consume_points_user.points = int(consume_points_user.points) - int(new_board_data['bet_points'])
+            consume_points_user.save()
+
+        if int(new_board_data['bet_points']) != 0 and (new_board_data['category'] == '質問'):
+            record_consume_points = PointsHistory(is_consumption=True,consumed_user_id=request.user.user_id,consumed_points=int(new_board_data['bet_points']),detail='ポイントを使って質問しました')
+            record_consume_points.save()
 
         new_board_data_image_file = request.FILES
 
@@ -266,6 +273,10 @@ def evaluation(request):
         give_point_user.points = int(give_point_user.points) + int(evaluation['bet_points'])
         give_point_user.save()
 
+        if int(evaluation['bet_points']) > 0:
+            record_consume_points = PointsHistory(is_consumption=True,consumed_points=int(evaluation['bet_points']),consumed_user_id=request.user.user_id,detail='ベストリプライに選出されました')
+            record_consume_points.save()
+
         return HttpResponse('')
 
 
@@ -282,13 +293,13 @@ def confirm_view_board(request,board_id):
 
             board_point = Boards.objects.get(board_id = board_id).bet_points
 
-
             pay_point = Users.objects.get(user_id=request.user.user_id)
 
             if 0 > int(pay_point.points) - int(board_point):
                 return redirect('board:top_page_board')
 
             pay_point.points = int(pay_point.points) - int(board_point)
+
 
             board_owner_id = Boards.objects.get(board_id = board_id).posted_by_id
             get_point = Users.objects.get(user_id = board_owner_id)
@@ -297,6 +308,13 @@ def confirm_view_board(request,board_id):
 
             pay_point.save()
             get_point.save()
+
+            record_get_points = PointsHistory(is_consumption=False,consumed_points=board_point,consumed_user_id=board_owner_id,detail='投稿した記事が閲覧されました')
+            record_get_points.save()
+
+            if int(board_point) > 0:
+                record_consume_points = PointsHistory(is_consumption=True,consumed_points=board_point,consumed_user_id=request.user.user_id,detail='ポイントを使って記事を閲覧しました')
+                record_consume_points.save()
 
             purchase_data = PurchaseHistory.objects.get(purchase_user_id = request.user.user_id,purchase_board_id=board_id)
 

@@ -13,6 +13,7 @@
 <body>
   {% block content %}
 
+  {% if points_history %}
   <ul id='points_history_box'>
     {% for history in points_history %}
     <li class='history_card'>
@@ -26,6 +27,9 @@
     </li>
     {% endfor %}
   </ul>
+  {% else %}
+  <p class='guide_message'>ポイント履歴がありません</p>
+  {% endif %}
 
   {% endblock %}
 </body>

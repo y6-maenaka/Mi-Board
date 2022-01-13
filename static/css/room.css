@@ -851,6 +851,22 @@
     justify-content: center;
   }
 
+  .related_board_title{
+    font-size: 18px !important;
+  }
+
+  .related_board_article{
+    font-size: 18px !important;
+  }
+
+  .related_board_content{
+    font-size: 10px !important;
+  }
+
+  .related_board_datetime {
+    font-size: 8px !important;
+  }
+
 }
 
 @media(max-width: 1050px){

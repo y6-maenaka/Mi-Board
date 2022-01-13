@@ -312,7 +312,8 @@
   }
 
   .owned_coins span{
-    display: none;
+    font-size: 10px !important;
+    font-weight: bold;
   }
 
   .user-profile_background{

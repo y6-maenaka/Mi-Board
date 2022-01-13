@@ -195,6 +195,11 @@ hr{
     padding: 0;
   }
 
+  .func_intro{
+    width: 100% !important;
+    margin: 0 !important; 
+  }
+
   p span{
     font-size: 8px !important;
   }

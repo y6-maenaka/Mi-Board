@@ -852,11 +852,11 @@
   }
 
   .related_board_title{
-    font-size: 18px !important;
+    font-size: 15px !important;
   }
 
   .related_board_article{
-    font-size: 18px !important;
+    font-size: 15px !important;
   }
 
   .related_board_content{
@@ -865,6 +865,11 @@
 
   .related_board_datetime {
     font-size: 8px !important;
+    align-items: flex-end;
+  }
+
+  .board_post_username{
+    font-size: 10px !important;
   }
 
 }

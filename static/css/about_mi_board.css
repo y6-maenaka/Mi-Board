@@ -34,7 +34,7 @@ h2{
 }
 
 h4{
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 .func_intro{
@@ -42,7 +42,7 @@ h4{
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  margin: 12vh 0;
+  margin: 8vh 0;
 }
 
 
@@ -189,10 +189,6 @@ hr{
     font-size: 16px !important;
   }
 
-  .func_intro{
-    margin: 0 !important;
-  }
-
   .func_image{
     width: 99vw !important;
     margin: 0;
@@ -204,7 +200,7 @@ hr{
   }
 
   h4{
-    font-size: 16px !important;
+    font-size: 20px !important;
   }
 }
 
@@ -215,5 +211,9 @@ hr{
 
   .intro p{
     font-size: 1.4vw;
+  }
+
+  .func_intro{
+    margin: 5vh 0;
   }
 }

@@ -181,12 +181,16 @@ hr{
     font-size: 15px !important;
   }
 
+  #user_mi-board{
+    font-size: 18px !important;
+  }
+
   #mi_board_logo{
     margin: 0;
   }
 
   .number_of_user_card{
-    font-size: 16px !important;
+    font-size: 20px !important;
   }
 
   .func_image{
@@ -197,7 +201,7 @@ hr{
 
   .func_intro{
     width: 100% !important;
-    margin: 0 !important; 
+    margin: 0 !important;
   }
 
   p span{
@@ -206,6 +210,10 @@ hr{
 
   h4{
     font-size: 20px !important;
+  }
+
+  .email_attention_message{
+    font-size: 8px !important;
   }
 }
 

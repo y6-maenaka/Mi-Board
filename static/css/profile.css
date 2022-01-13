@@ -5,6 +5,14 @@
   z-index: 0;
 }
 
+.no_board_message{
+  font-size: 0.9rem;
+  font-weight: bold;
+  width: 90%;
+  text-align: center;
+  margin: 2rem 0;
+}
+
 .user-profile_background{
   width: 100%;
   height: 10vw;
@@ -301,6 +309,10 @@
   .main_content{
     width: 98% !important;
     top: 10px;
+  }
+
+  .owned_coins span{
+    display: none;
   }
 
   .user-profile_background{

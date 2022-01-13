@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Report
 from accounts.models import Users,PointsHistory
 from django.http import HttpResponse,JsonResponse
+from stoppo.models import UploadFile
 
 # Create your views here.
 
@@ -37,6 +38,26 @@ class SendReportView(LoginRequiredMixin,View):
         return render(request,'send_report.html',context)
 
 send_report = SendReportView.as_view()
+
+@login_required
+def stoppo_settings(request):
+    if request.method == 'GET':
+        if request.user.authority == 'general':
+            return HttpResponse(status=500)
+        all_upload_file = UploadFile.objects.all().order_by('created_at').reverse()
+        all_upload_file_size = 0
+        for file in all_upload_file:
+            if file.file_size == None:
+                pass
+            else:
+                all_upload_file_size += int(file.file_size)
+
+
+        context = {
+            'all_upload_file':all_upload_file,
+            'all_upload_file_size':all_upload_file_size/1000000000,
+        }
+        return render(request,'stoppo_settings.html',context)
 
 @login_required
 def list_report(request):

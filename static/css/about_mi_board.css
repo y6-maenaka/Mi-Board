@@ -190,7 +190,7 @@ hr{
   }
 
   .func_intro{
-    margin: 0;
+    margin: 3vh 0 !important;
   }
 
   .func_image{
@@ -215,11 +215,5 @@ hr{
 
   .intro p{
     font-size: 1.4vw;
-  }
-}
-
-@media(max-width: 1250px){
-  #main{
-    width: 90%;
   }
 }

@@ -27,7 +27,6 @@ class StoppoView(LoginRequiredMixin,View):
             except:
                 pass
 
-        print(total_file_size)
 
         context = {
             'directory_list':directory_list,
@@ -63,7 +62,6 @@ def store_file(request):
     if request.method == 'POST':
 
         root,extension = os.path.splitext(str(request.FILES['upload_file']))
-        print('uploaded file size is',request.POST['upload_file_size'])
 
 
         if int(request.POST['upload_file_size']) >= 52428800:
@@ -85,7 +83,8 @@ def get_directory_data(request):
     if request.method == 'GET':
         if str(request.GET['upward_directory_id']) == str(request.user.user_id):
             directory_data = StoppoFileStructure.objects.filter(directory_owner_id = request.user.user_id,is_root=True).order_by('directory_name').values()
-            current_directory_file = UploadFile.objects.filter(upload_user_id = request.user.user_id,upward_directory_id=request.user.user_id).order_by('file_name').values()
+            current_directory_file = UploadFile.objects.filter(upload_user_id = request.user.user_id,is_root=True).order_by('file_name').values()
+            print(current_directory_file)
         else:
             directory_data = StoppoFileStructure.objects.filter(directory_owner_id = request.user.user_id,upward_directory_id=request.GET['upward_directory_id']).order_by('directory_name').values()
             current_directory_file = UploadFile.objects.filter(upload_user_id = request.user.user_id,upward_directory_id=request.GET['upward_directory_id']).order_by('file_name').values('upload_file_id','created_at','file_name','upload_user_id','upward_directory_id','extension')

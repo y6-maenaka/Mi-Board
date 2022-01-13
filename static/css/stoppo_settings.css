@@ -1,0 +1,11 @@
+p{
+  font-size: 0.8rem;
+}
+
+.stoppo_settings_item{
+  padding: 0.5vh 0.5vw;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px #D1D1D1;
+  margin: 0.5vh 0;
+}

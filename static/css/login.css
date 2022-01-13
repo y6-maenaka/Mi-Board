@@ -24,6 +24,14 @@ form{
   padding-bottom: 3vh;
 }
 
+.validation_error_message{
+  font-size: 0.8rem;
+  color: red;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
 #mi-board-main{
   display: flex;
   align-items: center;

@@ -185,9 +185,9 @@ class LoginForm(forms.Form):
 
     def clean_username(self):
         value = self.cleaned_data['username']
-        # if len(value) < 6:
-        #     raise forms.ValidationError(
-        #         '%(min_length)s文字以上で入力してください', params={'min_length': 6})
+        if len(value) < 6:
+            raise forms.ValidationError(
+                '%(min_length)s文字以上で入力してください', params={'min_length': 6})
         return value
 
     def clean(self):
@@ -199,7 +199,7 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("正しいユーザー名を入力してください")
         # パスワードはハッシュ化されて保存されているので平文での検索はできない
         if not user.check_password(password):
-            raise forms.ValidationError("正しいユーザー名とパスワードを入力してください")
+            raise forms.ValidationError("正しいパスワードを入力してください")
         # 取得したユーザーオブジェクトを使い回せるように内部に保持しておく
         self.user_cache = user
 

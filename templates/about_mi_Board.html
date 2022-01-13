@@ -9,6 +9,10 @@
 </head>
 
 <body>
+
+  <!-- 製作者：https://github.com/y6-maenaka ※コードは公開していません -->
+  <!-- 連絡先：y6.maenaka@gmail.com -->
+
   <div id='main'>
     <div id='mi_board_logo'>
       <img src="{% static 'image/mi-board-logo.png' %}"><a href='{% url "accounts:login" %}'>Mi-Board</a>
@@ -19,25 +23,25 @@
       <br>Mi-Boardは便利ツール、コミュニケーションツール、その他様々な用途でお使いいただけます。
       <br><span style='font-size:0.6rem;' class='email_attention_message'>※Mi-Boardを利用するには宮崎大学学生専用メールアドレスが必要です。</span></p>
 
-    <div id='numver_of_user_container'>
+    <div id='registrant_number'>
       <h2>現在のユーザー数</h2>
-      <ul id='number_of_user'>
-        <li class='number_of_user_card'>工学部<br>
+      <ul id='registant_card_box'>
+        <li class='registrant_by_department'>工学部<br>
         <span style='font-weight:bold; text-decoration:underline;'>{{engineering}} 人</span></li>
-        <li class='number_of_user_card'>農学部<br>
+        <li class='registrant_by_department'>農学部<br>
         <span style='font-weight:bold; text-decoration:underline;'>{{agriculture}} 人</span></li>
-        <li class='number_of_user_card'>教育学部<br>
+        <li class='registrant_by_department'>教育学部<br>
         <span style='font-weight:bold; text-decoration:underline;'>{{education}} 人</span></li>
-        <li class='number_of_user_card'>地域資源創生学部<br>
+        <li class='registrant_by_department'>地域資源創生学部<br>
         <span style='font-weight:bold; text-decoration:underline;'>{{region}} 人</span></li>
-        <li class='number_of_user_card'>医学部<br>
+        <li class='registrant_by_department'>医学部<br>
         <span style='font-weight:bold; text-decoration:underline;'>{{medicine}} 人</span></li>
-        <li class='number_of_user_card'>合計<br>
+        <li class='registrant_by_department'>合計<br>
         <span style='font-weight:bold; text-decoration:underline;'>{{total}} 人</span></li>
       </ul>
     </div>
 
-    <div class='func_intro'>
+    <div class='feature_description'>
       <img src="{% static 'image/about_mi_baord_timetable.png' %}" class='func_image'>
       <div class='intro'>
       <h4>Mi時間割</h4>
@@ -46,7 +50,7 @@
       </div>
     </div>
 
-    <div class='func_intro'>
+    <div class='feature_description'>
       <img src="{% static 'image/about_mi_board_stoppo.png' %}" class='func_image'>
       <div class='intro'>
       <h4>オンラインファイル管理(ストレージ)</h4>
@@ -56,7 +60,7 @@
       </div>
     </div>
 
-    <div class='func_intro'>
+    <div class='feature_description'>
       <img src="{% static 'image/about_mi_board_board.png' %}" class='func_image'>
       <div class='intro'>
         <h4>レポート、課題共有(Q&A)</h4>
@@ -66,7 +70,7 @@
       </div>
     </div>
 
-    <div class='func_intro'>
+    <div class='feature_description'>
       <img src="{% static 'image/about_mi_board_friend_profile.png' %}" class='func_image'>
       <div class='intro'>
         <h4>友達検索・フォロー</h4>
@@ -76,7 +80,7 @@
       </div>
     </div>
 
-    <div class='func_intro'>
+    <div class='feature_description'>
       <img src="{% static 'image/about_me_board_room.png' %}" class='func_image'>
       <div class='intro'>
         <h4>講義・学外活動ルーム</h4>
@@ -86,7 +90,7 @@
       </div>
     </div>
 
-    <div class='func_intro'>
+    <div class='feature_description'>
       <img src="{% static 'image/about_mi_board_personal_chat.png' %}" class='func_image'>
       <div class='intro'>
         <h4>チャット</h4>
@@ -96,7 +100,7 @@
 
 
 
-    <hr style='margin-bottom:10vh;'>
+    <hr>
     <h3>@12/28 アップデート</h3>
     <img src='/static/image/mi-board-new-func.png' class='mi-board_update'>
     <h4>以下の機能を新規に追加・改善しました</h4>
@@ -105,9 +109,9 @@
       <li>画面左下、全ての通知確認機能</li>
       <li>プッシュ通知・簡易プッシュ通知機能</li>
       <li>オンラインストレージアップロード制限メーター</li>
-      <li>ロゴ・アイコンの変更(Supported By Remon(<a href='https://www.instagram.com/remon_nomer66' target='_blank'> instagram</a> | <a href="{% url "friend:friend_profile" "b1fde164-0dcf-4e37-8b6e-168fdceb4ec1" %}">Mi-Board </a>)</li>
+      <li>ロゴ・アイコンの変更(作成者：Remon(<a href='https://www.instagram.com/remon_nomer66' target='_blank'> instagram</a> | <a href="{% url "friend:friend_profile" "b1fde164-0dcf-4e37-8b6e-168fdceb4ec1" %}">Mi-Board </a>)</li>
     </ol>
-    <hr style='margin-top:10vh;'>
+    <hr>
 
     <a href='{% url "accounts:login" %}' id='user_mi-board'>Mi-Boardを使い始める</a>
 

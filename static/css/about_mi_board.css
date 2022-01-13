@@ -26,6 +26,9 @@ body{
   margin: 4vh;
 }
 
+hr{
+  margin: 5vh 0;
+}
 
 h2{
   font-weight: bold;
@@ -37,7 +40,7 @@ h4{
   font-size: 1.4rem;
 }
 
-.func_intro{
+.feature_description{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -144,17 +147,17 @@ hr{
   width: 100%;
 }
 
-#number_of_user{
+#registant_card_box{
   display: flex;
   align-items: center;
 }
 
-#number_of_user li{
+#registant_card_box li{
   margin: 1vh 2vw;
 }
 
 
-#numver_of_user_container{
+#registrant_number{
   width: 90%;
   display: flex;
   align-items: center;
@@ -163,7 +166,7 @@ hr{
   margin: 6vh 0;
 }
 
-.number_of_user_card{
+.registrant_by_department{
   text-align:center;
 }
 
@@ -189,7 +192,7 @@ hr{
     margin: 0;
   }
 
-  .number_of_user_card{
+  .registrant_by_department{
     font-size: 20px !important;
   }
 
@@ -199,7 +202,7 @@ hr{
     padding: 0;
   }
 
-  .func_intro{
+  .feature_description{
     width: 100% !important;
     margin: 0 !important;
   }
@@ -226,7 +229,7 @@ hr{
     font-size: 1.4vw;
   }
 
-  .func_intro{
+  .feature_description{
     margin: 5vh 0;
   }
 }

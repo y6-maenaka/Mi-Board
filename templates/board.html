@@ -5,7 +5,7 @@
 <html lang='ja'>
 <head>
   <meta charset='utf-8'>
-  {% block title %}<title> Board | Mi-Board</title>{% endblock %}
+  {% block title %}<title>{{board_content.title}} | Board | Mi-Board</title>{% endblock %}
   {% block head %}
   <link rel='stylesheet' type='text/css' href="{% static 'css/board.css' %}" />
   <script type="text/javascript" src="{% static 'js/board.js' %}"></script>

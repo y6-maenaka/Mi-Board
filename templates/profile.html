@@ -156,7 +156,7 @@
     <li class='setting_item'><a href='{% url "home:about_mi_board" %}'>Mi-Boardトップページ</a></li>
     <li class='setting_item'><a href='{% url "settings:points_history" %}'>ポイント履歴</a></li>
     <li class='setting_item'><a href="{% url 'home:ranking' %}">ランキング・統計(β版)</a></li>
-    <li class='setting_item'><a href='{% url "stoppo:share_box" user.user_id %}'>シェアファイル</a></li>
+    <li class='setting_item'><a href='{% url "stoppo:share_box" user.user_id %}'>シェアファイルボックス</a></li>
     <li class='setting_item'><a href='{% url "accounts:profile_edit" user.user_id %}'>プロフィール編集</a></li>
     <li class='setting_item'><a href='{% url "accounts:logout" %}'>ログアウト</a></li>
     {% if not user.authority == 'general' %}

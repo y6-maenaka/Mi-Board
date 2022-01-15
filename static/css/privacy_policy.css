@@ -77,6 +77,6 @@ header h1{
 
 @media(max-width: 510px){
   #privacy_policy_box{
-    width: 100% !important;
+    width: 95% !important;
   }
 }

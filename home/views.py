@@ -35,3 +35,12 @@ def ranking(request):
             'ranking_points':ranking_points,
         }
         return render(request,'ranking.html',context)
+
+
+def terms_of_use(request):
+    if request.method == 'GET':
+        return render(request,'terms_of_use.html')
+
+def privacy_policy(request):
+    if request.method == 'GET':
+        return render(request,'privacy_policy.html')

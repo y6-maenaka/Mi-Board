@@ -20,7 +20,7 @@
   <form action="{% url 'accounts:register' %}" method="POST" id='register_form'>
 
     <p>下記URLから利用規約をよくお読みの上，同意いただける場合のみアカウント登録を行ってください</p>
-    <a href='{% url "home:terms_of_use" %}' style='text-align:center;'>利用規約</a>
+    <a href='{% url "home:terms_of_use" %}' style='text-align:center;' target="_blank">利用規約</a>
     {% csrf_token %}
       <h2>1: ログインID</h2>
       {{form.username|add_class:'input_username'}}

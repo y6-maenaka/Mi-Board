@@ -77,6 +77,6 @@ header h1{
 
 @media(max-width: 510px){
   #terms_of_use_box{
-    width: 100%;
+    width: 100% !important;
   }
 }

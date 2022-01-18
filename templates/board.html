@@ -100,34 +100,26 @@
 
     <hr>
 
-    <div class='reply_comment'>
+
+    <div id='reply_comment_container'>
       <form class='reply_comment' action="{% url 'board:reply_comment' %}" method='post' enctype="multipart/form-data">
         {% csrf_token %}
-        <div class='comment_username_container'>
-          <div class='radio_container'>
-            <input type='radio' name='select_comment_user' id='input_anonymous' value='anonymous'>
-            <label for='input_anonymous'>匿名</label>
-          </div>
-          <div class='radio_container'>
-            <input type='radio' name='select_comment_user' id='input_real_name' value='real_name' checked>
-            <label for='input_real_name'>実名</label>
-          </div>
+        <div id='post_user_type_select_box'>
+          <input type='radio' name='select_comment_user' id='input_real_name' value='real_name' checked>
+          <label for='input_real_name'><img class='comment_user_icon' src="/media/{{user.user_icon_image}}">{{user.last_name}}{{user.first_name}}</label>
+          <input type='radio' name='select_comment_user' id='input_anonymous' value='anonymous'>
+          <label for='input_anonymous'><img class='comment_user_icon' src='{% static "image/user.svg" %}'>匿名</label>
+        </div>
+        <textarea name='comment' rows="6"  placeholder="返信内容(３～５２０文字)" minlength='3'></textarea>
+
+        <div id='file_input_submit_button_container'>
+          <label class='file_input_submit_button_label'><img src='{% static "image/guide_photo.png" %}' for='comment_image'></label>
+          <input type='file' name='comment_image' id='comment_image'>
+          <label class='file_input_submit_button_label' for='comment_file'><img src='{% static "image/guide_file.png" %}'></label>
+          <input type='file' name='comment_file' id='comment_file'>
+          <button type='submit'>返信</button>
         </div>
 
-        <textarea placeholder="回答を5文字以上520字以内で入力して下さい" name='comment' class='comment_input' minlength="5"></textarea>
-
-          <div class='comment_file_container'>
-          <label class='image_file_input_label'>
-            <img src='{% static "image/guide_photo.png" %}'>
-          <input type='file' name='comment_image'>
-          </label>
-          <label class='image_file_input_label'>
-            <img src='{% static "image/guide_file.png" %}'>
-          <input type='file' name='comment_file'>
-          </label>
-          </div>
-
-          <button type='submit' id='comment_post_btn'>投稿</button>
         <input type='hidden' name='board_id' value={{board_content.board_id}}>
         <input type='hidden' name='board_category' value={{board_content.category}}>
       </form>

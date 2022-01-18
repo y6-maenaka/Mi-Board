@@ -498,7 +498,8 @@ iframe{
   }
 
   #file_input_submit_button_container input{
-    font-size: 0.5rem;
+    font-size: 0.5rem !important;
+    width: 30% !important;
   }
 
   #file_input_submit_button_container button{

@@ -52,7 +52,6 @@ $(function(){
     var params = url.pathname.split('/');
     var upward_directory_id = params.slice(-2)[0]
 
-    console.log(upward_directory_id)
 
     $('#upward_directory_id').val(upward_directory_id)
   })
@@ -78,7 +77,6 @@ $(function(){
         set_directory_data(response)
       },
       error:function(response){
-        console.log('error')
       }
     })
   }
@@ -94,7 +92,6 @@ $(function(){
         $('#change_file_name').val(response.file_name)
       },
       error:function(response){
-        console.log('error')
       }
     })
   })
@@ -117,7 +114,6 @@ $(function(){
           set_directory_data(response)
         },
         error:function(response){
-          console.log('error')
         },
       })
     }
@@ -142,8 +138,6 @@ $(function(){
         reload()
       },
       error:function(response){
-        console.log(params.slice(-2)[0])
-        console.log(new_directory_name)
       }
     })
   })
@@ -164,7 +158,6 @@ $(function(){
         $('#upward_directory_id').val(upward_directory_id)
       },
       error:function(response){
-        console.log('error')
       },
     })
   })
@@ -178,7 +171,6 @@ $(function(){
   $(document).on('click','.address_card_link',function(){
     var address = $(this).attr('name')
     var share_directory_id = $('#share_file_id').val()
-    console.log(share_directory_id)
     $.ajax({
       type:'GET',
       url:'/stoppo/share_file/',
@@ -193,7 +185,6 @@ $(function(){
         }, 500);
       },
       error:function(response){
-        console.log('error')
       }
     })
   })
@@ -205,7 +196,6 @@ $(function(){
   $('#change_file_name_btn').click(function(){
     var file_id = $('#selecting_file_id').val()
     var new_file_name = $('#change_file_name').val()
-    console.log(file_id)
     if(new_file_name.length > 1){
       $.ajax({
         type:'GET',
@@ -218,7 +208,6 @@ $(function(){
           reload()
         },
         error:function(response){
-          console.log('error')
         }
       })
     }
@@ -234,7 +223,6 @@ $(function(){
         reload()
       },
       error:function(response){
-        console.log('error')
       }
     })
   })

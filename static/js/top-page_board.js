@@ -21,7 +21,6 @@ $(function(){
     if(!confirm("ポイントを使ってこの記事を取得しますか？　※すでに取得済みの場合、コイン消費はありません")){
       return false;
     }else{
-      console.log('ok')
     }
   });
 

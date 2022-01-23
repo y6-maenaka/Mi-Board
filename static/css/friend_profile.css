@@ -310,8 +310,8 @@ td:not(#timetable_time):hover{
   }
 
   .link_container_room_image{
-    width: 10vw;
-    height: 10vw;
+    width: 10vw !important;
+    height: 10vw !important;
   }
 
   .link_container_room_name{

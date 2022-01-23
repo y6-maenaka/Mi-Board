@@ -20,7 +20,6 @@ $(function(){
         }
       },
       error:function(response){
-        console.log('error occured');
       }
     })
   })
@@ -48,7 +47,6 @@ $(function(){
         }
       },
       error:function(response){
-        console.log('error')
       }
     })
   })

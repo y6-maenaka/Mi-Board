@@ -87,7 +87,7 @@ def change_relation_room(request):
         change_relation.delete()
 
     else:
-        print('error')
+        pass
 
     return HttpResponse('here is change_relaton_room view')
 

@@ -84,12 +84,10 @@ def get_directory_data(request):
         if str(request.GET['upward_directory_id']) == str(request.user.user_id):
             directory_data = StoppoFileStructure.objects.filter(directory_owner_id = request.user.user_id,is_root=True).order_by('directory_name').values()
             current_directory_file = UploadFile.objects.filter(upload_user_id = request.user.user_id,is_root=True).order_by('file_name').values()
-            print(current_directory_file)
         else:
             directory_data = StoppoFileStructure.objects.filter(directory_owner_id = request.user.user_id,upward_directory_id=request.GET['upward_directory_id']).order_by('directory_name').values()
             current_directory_file = UploadFile.objects.filter(upload_user_id = request.user.user_id,upward_directory_id=request.GET['upward_directory_id']).order_by('file_name').values('upload_file_id','created_at','file_name','upload_user_id','upward_directory_id','extension')
 
-            print(current_directory_file)
         return JsonResponse({'directory_data':list(directory_data),'current_directory_file':list(current_directory_file)})
 
 

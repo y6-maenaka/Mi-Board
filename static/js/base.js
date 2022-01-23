@@ -2,12 +2,10 @@ $(function(){
 
  var ua = navigator.userAgent;
   if(ua.indexOf("iPhone") > 0 || ua.indexOf("Android") > 0 && ua.indexOf("Mobile") > 0){
-  console.log("スマートフォン用のコードを書く");
   }else{
 
     $('.global_menu_item_link').hover(function(){
       icon_name = $(this).attr('id')
-      console.log('.'+icon_name)
 
           $("."+icon_name).css({'display':'flex','font-size':'0.8rem','background':'gray','color':'#ffffff','padding':'1vh 0.6vw','border-radius':'5px','z-index':'300'})
     },
@@ -43,9 +41,6 @@ $(function(){
       $('#global_menu_item_stoppo').attr('class','selected')
       break;
 
-    // case 'ground':
-    //   $('#global_menu_item_ground').attr('class','selected')
-    //   break;
   }
  }
  $('#notification_bell').click(function(){
@@ -54,10 +49,8 @@ $(function(){
      type:'GET',
      url:'/notification/checked_notification/',
      success:function(response){
-       console.log('checked')
      },
      error:function(response){
-       console.log('error chekced')
      }
    })
  })
@@ -87,7 +80,6 @@ $(function(){
       notification_sound.currentTime = 0;
       var data = JSON.parse(e.data);
       if(data['send_user_id'] == $('#notification_user_id').val()){
-        console.log('')
       }else{
         Push.create('Mi-Board', {
         　　body: ''+data.notification_detail+'から新しい通知があります',
@@ -96,7 +88,6 @@ $(function(){
         　　vibrate: [100, 100, 100], // モバイル端末でのバイブレーション秒数
         　　onClick: function() {
         　　　　// 通知がクリックされた場合の設定
-        　　　console.log(this);
         　　}
         });
 
@@ -113,7 +104,6 @@ $(function(){
     }
 
     notificationSocket.onopen = function(e){
-      console.log('socket open')
     }
 
 

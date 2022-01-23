@@ -1,28 +1,8 @@
 $(function(){
-  // $('.register_room_modal_bg').hide()
 
-
-
-
-  // window.onload = function(){
-  //   $.ajax({
-  //     type:'GET',
-  //     url: '/mypage/get_timetable/',
-  //     success:function(response){
-  //       for(var key in response.user_seted_room_list){
-  //         var timetable_room_card = '<div class="spot_container"><a href="/room/'+response.user_seted_room_list[key][0]+'/" class="link_container_room_image" href="/room/'+response.user_seted_room_list[key][0]+'/"><img src="/media/'+response.user_seted_room_list[key][1]+'" class="timetable_room_icon"></a><a class="link_container_room_name" href="/room/'+response.user_seted_room_list[key][0]+'/">'+response.user_seted_room_list[key][2]+'</a></div>'
-  //         $("#"+response.user_seted_room_list[key][3]).append(timetable_room_card)
-  //       }
-  //     },
-  //     error:function(response){
-  //       console.log('error')
-  //     }
-  //   })
-  // }
 
   $('.spot').click(function(){
     $('.register_room_modal_bg').fadeIn(300)
-
 
 
 
@@ -58,7 +38,6 @@ $(function(){
 
       },
       error:function(response){
-        console.log('asdf')
       }
     })
 
@@ -79,7 +58,6 @@ $(function(){
           }
         },
         error:function(response){
-          console.log('input_error')
         }
       })
     })

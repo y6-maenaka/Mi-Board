@@ -6,7 +6,6 @@ $(function(){
   })
 
   $('#ground_image_input').on('change',function(e){
-    console.log('change')
     var reader = new FileReader();
     reader.onload = function(e){
       $('#preview_post_image').attr('src', e.target.result);

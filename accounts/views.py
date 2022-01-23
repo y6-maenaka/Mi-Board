@@ -34,13 +34,11 @@ class RegisterView(View):
         return render(request, 'register.html', context)
 
     def post(self, request, *args, **kwargs):
-        print('here')
 
         # リクエストからフォームを作成
         form = RegisterForm(request.POST,request.FILES)
         # バリデーション
         if not form.is_valid():
-            print('before')
             # バリデーションNGの場合はアカウント登録画面のテンプレートを再表示
             return render(request, 'register.html', {'form': form})
 
@@ -121,7 +119,6 @@ register = RegisterView.as_view()
 class LoginView(View):
     def get(self, request, *args, **kwargs):
         """GETリクエスト用のメソッド"""
-        print('user state is',request.user.is_authenticated)
         if request.user.is_authenticated:
 
             return redirect('mypage:mypage',request.user.user_id)

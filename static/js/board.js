@@ -7,9 +7,6 @@ $(function(){
   })
 
   $('.commented_user_item').click(function(){
-    console.log($('.board_id').val())
-    console.log($('.commented_user_item').attr('name'))
-    console.log($('.comment_id').val())
 
     $.ajax({
       type:'GET',
@@ -24,7 +21,6 @@ $(function(){
         location.reload();
       },
       error:function(response){
-        console.log('error')
       }
     })
   })
@@ -34,7 +30,6 @@ $(function(){
     if(!confirm(""+bet_points+"で記事を取得しますか？　※すでに購入済みの場合、コイン消費はありません")){
       return false;
     }else{
-      console.log('ok')
     }
   });
 
@@ -55,7 +50,6 @@ $(function(){
         }
       },
       error:function(response){
-        console.log('error')
       }
     })
   })
@@ -77,7 +71,6 @@ $(function(){
         }
       },
       error:function(response){
-        console.log('error')
       }
     })
   })

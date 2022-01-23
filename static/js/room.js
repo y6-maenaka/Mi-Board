@@ -23,7 +23,6 @@ $(function(){
       }
     },
     error:function(response){
-      console.log('error')
     }
   })
 
@@ -48,7 +47,6 @@ $(function(){
   }
 
   roomChatSocket.onclose = function(e){
-    console.error('chat socket closed unexpectedly')
   }
 
   $('#send_message_input_room').keypress(function(e){
@@ -120,7 +118,6 @@ $(function(){
         }
       },
       error:function(response){
-        console.log('error occured')
       }
     })
   })
@@ -132,7 +129,6 @@ $(function(){
   })
 
   $('#ground_image_input').on('change',function(e){
-    console.log('change')
     var reader = new FileReader();
     reader.onload = function(e){
       $('#preview_post_image').attr('src', e.target.result);
@@ -144,9 +140,7 @@ $(function(){
   function confirm_view_board(){
     if(!confirm("ポイントを使ってこの記事を取得しますか？　※すでに取得済みの場合、コイン消費はありません")){
       return false;
-      console.log('error')
     }else{
-      console.log('ok')
     }
   }
 

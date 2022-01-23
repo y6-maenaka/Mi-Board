@@ -15,7 +15,6 @@ $(function(){
 
       },
       error:function(response){
-        console.log('error')
       }
     })
   })
@@ -25,7 +24,6 @@ $(function(){
     try{
       $('.user_name_display_area').empty()
     }catch{
-      console.log('')
     }
 
     $('#message_display_area').empty()
@@ -54,7 +52,6 @@ $(function(){
     };
 
     chatSocket.onclose = function(e){
-      console.error('chat socket closed unexpectedly')
     };
 
 
@@ -74,7 +71,6 @@ $(function(){
         chatSocket.close(1000,'change socket')
         return false;
       }catch{
-        console.log('not yet open socket')
         return false;
       }
     })
@@ -107,7 +103,6 @@ $(function(){
         messageDetails.scrollTop = messageDetails.scrollHeight
       },
       error:function(response){
-        console.log('error')
       }
     })
   })
@@ -126,10 +121,8 @@ $(function(){
           var user_list = '<li class="user_card"><a href="/friend/'+response.found_talker_list[key].user_id+'" id="user_infomation_link"><img src="/media/'+response.found_talker_list[key].user_icon_image+'" id="new_talker_icon"><div id="user_infomation"><p class="new_talker_affiliation">'+response.found_talker_list[key].university+' | '+response.found_talker_list[key].department+'</p><h1 class="new_talker_username">'+response.found_talker_list[key].last_name+' '+response.found_talker_list[key].first_name+'</h1></div></a><a href="/personal_chat/register_talker/'+response.found_talker_list[key].user_id+'" class="add_talker_btn">新規登録</a></li>'
           $('#select_new_talker_ul').append(user_list).trigger('create')
         }
-        console.log('ajax successs')
       },
       error:function(response){
-        console.log('error')
       }
     })
   })

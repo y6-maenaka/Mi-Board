@@ -81,10 +81,8 @@ class TopPageBoardView(LoginRequiredMixin,View):
             base_user = request.user.user_id
             random_extracting_user = Users.objects.filter(university = request.user.university).exclude(user_id=request.user.user_id).order_by('?')[:30].values_list('user_id',flat=True)
             recommend_board_list = recommend_system.get_recommend_board_main(base_user,random_extracting_user)
-            print('recommend ok')
 
         except:
-            print('recommend redy')
             recommend_board_list = Boards.objects.filter(university=request.user.university)[0:8]
 
         context = {

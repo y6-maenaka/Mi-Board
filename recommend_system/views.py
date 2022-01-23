@@ -62,9 +62,6 @@ def get_recommend_board_sub(base_user,random_extracting_user):
                 recommend_board_id_score[recommend_board] = value[0]
                 recommend_board_id_list.append(recommend_board)
 
-    # print(recommend_board_id_score)
-    # print(recommend_board_id_list)
-
     board_list = Boards.objects.filter(board_id__in = recommend_board_id_list).values()
 
     recommend_board_list = []
@@ -110,8 +107,6 @@ def get_recommend_board_main(base_user,random_extracting_user):
                 recommend_board_id_score[recommend_board] = value[0]
                 recommend_board_id_list.append(recommend_board)
 
-    # print(recommend_board_id_score)
-    # print(recommend_board_id_list)
 
     board_list = Boards.objects.filter(board_id__in = recommend_board_id_list).values()
 
@@ -179,7 +174,6 @@ def create_recommend_board_list(request):
             board_point = 0
 
     sorted_board_list = sorted(recommend_board_list.items(), key=lambda x:x[1],reverse=True)
-    print(sorted_board_list)
     board_list = []
     for _5 in sorted_board_list:
         board_list.append(_5[0])

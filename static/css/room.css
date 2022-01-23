@@ -694,6 +694,10 @@
     top: 10px;
   }
 
+  .notification_area{
+    top: 10vh !important;
+  }
+
   .room_detail_container ul{
     height: 14vh !important;
   }

@@ -20,13 +20,9 @@ def settings_home(request):
 
 class SendReportView(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs):
-        if request.user.authority == 'general':
-            return HttpResponse(status=500)
         return render(request,'send_report.html')
 
     def post(self,request,*args,**kwargs):
-        if request.user.authority == 'general':
-            return HttpResponse(status=500)
         report = request.POST
         store_report = Report(user_id=request.user.user_id,report=report['report'])
         store_report.save()

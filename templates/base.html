@@ -10,6 +10,16 @@
   <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-217958212-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-217958212-1');
+  </script>
+
   {% block head %}
   {% endblock %}
 </head>

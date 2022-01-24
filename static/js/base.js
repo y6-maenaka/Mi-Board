@@ -71,7 +71,7 @@ $(function(){
  var notification_sound = new Audio('/static/image/notification_sound.mp3');
 
   var notificationSocket = new WebSocket(
-    'wss://'+window.location.hostname+
+    'ws://'+window.location.hostname+
     ':8001/ws/notification/');
 
 

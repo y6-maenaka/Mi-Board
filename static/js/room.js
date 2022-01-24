@@ -29,7 +29,7 @@ $(function(){
 
   var roomChatSocket = new WebSocket(
     'wss://'+window.location.hostname+
-    '/ws/room_chat/'+room_id+'/');
+    ':8001/ws/room_chat/'+room_id+'/');
 
   roomChatSocket.onmessage = function(e){
     var data = JSON.parse(e.data);

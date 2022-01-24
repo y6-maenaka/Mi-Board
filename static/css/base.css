@@ -453,6 +453,10 @@ p{
     justify-content: center;
   }
 
+  #adss_box{
+    display: none;
+  }
+
   #notification_message{
     font-size: 6px !important;
   }

@@ -31,7 +31,7 @@ $(function(){
 
     let chatSocket = new WebSocket(
       'wss://'+window.location.hostname+
-      ':8001/ws/personal_chat/'+talker_id+'/');
+      '/ws/personal_chat/'+talker_id+'/');
 
     chatSocket.onmessage = function(e){
       var data = JSON.parse(e.data);

@@ -72,7 +72,7 @@ $(function(){
 
   var notificationSocket = new WebSocket(
     'wss://'+window.location.hostname+
-    ':8001/ws/notification/');
+    '/ws/notification/');
 
 
     notificationSocket.onmessage = function(e){

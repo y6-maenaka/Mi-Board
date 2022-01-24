@@ -83,6 +83,21 @@ img{
   text-decoration: underline;
 }
 
+#adss_box{
+  margin:2vh 0;
+  padding: 0.8vh 0.8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px gray;
+  border-radius: 5px;
+}
+
+#adss_box > a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 button{
   cursor:pointer

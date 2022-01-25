@@ -31,7 +31,7 @@ class TopPageBoardView(LoginRequiredMixin,View):
 
         latest_board_list = Boards.objects.exclude(posted_by_id=request.user.user_id).values()[:20]
 
-        board_list = Boards.objects.all().values('board_id','category','title','content','tags','bet_points','attached_image','display_name')
+        board_list = Boards.objects.all().values('board_id','category','title','content','tags','bet_points','attached_image','display_name','related_room_id')
 
         latest_search_word = set(SearchHistory.objects.values_list('search_word',flat=True).reverse()[0:8])
 

@@ -13,6 +13,7 @@ body{
     flex-direction: column;
     min-height: 100vh;
     font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    word-break: break-all;
 }
 
 button, input, select, textarea {

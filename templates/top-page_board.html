@@ -123,7 +123,7 @@
         {% else %}
         {% endif %}
 
-        <p class='board_detail guide_box'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント</p>
+        <p class='board_detail guide_box'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント | {% if recommend_board.display_name == "real_name" %}{{recommend_board.posted_by.last_name}}{% else %}匿名{% endif %}さん</p>
       </a>
     </li>
  {% endif %}

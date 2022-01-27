@@ -38,6 +38,10 @@
   font-size: 0.8rem;
 }
 
+#post_board_form input[type='file']{
+  font-size: 0.7rem;
+}
+
 #post_board_form input,select{
   margin: 0.4vh 0;
   padding: 0 0.5vw;

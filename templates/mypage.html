@@ -8,11 +8,20 @@
   {% block head %}
   <link rel='stylesheet' type='text/css' href="{% static 'css/mypage.css' %}" />
   <script type="text/javascript" src="{% static 'js/mypage.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
   {% endblock %}
 </head>
 
 <body>
   {% block content %}
+
+<div id='mi_qr_bg'>
+  <div id='mi_qr_container'>
+    <h2>Mi-QRコード</h2>
+    <div id='mi_qr'></div>
+    <h3 id='mi_url'>https://mi-board.com/friend/{{user.user_id}}</h3>
+  </div>
+</div>
 
 
 <div id='go_stoppo_container'>
@@ -24,7 +33,7 @@
   </div>
 
   <div id='report_container'>
-    <a herf='#'>QRコード</a>
+    <a herf='javascript:void(0);' id='show_mi_qr' style="cursor:pointer;">MiQR</a>
     <a href='{% url "settings:send_report" %}' class='send_report'>バグ報告<br>リクエスト</a>
   </div>
 </div>
@@ -175,12 +184,14 @@
   </ul>
 </div>
 
+<input type='hidden' value='{{request.user.user_id}}' id='my_id'>
 
 
 <script>
 
   var timetable = {{timetable|safe}}
   var unread_room_list = {{unread_room_list|safe}}
+
 
   for(var key in timetable){
     if(timetable[key].room_image){
@@ -198,6 +209,16 @@
     }
     $('#'+timetable[key].spot).append(timetable_room_card)
   }
+
+    $('#show_mi_qr').click(function(){
+      var my_id = $('#my_id').val()
+      $('#mi_qr_bg').fadeIn(300)
+      var qrtext = "https://mi-board.com/friend/"+my_id;
+      var utf8qrtext = unescape(encodeURIComponent(qrtext));
+      $("#mi_qr").html("");
+      $("#mi_qr").qrcode({text:utf8qrtext});
+    })
+
 
 </script>
 

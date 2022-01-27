@@ -74,5 +74,10 @@ $(function(){
      }
   });
 
+  $(document).on('click',function(e) {
+     if(!$(e.target).closest('#mi_qr_container').length && $(e.target).closest('#mi_qr_bg').length) {
+      $('#mi_qr_bg').fadeOut(300)
+     }
+   })
 
 })

@@ -84,4 +84,8 @@ $(function(){
      }
   });
 
+  $('.copy_link_btn').click(function(){
+    alert('現在この機能はお使いいただけません')
+  })
+
 })

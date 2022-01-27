@@ -227,8 +227,8 @@ td:not(#timetable_time):hover{
 }
 
 .link_container_room_image{
-  width: 3.2vw;
-  height: 3.2vw;
+  width: 3.8vw;
+  height: 3.8vw;
   display: inline;
 }
 
@@ -310,8 +310,8 @@ td:not(#timetable_time):hover{
   }
 
   .link_container_room_image{
-    width: 10vw !important;
-    height: 10vw !important;
+    width: 12vw !important;
+    height: 12vw !important;
   }
 
   .link_container_room_name{

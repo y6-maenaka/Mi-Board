@@ -441,7 +441,7 @@ p{
 
   .notification_area{
     width: 50%;
-    top: 1vh;
+    bottom: 8%;
     display: flex;
     align-items: center;
     justify-content: center;

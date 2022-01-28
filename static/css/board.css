@@ -1,3 +1,7 @@
+#adss_box{
+  display: none;
+}
+
 #reply_comment_container{
   display: flex;
   align-items: center;

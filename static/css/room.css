@@ -192,7 +192,8 @@
 
 #send_message_input_room:focus{
   border: 2px solid #E3E1E1;
-  outline: none;
+  outline-color: #B1B1B1;
+  box-shadow: 0 0 4px #D1D1D1 inset;
 }
 
 .room_detail_container{

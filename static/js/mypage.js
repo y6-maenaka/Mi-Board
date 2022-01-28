@@ -1,8 +1,10 @@
 $(function(){
 
 
-  $('.spot').click(function(){
-    $('.register_room_modal_bg').fadeIn(300)
+    $(document).on('click',function(e) {
+       if(!$(e.target).closest('.link_container_room_image').length && $(e.target).closest('.spot').length) {
+         $('.register_room_modal_bg').fadeIn(300)
+       }
 
 
 

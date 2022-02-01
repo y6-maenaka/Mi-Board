@@ -41,14 +41,14 @@
         {% endif %}
         {% endif %}
 
-        <p class='board_detail guide_box'>{{board_content.created_at}}投稿 | {{board_content.bet_points}}コイン | {{board_views}}回閲覧</p>
+        <p class='board_detail guide_box'>{{board_content.created_at|date:'Y年m月d日'}}投稿 | {{board_content.bet_points}}コイン | {{board_views}}回閲覧 {% if board_content.related_room %}| {{board_content.related_room.room_name}}{% endif %}</p>
         {% else %}
 
         <a class='post_board_user_link'>
         <img class='post_board_user_image' src="{% static 'image/user.svg' %}">
         <p class='post_board_user_name'>匿名さん</p>
         </a>
-        <p class='board_detail guide_box'>{{board_content.created_at}}投稿 | {{board_content.bet_points}}コイン | {{board_views}}回閲覧</p>
+        <p class='board_detail guide_box'>{{board_content.created_at|date:'Y年m月d日'}}投稿 | {{board_content.bet_points}}コイン | {{board_views}}回閲覧 {% if board_content.related_room %}| {{board_content.related_room.room_name}}{% endif %}</p>
         {% endif %}
       </div>
 
@@ -146,6 +146,7 @@
       <a href='/media/{{comment.comment_image}}' download='/media/{{comment.comment_image}}'>画像ダウンロード</a>
       {% endif %}
       {% if comment.comment_file %}
+      <p class='anotation_box' style='background:#ffffff; margin-top:1rem;'>---この投稿には添付ファイルがあります---</p>
       <a href='/media/{{comment.comment_file}}' download='/media/{{comment.comment_file}}'>ファイルダウンロード</a>
       {% endif %}
 
@@ -181,6 +182,7 @@
         <p class='recommend_board_content'>{{recommend_board.content}}</p>
         {% endif %}
       </a>
+      <p class='guide_box' style='text-align:center; text-decoration:underline;'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント | {% if recommend_board.display_name == "real_name" %}{{recommend_board.posted_by.last_name}}{% else %}匿名{% endif %}さん{% if recommend_board.related_room %} | {{recommend_board.related_room.room_name}}{% endif %} | {{recommend_board.created_at|date:'Y年m月d日'}}</p>
     </li>
     {% endfor %}
     <li>

@@ -27,10 +27,11 @@
       <a href='{% url "board:board" board.board_id %}' class='board_item_link'>
       {% endif %}
         <div class='board_item_content_container'>
-          <h1>{{board.title}}</h1>
           {% if board.category == '記事' %}
+          <h1 class='article_title'>{{board.title}}</h1>
           <p class='blur'>この内容はポイントで記事を取得した後に閲覧可能になります</p>
           {% else %}
+          <h1>{{board.title}}</h1>
           <p>{{board.content}}</p>
           {% endif %}
         </div>
@@ -39,12 +40,13 @@
           {% if board.attached_image %}
           {% if board.category == '記事' %}
           <img src="{% static 'image/board.svg' %}" class='blur'>
-          <p style='font-size:0.35vw;opacity:0.7;font-weight:bold;'>{{board.category}}|{{board.bet_points}}ポイント</p>
+          <p style='font-size:0.35vw;opacity:0.7;font-weight:bold; text-align:center;'>{{board.category}}|{{board.bet_points}}ポイント{% if board.related_room_id %}|{{ board.related_room.room_name }}{% endif %}<br>{{board.created_at|date:'Y年m月d日'}}</p>
           {% else %}
           <img src='/media/{{board.attached_image}}' class='board_item_image'>
-          <p style='font-size:0.35vw;opacity:0.7;font-weight:bold;'>{{board.category}}|{{board.bet_points}}ポイント</p>
+          <p style='font-size:0.35vw;opacity:0.7;font-weight:bold; text-align:center;'>{{board.category}}|{{board.bet_points}}ポイント{% if board.related_room_id %}|{{ board.related_room.room_name }}{% endif %}<br>{{board.created_at|date:'Y年m月d日'}}</p>
           {% endif %}
           {% else %}
+          <p style='font-size:0.35vw;opacity:0.7;font-weight:bold; text-align:center;'>{{board.category}}|{{board.bet_points}}ポイント{% if board.related_room_id %}|{{ board.related_room.room_name }}{% endif %}<br>{{board.created_at|date:'Y年m月d日'}}</p>
           {% endif %}
         </div>
       </a>

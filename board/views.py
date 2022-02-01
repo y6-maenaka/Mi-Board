@@ -29,7 +29,7 @@ class TopPageBoardView(LoginRequiredMixin,View):
         except:
             recommend_board_list = Boards.objects.all().order_by('created_at').reverse()[:10]
 
-        latest_board_list = Boards.objects.exclude(posted_by_id=request.user.user_id).values()[:20]
+        latest_board_list = Boards.objects.exclude(posted_by_id=request.user.user_id)[:20]
 
         board_list = Boards.objects.all().values('board_id','category','title','content','tags','bet_points','attached_image','display_name','related_room_id')
 
@@ -60,22 +60,22 @@ class TopPageBoardView(LoginRequiredMixin,View):
 
 
         if search_terms['filtering_department'] == '全て':
-            search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word'])).values().order_by('created_at').reverse()
+            search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word'])).order_by('created_at').reverse()
             if search_terms['selection_style_board'] == '全て':
-                search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word'])).values().order_by('created_at').reverse()
+                search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word'])).order_by('created_at').reverse()
 
             else:
-                search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word']),category=search_terms['selection_style_board']).values().order_by('created_at').reverse()
+                search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word']),category=search_terms['selection_style_board']).order_by('created_at').reverse()
 
 
         else:
-            search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word']),related_department=search_terms['filtering_department']).values().order_by('created_at').reverse()
+            search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word']),related_department=search_terms['filtering_department']).order_by('created_at').reverse()
 
             if search_terms['selection_style_board'] == '全て':
-                search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word']),related_department=search_terms['filtering_department']).values().order_by('created_at').reverse()
+                search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word']),related_department=search_terms['filtering_department']).order_by('created_at').reverse()
 
             else:
-                search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word']),related_department=search_terms['filtering_department'],category=search_terms['selection_style_board']).values().order_by('created_at').reverse()
+                search_result = Boards.objects.filter(Q(title__istartswith=search_terms['search_word'])|Q(tags__istartswith=search_terms['search_word']),related_department=search_terms['filtering_department'],category=search_terms['selection_style_board']).order_by('created_at').reverse()
 
         try:
             base_user = request.user.user_id

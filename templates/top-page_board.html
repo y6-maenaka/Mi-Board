@@ -103,7 +103,7 @@
       {% else %}
       {% endif %}
 
-      <p class='board_detail guide_box'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント | {% if recommend_board.display_name == "real_name" %}{{recommend_board.posted_by.last_name}}{% else %}匿名{% endif %}さん{% if recommend_board.related_room %} | {{recommend_board.related_room.room_name}}{% endif %}</p>
+      <p class='board_detail guide_box'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント | {% if recommend_board.display_name == "real_name" %}{{recommend_board.posted_by.last_name}}{% else %}匿名{% endif %}さん{% if recommend_board.related_room %} | {{recommend_board.related_room.room_name}}{% endif %} | {{recommend_board.created_at|date:'Y年m月d日'}}</p>
     </a>
     <input type='hidden' value={{recomment_baord.bet_points}} id='board_bet_points'>
   </li>
@@ -123,7 +123,7 @@
         {% else %}
         {% endif %}
 
-        <p class='board_detail guide_box'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント | {% if recommend_board.display_name == "real_name" %}{{recommend_board.posted_by.last_name}}{% else %}匿名{% endif %}さん{% if recommend_board.related_room %} | {{recommend_board.related_room.room_name}}{% endif %}</p>
+        <p class='board_detail guide_box'>{{recommend_board.category}} | {{ recommend_board.bet_points }}ポイント | {% if recommend_board.display_name == "real_name" %}{{recommend_board.posted_by.last_name}}{% else %}匿名{% endif %}さん{% if recommend_board.related_room %} | {{recommend_board.related_room.room_name}}{% endif %} | {{recommend_board.created_at|date:'Y年m月d日'}}</p>
       </a>
     </li>
  {% endif %}
@@ -147,7 +147,7 @@
         <p>{{latest_board.content}}</p>
         {% endif %}
       </a>
-      <p style='font-size: 0.35vw;opacity:0.7; font-weight:bold; text-align:center;'>{{latest_board.category}}|{{latest_board.bet_points}}ポイント</p>
+      <p style='font-size: 0.35vw;opacity:0.7; font-weight:bold; text-align:center;'>{{latest_board.category}}|{{latest_board.bet_points}}ポイント{% if latest_board.related_room %}|{{ latest_board.related_room.room_name }}{% endif %}</p>
     </li>
     {% endfor %}
     </ul>

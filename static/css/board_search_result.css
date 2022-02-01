@@ -11,6 +11,13 @@
   justify-content: space-around;
 }
 
+.article_title{
+  background: linear-gradient(to bottom right, #E0E6F8, #81BEF7);
+  padding: 0.1rem 0.3rem;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #D1D1D1;
+}
+
 #board_search_result_box{
   width: 70%;
   display: flex;

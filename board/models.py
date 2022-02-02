@@ -31,7 +31,7 @@ class Boards(models.Model):
     title = models.CharField(max_length=120,
                                     null=False)
 
-    content = models.CharField(max_length=800,
+    content = models.CharField(max_length=3000,
                                 null=True)
 
     attached_image = models.ImageField(

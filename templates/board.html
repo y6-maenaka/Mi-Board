@@ -62,7 +62,7 @@
       </h1>
       {% endif %}
 
-      <p class='board_content'>{{ board_content.content }}</p>
+      <p class='board_content'>{{ board_content.content|linebreaksbr}}</p>
 
       {% if board_content.attached_image %}
       <hr>

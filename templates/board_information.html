@@ -52,10 +52,10 @@
     </div>
 
     <div class='board_information_card'><p class='guide_message'>購入履歴</p>
-      {% if board_information.purchase_data == "True" %}
-      <p class='board_information_item'>有り</p>
+      {% if purchase_history %}
+      <p class='board_information_item' style='color:red;'>有り</p>
       {% else %}
-      <p class='board_information_item'>無し</p>
+      <p class='board_information_item' style='color:red;'>無し</p>
       {% endif %}
     </div>
 

@@ -375,12 +375,13 @@ def store_board(request):
 def board_information(request,board_id):
     board_information = Boards.objects.get(board_id=board_id)
 
-    purchase_data = PurchaseHistory.objects.filter(purchase_board_id=board_id)
-
+    purchase_history = PurchaseHistory.objects.filter(purchase_board_id=board_id,purchase_user_id=request.user.user_id)
+    print(purchase_history)
 
     context = {
         'board_information':board_information,
         'board_id':board_id,
+        'purchase_history':purchase_history,
     }
 
     return render(request,'board_information.html',context)

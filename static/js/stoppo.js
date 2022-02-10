@@ -1,10 +1,5 @@
 $(function(){
 
-  $('#create_directory_bg').hide()
-  $('#select_address_bg').hide()
-  $('#setting_file_bg').hide()
-  $('#complete_share_file_bg').hide()
-  $('#file_size_over_alert_bg').hide()
 
   $('#create_directory_btn').click(function(){
     $('#create_directory_bg').fadeIn(300);

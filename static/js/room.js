@@ -164,7 +164,6 @@ $(function(){
     confirm_view_board()
   })
 
-  $('#post_board_page_bg').hide()
 
   $('#dummy_input_board').click(function(){
     $('#post_board_page_bg').fadeIn(300);

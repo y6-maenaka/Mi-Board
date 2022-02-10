@@ -85,6 +85,7 @@
   height: 100vh;
   background-color: rgba(0,0,0,.4);
   z-index: 100;
+  display: none;
 }
 
 #create_directory_form{
@@ -155,6 +156,7 @@
   height: 100vh;
   background-color: rgba(0,0,0,.4);
   z-index: 100;
+  display: none;
 }
 
 #select_address{
@@ -262,9 +264,7 @@
   height: 100vh;
   background-color: rgba(0,0,0,.4);
   z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 }
 
 #setting_file{
@@ -276,6 +276,10 @@
   flex-direction: column;
   width: 15vw;
   padding: 2vh 2vw;
+  position: relative;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #setting_action_container{
@@ -452,6 +456,7 @@
   height: 100vh;
   background-color: rgba(0,0,0,.4);
   z-index: 100;
+  display: none;
 }
 
 #complete_share_file{
@@ -479,6 +484,7 @@
   height: 100vh;
   background-color: rgba(0,0,0,.4);
   z-index: 100;
+  display: none;
 }
 
 #file_size_over_alert{

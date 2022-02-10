@@ -38,6 +38,11 @@
   border-radius: 8px;
   padding: 0.8vh 1vw 0.8vh 1vw;
   min-height: 5vh;
+  transition: box-shadow 0.1s ease-in;
+}
+
+.board_item:hover{
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 
@@ -100,6 +105,10 @@
   margin: 0.5vh 0 0.5vh 0;
   padding: 0.5vh 1vw 0.5vh 1vw;
   opacity: 0.65;
+}
+
+.recommend_baord_item:hover{
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .recommend_baord_item h2{

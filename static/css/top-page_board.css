@@ -14,16 +14,21 @@
   top:53%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow-y:scroll;
-  width:30vw;
-  height: 85vh;
+  width:75vw;
   background-color: #ffffff;
   box-shadow: 0 0 8px gray;
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 2vh 0;
+}
+
+#title_content_input_area{
+  padding-left: 1rem;
+}
+
+#attached_parts_area{
+  padding-left: 1rem;
 }
 
 #post_board_form *{
@@ -48,7 +53,7 @@
 }
 
 #post_board_form textarea{
-  height: 5vh;
+  height: 25vh;
   padding: 0.8vh 0.5vw;
   font-size: 0.8rem;
 }
@@ -480,6 +485,10 @@ hr{
   box-shadow: 0 0 4px #D1D1D1;
   margin: 0.5vh 0 0.5vh 0;
   padding: 0.5vh 1vw 0.5vh 1vw;
+}
+
+.latest_baord_item:hover{
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 

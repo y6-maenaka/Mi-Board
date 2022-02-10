@@ -158,14 +158,17 @@
 <div id='post_board_bg'>
   <form method='post' action='{% url "board:post_board" %}' enctype="multipart/form-data" id='post_board_form' name='post_board_input_form'>
     {% csrf_token %}
+    <div id='title_content_input_area'>
       <p class='guide_message'>1-質問・記事のタイトルを入力してください(*)</p>
-      <input type='text' name='title' placeholder='タイトル(120字以内)' id='input_title'>
+      <input type='text' name='title' placeholder='タイトル(120字以内)' id='input_title' style='font-weight:bold;'>
       <p class='guide_message'>2-質問・記事の本文を入力してください(*)</p>
       <textarea name='content' placeholder='内容(800字以内)' id='input_content' row='5' cols='20'></textarea>
       <p class='guide_message'>3-質問・記事のタグを入力してください(ヒットされやすくなります)(*)</p>
       <input type='text' name='tags' placeholder='例)課題　例)過去問' id='input_tags'>
+    </div>
+  <div id='attached_parts_area'>
       <p class='guide_message'>4-質問・記事に設定するポイントを入力してください(*)</p>
-      <select name='bet_points' id='input_bet_points'>
+      <select name='bet_points' id='input_bet_points' style='font-weight:bold;'>
           <option value='0'>0ポイント</option>
           <option value='3'>3ポイント</option>
           <option value='5'>5ポイント</option>
@@ -206,7 +209,7 @@
       </select>
 
       <button type='submit' class='btn_submit_board_data'>投稿</button>
-
+  </div>
       </form>
 </div>
 

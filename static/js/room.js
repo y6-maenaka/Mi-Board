@@ -137,12 +137,6 @@ $(function(){
     $('.ground_image_input_label p').html('変更')
   });
 
-  function confirm_view_board(){
-    if(!confirm("ポイントを使ってこの記事を取得しますか？　※すでに取得済みの場合、コイン消費はありません")){
-      return false;
-    }else{
-    }
-  }
 
   $('.related_board_article').click(function(){
     confirm_view_board()

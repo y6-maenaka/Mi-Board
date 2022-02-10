@@ -47,7 +47,7 @@
     {% if recommend_board.category == '質問' %}
     <a class='recommend_baord_item_link' href='{% url "board:board" recommend_board.board_id %}'>
     {% else %}
-    <a class='recommend_baord_item_link' href='{% url "board:confirm_view_board" recommend_board.board_id %}'>
+    <a class='recommend_baord_item_link' href='{% url "board:board_information" recommend_board.board_id %}'>
     {% endif %}
     <h1>{{recommend_board.title}}</h1>
     <div class='recommend_board_content_image_container'>

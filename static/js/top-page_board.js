@@ -16,13 +16,13 @@ $(function(){
     $('#search_box_board').val($(this).html())
   })
 
-  $('.article_link').click(function(){
-    var bet_points = $('#board_bet_points').val()
-    if(!confirm("ポイントを使ってこの記事を取得しますか？　※すでに取得済みの場合、コイン消費はありません")){
-      return false;
-    }else{
-    }
-  });
+  // $('.article_link').click(function(){
+  //   var bet_points = $('#board_bet_points').val()
+  //   if(!confirm("ポイントを使ってこの記事を取得しますか？　※すでに取得済みの場合、コイン消費はありません")){
+  //     return false;
+  //   }else{
+  //   }
+  // });
 
   $(document).on('click',function(e) {
      if(!$(e.target).closest('#post_board_form').length && $(e.target).closest('#post_board_bg').length) {

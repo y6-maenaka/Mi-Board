@@ -22,7 +22,7 @@
     {% for board in search_result_board_list %}
     <li class='board_item'>
       {% if board.category == '記事'%}
-      <a href='/board/confirm_view_board/{{board.board_id}}?bet_points={{board.bet_points}}' class='board_item_link article_link'>
+      <a href='/board/board_information/{{board.board_id}}?bet_points={{board.bet_points}}' class='board_item_link article_link'>
       {% else %}
       <a href='{% url "board:board" board.board_id %}' class='board_item_link'>
       {% endif %}
@@ -63,7 +63,7 @@
     {% for recommend_board in recommend_board_list %}
     <li class='recommend_baord_item'>
       {% if recommend_board.category == '記事' %}
-        <a href='/board/confirm_view_board/{{recommend_board.board_id}}?bet_points={{recommend_board.bet_points}}' class='recommend_board_item_link article_link'>
+        <a href='/board/board_information/{{recommend_board.board_id}}?bet_points={{recommend_board.bet_points}}' class='recommend_board_item_link article_link'>
       {% else %}
         <a href='{% url "board:board" recommend_board.board_id %}' class='recommend_board_item_link'>
       {% endif %}

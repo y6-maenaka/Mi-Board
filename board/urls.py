@@ -12,5 +12,6 @@ urlpatterns = [
     path('evaluation/',views.evaluation,name='evaluation'),
     path('reply_comment/',views.reply_comment,name='reply_comment'),
     path('confirm_view_board/<board_id>/',views.confirm_view_board,name='confirm_view_board'),
+    path('board_information/<board_id>/',views.board_information,name='board_information'),
     path('<board_id>/',views.board,name='board'),
 ]

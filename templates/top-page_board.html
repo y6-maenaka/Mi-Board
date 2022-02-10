@@ -85,7 +85,7 @@
   {% for recommend_board in recommend_board_list %}
   {% if recommend_board.category == '記事' %}
   <li class='board_item board_article'>
-    <a href='/board/confirm_view_board/{{recommend_board.board_id}}?bet_points={{recommend_board.bet_points}}' class='board_item_container_link article_link'>
+    <a href='/board/board_information/{{recommend_board.board_id}}?bet_points={{recommend_board.bet_points}}' class='board_item_container_link article_link'>
       <div class='board_item_content_container'>
 
         <h2 class='article_title'>{{recommend_board.title}}</h2>

@@ -108,7 +108,7 @@
       {% for board in related_board_list %}
       <li class='related_board_card'>
         {% if board.category == '記事' %}
-        <a href='{% url "board:confirm_view_board" board.board_id %}' class='related_board_link' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
+        <a href='{% url "board:board_information" board.board_id %}' class='related_board_link' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
         {% else %}
         <a href='/board/{{board.board_id}}/' class='related_board_link' style='width:100%; font-size:0.75vw;text-decoration:none;color:black; font-weight:bold;'><span style='font-size:0.6vw; font-weight:normal;'><span class='related_board_created_at'>{{board.created_at|date:'Y-m-d'}}</span> | [{{board.category}}|{{board.bet_points}}ポイント]</span> {{board.title}}</a>
         {% endif %}
@@ -139,19 +139,19 @@
         </div>
         <div class='related_board_body'>
           {% if board.category == '記事' %}
-          <a class='related_board_title related_board_article' href='{% url "board:confirm_view_board" board.board_id %}'>{{board.title}}</a>
+          <a class='related_board_title related_board_article' href='{% url "board:board_information" board.board_id %}'>{{board.title}}</a>
           {% else %}
           <a class='related_board_title' href='{% url "board:board" board.board_id %}'>{{board.title}}</a>
           {% endif %}
           {% if board.category == '記事' %}
-          <a class='related_board_content blur related_board_article_content' href='{% url "board:confirm_view_board" board.board_id %}'>この記事の内容はポイント消費で取得後に閲覧可能になります。</a>
+          <a class='related_board_content blur related_board_article_content' href='{% url "board:board_information" board.board_id %}'>この記事の内容はポイント消費で取得後に閲覧可能になります。</a>
           {% else %}
           <a class='related_board_content' href='#'>{{board.content}}</a>
           {% endif %}
         </div>
         {% if board.attached_image %}
         {% if board.category == '記事' %}
-        <a href='{% url "board:confirm_view_board" board.board_id %}' class='related_board_image_link related_article_board_image_link'>
+        <a href='{% url "board:board_information" board.board_id %}' class='related_board_image_link related_article_board_image_link'>
           <img src='{% static "image/board.svg"%}' style='width:20vw;' class='related_board_image related_board_article_image blur'>
         </a>
         {% else %}
@@ -164,7 +164,7 @@
         {% if board.category == '質問' %}
         <a href='{% url "board:board" board.board_id %}' class='related_board_attached_file'>この投稿には添付ファイルがあります</a>
         {% else %}
-        <a href='{% url "board:confirm_view_board" board.board_id %}' class='related_board_attached_file related_board_article_attached_file'>この投稿には添付ファイルがあります</a>
+        <a href='{% url "board:board_information" board.board_id %}' class='related_board_attached_file related_board_article_attached_file'>この投稿には添付ファイルがあります</a>
         {% endif %}
         {% endif %}
         <p class='related_board_category_points'>{{board.category}} | {{board.bet_points}}ポイント</p>

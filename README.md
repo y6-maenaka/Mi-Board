@@ -59,7 +59,7 @@
 <table width="100%" style="border-collapse: collapse; border: none;">
   <tr>
     <td width="50%" align="center">
-      <img src="./mi_board_sample_images/about_me_board_room.png" alt="About Me Board Room" width="95%">
+      <img src="./mi_board_sample_images/about_mi_board_room.png" alt="About Me Board Room" width="95%">
     </td>
     <td width="50%" align="center">
       <img src="./mi_board_sample_images/about_mi_board_board.png" alt="About Mi-Board Board" width="95%">
@@ -85,7 +85,18 @@
 
 <br><hr><br>
 
+
+
+<h2>アーキテクチャ図</h2>
+<a href="https://gitdiagram.com/y6-maenaka/Mi-Board"><img src="./mi_board_sample_images/diagram.png"></a>
+<p>powered by <a href="https://gitdiagram.com/">GitDiagram</a></p>
+
+<br>
+
+
 <h2>採用技術</h2>
+
+
 <ul>
   <li><strong>言語 :</strong> Python</li>
   <li><strong>フレームワーク :</strong> Django</li>
